@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pwIEE09pCkCEXBDoaqvpD1TBSb2vCjOGBJxn99eltQZRUE8NIYiLotDBcB6owTWVp6fsQeG0fa74cbFx20h5Vw==",
+  "dgSpecHash": "nqx98PuPxdLy8pwOVkcd+m1DrbHf63DyLW0igJU2eQeynHPwb+tOoxH0pKcHkHR2D5x7yawvui+6B4gauuq77w==",
   "success": true,
-  "projectFilePath": "D:\\Dropbox\\Projects\\Applications\\Windows\\Comdata\\Code\\Releases\\v1.0.0\\src\\ComdataWebService\\ComdataWebService.csproj",
+  "projectFilePath": "D:\\Dropbox\\Projects\\Applications\\Windows\\Comdata\\Code\\src\\ComdataWebService\\ComdataWebService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Josh\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\Josh\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512",

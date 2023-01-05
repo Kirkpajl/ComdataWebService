@@ -1,0 +1,26 @@
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\SFTP Test Client.exe
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\SFTP Test Client.deps.json
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\SFTP Test Client.runtimeconfig.json
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\SFTP Test Client.runtimeconfig.dev.json
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\SFTP Test Client.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\SFTP Test Client.pdb
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\RestSharp.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\RestSharp.Serializers.NewtonsoftJson.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\Renci.SshNet.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\SshNet.Security.Cryptography.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\Tekdox.Prime.Domain.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\Tekdox.Prime.Domain.pdb
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\SFTP Test Client.csproj.AssemblyReference.cache
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\SFTP Test Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\SFTP Test Client.AssemblyInfoInputs.cache
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\SFTP Test Client.AssemblyInfo.cs
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\SFTP Test Client.csproj.CoreCompileInputs.cache
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\SFTP Test Client.csproj.CopyComplete
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\SFTP Test Client.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\ref\SFTP Test Client.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\SFTP Test Client.pdb
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\SFTP Test Client.genruntimeconfig.cache
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\Tekdox.WindowsCore.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\bin\Debug\net5.0\Tekdox.WindowsCore.pdb
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\SFTP Test Client\obj\Debug\net5.0\refint\SFTP Test Client.dll

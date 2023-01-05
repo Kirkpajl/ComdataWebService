@@ -1,0 +1,74 @@
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.csproj.AssemblyReference.cache
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.AssemblyInfoInputs.cache
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.AssemblyInfo.cs
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.csproj.CoreCompileInputs.cache
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.exe
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.deps.json
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.runtimeconfig.json
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.runtimeconfig.dev.json
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.pdb
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\RestSharp.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\RestSharp.Serializers.NewtonsoftJson.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.Private.ServiceModel.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.Security.Cryptography.Xml.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.Security.Permissions.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.Duplex.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.Http.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.NetTcp.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.Primitives.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.Security.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\ComdataWebService.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\Tekdox.Prime.Domain.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\Tekdox.WindowsCore.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\Tekdox.WindowsCore.pdb
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\ComdataWebService.pdb
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\Tekdox.Prime.Domain.pdb
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.csproj.CopyComplete
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\refint\XML Test Client.dll
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.pdb
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.genruntimeconfig.cache
+C:\Users\JKirkpatrick\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\ref\XML Test Client.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.exe
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.deps.json
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.runtimeconfig.json
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.runtimeconfig.dev.json
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\XML Test Client.pdb
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\RestSharp.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\RestSharp.Serializers.NewtonsoftJson.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.Private.ServiceModel.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.Security.Cryptography.Pkcs.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.Security.Cryptography.Xml.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.Security.Permissions.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.Duplex.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.Http.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.NetTcp.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.Primitives.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\System.ServiceModel.Security.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\ComdataWebService.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\Tekdox.Prime.Domain.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\Tekdox.WindowsCore.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\Tekdox.WindowsCore.pdb
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\ComdataWebService.pdb
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\bin\Debug\net5.0\Tekdox.Prime.Domain.pdb
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.csproj.AssemblyReference.cache
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.AssemblyInfoInputs.cache
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.AssemblyInfo.cs
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.csproj.CoreCompileInputs.cache
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.csproj.CopyComplete
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\refint\XML Test Client.dll
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.pdb
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\XML Test Client.genruntimeconfig.cache
+D:\Dropbox\Projects\Applications\Windows\Prime\Code\v1.3\XML Test Client\obj\Debug\net5.0\ref\XML Test Client.dll
