@@ -1,25 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.Xml.Serialization;
+using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Enumerations
 {
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://fleetCredit02.comdata.com/domain/")]
+    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [XmlType(Namespace = "http://fleetCredit02.comdata.com/domain/")]
     public enum EmpNumCardNumFlag
     {
 
-        /// <remarks/>
+        /// <summary>
+        /// Card Number
+        /// </summary>
         c,
 
-        /// <remarks/>
+        /// <summary>
+        /// Employee Number
+        /// </summary>
         e,
 
-        /// <remarks/>
+        /// <summary>
+        /// Card Number
+        /// </summary>
         C,
 
-        /// <remarks/>
+        /// <summary>
+        /// Employee Number
+        /// </summary>
         E,
     }
 }

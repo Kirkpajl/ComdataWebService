@@ -1,361 +1,540 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
+using System.ServiceModel;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/")]
+    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [DebuggerStepThrough()]
+    [XmlType(Namespace = "http://fleetCredit02.comdata.com/maintenance/")]
     public partial class PIDTransactionRecord
     {
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "accountCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 0)]
+        /// <summary>
+        /// 5-digit alphanumeric account code
+        /// </summary>
+        [XmlElement(ElementName = "accountCode", Form = XmlSchemaForm.Unqualified, Order = 0)]
         public string? AccountCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "customerId", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 1)]
+        /// <summary>
+        /// 4- or 5-digit customer ID under which the card was assigned
+        /// </summary>
+        [XmlElement(ElementName = "customerId", Form = XmlSchemaForm.Unqualified, Order = 1)]
         public string? CustomerId { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "recordIdentifier", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 2)]
+        /// <summary>
+        /// Constant "01"; "C1" if Cancelled
+        /// </summary>
+        [XmlElement(ElementName = "recordIdentifier", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 2)]
         public string? RecordIdentifier { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cdnCompanyAccountCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 3)]
+        /// <summary>
+        /// CDN Company Accounting Code
+        /// </summary>
+        [XmlElement(ElementName = "cdnCompanyAccountCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 3)]
         public string? CdnCompanyAccountCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "fuelBillingFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 4)]
+        /// <summary>
+        /// Fuel Billing Flag, B = Balanced Based, L=limit based
+        /// </summary>
+        [XmlElement(ElementName = "fuelBillingFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 4)]
         public string? FuelBillingFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "expressCashBillingFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 5)]
+        /// <summary>
+        /// Express Cash Billing Flag, L=load, P=pick-up
+        /// </summary>
+        [XmlElement(ElementName = "expressCashBillingFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 5)]
         public string? ExpressCashBillingFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "transactionDate", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 6)]
+        /// <summary>
+        /// Transaction Date, YYYY-MM-DD
+        /// </summary>
+        [XmlElement(ElementName = "transactionDate", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 6)]
         public string? TransactionDate { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "transactionNumberIndicator", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 7)]
+        /// <summary>
+        /// Transaction Number Indicator: 0 = less than 100,000; 1 = 100,000; 2 = 200,000
+        /// </summary>
+        [XmlElement(ElementName = "transactionNumberIndicator", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 7)]
         public string? TransactionNumberIndicator { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "transactionDay", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 8)]
+        /// <summary>
+        /// Transaction Day, DD
+        /// </summary>
+        [XmlElement(ElementName = "transactionDay", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 8)]
         public string? TransactionDay { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "transactionNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 9)]
+        /// <summary>
+        /// Right most 5 digits of transaction #
+        /// </summary>
+        [XmlElement(ElementName = "transactionNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 9)]
         public string? TransactionNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "unitNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 10)]
+        /// <summary>
+        /// Unit Number, right justified
+        /// </summary>
+        [XmlElement(ElementName = "unitNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 10)]
         public string? UnitNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "truckStopCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 11)]
+        /// <summary>
+        /// Truck Stop Code, ST###, ST is the state abbreviation of the truck stop.
+        /// </summary>
+        [XmlElement(ElementName = "truckStopCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 11)]
         public string? TruckStopCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "truckStopName", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 12)]
+        /// <summary>
+        /// Truck Stop Name
+        /// </summary>
+        [XmlElement(ElementName = "truckStopName", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 12)]
         public string? TruckStopName { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "truckStopCity", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 13)]
+        /// <summary>
+        /// Truck Stop City
+        /// </summary>
+        [XmlElement(ElementName = "truckStopCity", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 13)]
         public string? TruckStopCity { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "truckStopState", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 14)]
+        /// <summary>
+        /// Truck Stop State
+        /// </summary>
+        [XmlElement(ElementName = "truckStopState", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 14)]
         public string? TruckStopState { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "truckStopInvoiceNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 15)]
+        /// <summary>
+        /// Truck Stop Invoice Number
+        /// </summary>
+        [XmlElement(ElementName = "truckStopInvoiceNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 15)]
         public string? TruckStopInvoiceNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "transactionTime", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 16)]
+        /// <summary>
+        /// HHMM
+        /// </summary>
+        [XmlElement(ElementName = "transactionTime", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 16)]
         public string? TransactionTime { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "totalAmountDue", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 17)]
-        public System.Nullable<double> TotalAmountDue { get; set; }
+        /// <summary>
+        /// Total Amount Due
+        /// </summary>
+        [XmlElement(ElementName = "totalAmountDue", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 17)]
+        public Nullable<double> TotalAmountDue { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "fuelOilFees", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 18)]
-        public System.Nullable<double> FuelOilFees { get; set; }
+        /// <summary>
+        /// Fees for fuel and oil and products
+        /// </summary>
+        [XmlElement(ElementName = "fuelOilFees", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 18)]
+        public Nullable<double> FuelOilFees { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cheapFuelAvaliabilityFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 19)]
+        /// <summary>
+        /// Cheaper Fuel Availability Flag; "*" means cheaper fuel was available, blank means it wasn't
+        /// </summary>
+        [XmlElement(ElementName = "cheapFuelAvaliabilityFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 19)]
         public string? CheapFuelAvailabilityFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "serviceUsed", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 20)]
+        /// <summary>
+        /// Service Used when fueling: F= Full Service, M = mini service, S = self service, B = blended fuel, T= Terminal Fuel, N = Not Applicable, W = Wet Hose
+        /// </summary>
+        [XmlElement(ElementName = "serviceUsed", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 20)]
         public string? ServiceUsed { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "numTractorGallons", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 21)]
-        public System.Nullable<double> NumTractorGallons { get; set; }
+        /// <summary>
+        /// Number of Tractor Gallons
+        /// </summary>
+        [XmlElement(ElementName = "numTractorGallons", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 21)]
+        public Nullable<double> NumTractorGallons { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "tractorFuelPricePerGallon", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 22)]
-        public System.Nullable<double> TractorFuelPricePerGallon { get; set; }
+        /// <summary>
+        /// Tractor Fuel Price Per Gallon
+        /// </summary>
+        [XmlElement(ElementName = "tractorFuelPricePerGallon", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 22)]
+        public Nullable<double> TractorFuelPricePerGallon { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "costOfTractorFuel", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 23)]
-        public System.Nullable<double> CostOfTractorFuel { get; set; }
+        /// <summary>
+        /// Cost of Tractor Fuel
+        /// </summary>
+        [XmlElement(ElementName = "costOfTractorFuel", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 23)]
+        public Nullable<double> CostOfTractorFuel { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "numReeferGallons", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 24)]
-        public System.Nullable<double> NumReeferGallons { get; set; }
+        /// <summary>
+        /// Number of Reefer Gallons
+        /// </summary>
+        [XmlElement(ElementName = "numReeferGallons", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 24)]
+        public Nullable<double> NumReeferGallons { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "reeferPricePerGallon", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 25)]
-        public System.Nullable<double> ReeferPricePerGallon { get; set; }
+        /// <summary>
+        /// Reefer Price Per Gallon
+        /// </summary>
+        [XmlElement(ElementName = "reeferPricePerGallon", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 25)]
+        public Nullable<double> ReeferPricePerGallon { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "costOfReeferFuel", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 26)]
-        public System.Nullable<double> CostOfReeferFuel { get; set; }
+        /// <summary>
+        /// Cost of Reefer Fuel
+        /// </summary>
+        [XmlElement(ElementName = "costOfReeferFuel", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 26)]
+        public Nullable<double> CostOfReeferFuel { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "numQuartsOil", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 27)]
+        /// <summary>
+        /// Number of Quarts of Oil
+        /// </summary>
+        [XmlElement(ElementName = "numQuartsOil", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 27)]
         public string? NumQuartsOil { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "costOfOil", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 28)]
-        public System.Nullable<double> CostOfOil { get; set; }
+        /// <summary>
+        /// Total Cost of Oil
+        /// </summary>
+        [XmlElement(ElementName = "costOfOil", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 28)]
+        public Nullable<double> CostOfOil { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "tractorFuelBillingFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 29)]
+        /// <summary>
+        /// Tractor Fuel Billing Flag, F=Funded, D=direct bill, T=terminal
+        /// </summary>
+        [XmlElement(ElementName = "tractorFuelBillingFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 29)]
         public string? TractorFuelBillingFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "reeferFuelBillingFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 30)]
+        /// <summary>
+        /// Reefer Fuel Billing Flag, F = Funded, D= direct bill
+        /// </summary>
+        [XmlElement(ElementName = "reeferFuelBillingFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 30)]
         public string? ReeferFuelBillingFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "oilBillingFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 31)]
+        /// <summary>
+        /// Oil Billing Flag, F=Funded, D=direct bill, T=terminal
+        /// </summary>
+        [XmlElement(ElementName = "oilBillingFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 31)]
         public string? OilBillingFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "productGroupCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 32)]
+        /// <summary>
+        /// Product Group Code
+        /// </summary>
+        [XmlElement(ElementName = "productGroupCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 32)]
         public string? ProductGroupCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cashAdvanceAmount", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 33)]
-        public System.Nullable<double> CashAdvanceAmount { get; set; }
+        /// <summary>
+        /// Cash Advance Amount
+        /// </summary>
+        [XmlElement(ElementName = "cashAdvanceAmount", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 33)]
+        public Nullable<double> CashAdvanceAmount { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "chargesForCashAdvance", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 34)]
-        public System.Nullable<double> ChargesForCashAdvance { get; set; }
+        /// <summary>
+        /// Charges for Cash Advance
+        /// </summary>
+        [XmlElement(ElementName = "chargesForCashAdvance", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 34)]
+        public Nullable<double> ChargesForCashAdvance { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "driverName", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 35)]
+        /// <summary>
+        /// Driver's Name
+        /// </summary>
+        [XmlElement(ElementName = "driverName", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 35)]
         public string? DriverName { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "tripNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 36)]
+        /// <summary>
+        /// Trip Number
+        /// </summary>
+        [XmlElement(ElementName = "tripNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 36)]
         public string? TripNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "conversationRate", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 37)]
+        /// <summary>
+        /// Conversation Rate
+        /// </summary>
+        [XmlElement(ElementName = "conversationRate", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 37)]
         public string? ConversationRate { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "hubometerReading", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 38)]
+        /// <summary>
+        /// Hubometer Reading
+        /// </summary>
+        [XmlElement(ElementName = "hubometerReading", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 38)]
         public string? HubometerReading { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "yearToDateMPG", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 39)]
-        public System.Nullable<double> YearToDateMPG { get; set; }
+        /// <summary>
+        /// Year to date MPG
+        /// </summary>
+        [XmlElement(ElementName = "yearToDateMPG", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 39)]
+        public Nullable<double> YearToDateMPG { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "mpgForThisFillUp", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 40)]
-        public System.Nullable<double> MpgForThisFillUp { get; set; }
+        /// <summary>
+        /// MPG for this fill up
+        /// </summary>
+        [XmlElement(ElementName = "mpgForThisFillUp", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 40)]
+        public Nullable<double> MpgForThisFillUp { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "reeferFuleProductGroupCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 41)]
+        /// <summary>
+        /// Reefer fuel product group code
+        /// </summary>
+        [XmlElement(ElementName = "reeferFuleProductGroupCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 41)]
         public string? ReeferFuleProductGroupCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "dieselNum2FuelProductGroupCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 42)]
+        /// <summary>
+        /// Diesel #2 Fuel Product Group Code
+        /// </summary>
+        [XmlElement(ElementName = "dieselNum2FuelProductGroupCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 42)]
         public string? DieselNum2FuelProductGroupCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "productGroupCode2", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 43)]
+        /// <summary>
+        /// Product Group Code 2
+        /// </summary>
+        [XmlElement(ElementName = "productGroupCode2", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 43)]
         public string? ProductGroupCode2 { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "productGroupCode3", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 44)]
+        /// <summary>
+        /// Product Group Code 3
+        /// </summary>
+        [XmlElement(ElementName = "productGroupCode3", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 44)]
         public string? ProductGroupCode3 { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "billableCurrency", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 45)]
+        /// <summary>
+        /// Billable Currency, U=US, C=Canadian
+        /// </summary>
+        [XmlElement(ElementName = "billableCurrency", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 45)]
         public string? BillableCurrency { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cardNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 46)]
+        /// <summary>
+        /// Comchek Card Number
+        /// </summary>
+        [XmlElement(ElementName = "cardNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 46)]
         public string? CardNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "employeeNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 47)]
+        /// <summary>
+        /// Employee Number
+        /// </summary>
+        [XmlElement(ElementName = "employeeNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 47)]
         public string? EmployeeNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "nonFundedItem", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 48)]
+        /// <summary>
+        /// Non-Funded Item, *=Direct Bill Transaction, T=Terminal Fuel Transaction, or blank
+        /// </summary>
+        [XmlElement(ElementName = "nonFundedItem", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 48)]
         public string? NonFundedItem { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "notLimitedNtwkLocationFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 49)]
+        /// <summary>
+        /// *=Not in Limited Network
+        /// </summary>
+        [XmlElement(ElementName = "notLimitedNtwkLocationFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 49)]
         public string? NotLimitedNtwkLocationFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "productAmount1", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 50)]
-        public System.Nullable<double> ProductAmount1 { get; set; }
+        /// <summary>
+        /// Product Amount 1
+        /// </summary>
+        [XmlElement(ElementName = "productAmount1", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 50)]
+        public Nullable<double> ProductAmount1 { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "productAmount2", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 51)]
-        public System.Nullable<double> ProductAmount2 { get; set; }
+        /// <summary>
+        /// Product Amount 2
+        /// </summary>
+        [XmlElement(ElementName = "productAmount2", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 51)]
+        public Nullable<double> ProductAmount2 { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "productAmount3", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 52)]
-        public System.Nullable<double> ProductAmount3 { get; set; }
+        /// <summary>
+        /// Product Amount 3
+        /// </summary>
+        [XmlElement(ElementName = "productAmount3", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 52)]
+        public Nullable<double> ProductAmount3 { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "allianceSelectOrFocus", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 53)]
-        public System.Nullable<double> AllianceSelectOrFocus { get; set; }
+        /// <summary>
+        /// Alliance Select or Focus - "Rebate Amount"
+        /// </summary>
+        [XmlElement(ElementName = "allianceSelectOrFocus", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 53)]
+        public Nullable<double> AllianceSelectOrFocus { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "allianceLocationFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 54)]
+        /// <summary>
+        /// Y = Alliance Network Location
+        /// </summary>
+        [XmlElement(ElementName = "allianceLocationFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 54)]
         public string? AllianceLocationFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cashBillingFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 55)]
+        /// <summary>
+        /// F=Funded, D=direct bill, T= Terminal, or blank
+        /// </summary>
+        [XmlElement(ElementName = "cashBillingFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 55)]
         public string? CashBillingFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "productGroup1BillingFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 56)]
+        /// <summary>
+        /// F=Funded, D=direct bill, T= Terminal, or blank
+        /// </summary>
+        [XmlElement(ElementName = "productGroup1BillingFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 56)]
         public string? ProductGroup1BillingFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "productGroup2BillingFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 57)]
+        /// <summary>
+        /// F=Funded, D=direct bill, T= Terminal, or blank
+        /// </summary>
+        [XmlElement(ElementName = "productGroup2BillingFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 57)]
         public string? ProductGroup2BillingFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "productGroup3BillingFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 58)]
+        /// <summary>
+        /// F=Funded, D=direct bill, T= Terminal, or blank
+        /// </summary>
+        [XmlElement(ElementName = "productGroup3BillingFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 58)]
         public string? ProductGroup3BillingFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "driverLicenseState", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 59)]
+        /// <summary>
+        /// Driver's License State
+        /// </summary>
+        [XmlElement(ElementName = "driverLicenseState", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 59)]
         public string? DriverLicenseState { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "driverLicenseNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 60)]
+        /// <summary>
+        /// Driver's License Number
+        /// </summary>
+        [XmlElement(ElementName = "driverLicenseNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 60)]
         public string? DriverLicenseNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "purchaseOrderNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 61)]
+        /// <summary>
+        /// Purchase Order Number
+        /// </summary>
+        [XmlElement(ElementName = "purchaseOrderNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 61)]
         public string? PurchaseOrderNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "trailerNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 62)]
+        /// <summary>
+        /// Trailer Number
+        /// </summary>
+        [XmlElement(ElementName = "trailerNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 62)]
         public string? TrailerNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "previousHubReading", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 63)]
+        /// <summary>
+        /// Previous Hub Reading
+        /// </summary>
+        [XmlElement(ElementName = "previousHubReading", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 63)]
         public string? PreviousHubReading { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cancelFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 64)]
+        /// <summary>
+        /// Y=yes, N=no
+        /// </summary>
+        [XmlElement(ElementName = "cancelFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 64)]
         public string? CancelFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "dateOfOriginalTransaction", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 65)]
+        /// <summary>
+        /// Date of original transaction
+        /// </summary>
+        [XmlElement(ElementName = "dateOfOriginalTransaction", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 65)]
         public string? DateOfOriginalTransaction { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "serviceCenterChainCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 66)]
+        /// <summary>
+        /// Service Center Chain Code
+        /// </summary>
+        [XmlElement(ElementName = "serviceCenterChainCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 66)]
         public string? ServiceCenterChainCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "dieselNum1FuelProductGroupCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 67)]
+        /// <summary>
+        /// Diesel #1 Fuel Product Group Code
+        /// </summary>
+        [XmlElement(ElementName = "dieselNum1FuelProductGroupCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 67)]
         public string? DieselNum1FuelProductGroupCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "otherFuelProductGroupCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 68)]
+        /// <summary>
+        /// Other Fuel Product Group Code
+        /// </summary>
+        [XmlElement(ElementName = "otherFuelProductGroupCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 68)]
         public string? OtherFuelProductGroupCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "rebateIndicator", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 69)]
+        /// <summary>
+        /// R=rebate, N=net
+        /// </summary>
+        [XmlElement(ElementName = "rebateIndicator", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 69)]
         public string? RebateIndicator { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "trailerHubReading", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 70)]
-        public System.Nullable<double> TrailerHubReading { get; set; }
+        /// <summary>
+        /// Trailer Hub Reading
+        /// </summary>
+        [XmlElement(ElementName = "trailerHubReading", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 70)]
+        public Nullable<double> TrailerHubReading { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "automatedTransaction", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 71)]
+        /// <summary>
+        /// Y=yes, N=no
+        /// </summary>
+        [XmlElement(ElementName = "automatedTransaction", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 71)]
         public string? AutomatedTransaction { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "bulkFuelFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 72)]
+        /// <summary>
+        /// Y=yes, N=no
+        /// </summary>
+        [XmlElement(ElementName = "bulkFuelFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 72)]
         public string? BulkFuelFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "serviceCenterBridgeTransaction", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 73)]
+        /// <summary>
+        /// Y=yes, N=no
+        /// </summary>
+        [XmlElement(ElementName = "serviceCenterBridgeTransaction", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 73)]
         public string? ServiceCenterBridgeTransaction { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "number1FuelGallons", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 74)]
-        public System.Nullable<double> Number1FuelGallons { get; set; }
+        /// <summary>
+        /// Number 1 Fuel-Gallons
+        /// </summary>
+        [XmlElement(ElementName = "number1FuelGallons", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 74)]
+        public Nullable<double> Number1FuelGallons { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "number1FuelPPG", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 75)]
-        public System.Nullable<double> Number1FuelPPG { get; set; }
+        /// <summary>
+        /// Number 1 Fuel-PPG
+        /// </summary>
+        [XmlElement(ElementName = "number1FuelPPG", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 75)]
+        public Nullable<double> Number1FuelPPG { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "number1FuelCost", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 76)]
-        public System.Nullable<double> Number1FuelCost { get; set; }
+        /// <summary>
+        /// Number 1 Fuel-Cost
+        /// </summary>
+        [XmlElement(ElementName = "number1FuelCost", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 76)]
+        public Nullable<double> Number1FuelCost { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "otherFuelGallons", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 77)]
-        public System.Nullable<double> OtherFuelGallons { get; set; }
+        /// <summary>
+        /// Other Fuel-Gallons
+        /// </summary>
+        [XmlElement(ElementName = "otherFuelGallons", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 77)]
+        public Nullable<double> OtherFuelGallons { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "otherFuelPPG", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 78)]
-        public System.Nullable<double> OtherFuelPPG { get; set; }
+        /// <summary>
+        /// Other Fuel-PPG
+        /// </summary>
+        [XmlElement(ElementName = "otherFuelPPG", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 78)]
+        public Nullable<double> OtherFuelPPG { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "otherFuelCost", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 79)]
-        public System.Nullable<double> OtherFuelCost { get; set; }
+        /// <summary>
+        /// Other Fuel-Cost
+        /// </summary>
+        [XmlElement(ElementName = "otherFuelCost", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 79)]
+        public Nullable<double> OtherFuelCost { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "focusOrSelectDiscount", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 80)]
+        /// <summary>
+        /// F=Focus, S=Select, or blanks
+        /// </summary>
+        [XmlElement(ElementName = "focusOrSelectDiscount", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 80)]
         public string? FocusOrSelectDiscount { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "canadianTaxAmountCan", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 81)]
-        public System.Nullable<double> CanadianTaxAmountCan { get; set; }
+        /// <summary>
+        /// Canadian Tax Amount (Can Dollars)
+        /// </summary>
+        [XmlElement(ElementName = "canadianTaxAmountCan", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 81)]
+        public Nullable<double> CanadianTaxAmountCan { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "canadianTaxAmountUS", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 82)]
-        public System.Nullable<double> CanadianTaxAmountUS { get; set; }
+        /// <summary>
+        /// Canadian Tax Amount (US Dollars)
+        /// </summary>
+        [XmlElement(ElementName = "canadianTaxAmountUS", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 82)]
+        public Nullable<double> CanadianTaxAmountUS { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "canadianTaxPaidFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 83)]
+        /// <summary>
+        /// Y=yes, N=no
+        /// </summary>
+        [XmlElement(ElementName = "canadianTaxPaidFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 83)]
         public string? CanadianTaxPaidFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "declineFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 84)]
+        /// <summary>
+        /// Y for Declined transactions and nullable for processed transactions
+        /// </summary>
+        [XmlElement(ElementName = "declineFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 84)]
         public string? DeclineFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "declineCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 85)]
+        /// <summary>
+        /// decline code of declined transactions and nullable for processed transactions
+        /// </summary>
+        [XmlElement(ElementName = "declineCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 85)]
         public string? DeclineCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "declineMessage", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 86)]
+        /// <summary>
+        /// decline description of declined transactions and nullable for processed transactions
+        /// </summary>
+        [XmlElement(ElementName = "declineMessage", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 86)]
         public string? DeclineMessage { get; set; }
     }
 }

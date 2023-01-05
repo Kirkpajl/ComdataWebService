@@ -1,101 +1,148 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/")]
+    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [DebuggerStepThrough()]
+    [XmlType(Namespace = "http://fleetCredit02.comdata.com/maintenance/")]
     public partial class CardRecordV01
     {
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "accountCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 0)]
+        /// <summary>
+        /// Value assigned by Comdata
+        /// </summary>
+        [XmlElement(ElementName = "accountCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 0)]
         public string? AccountCode { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "customerId", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 1)]
+        /// <summary>
+        /// Value assigned by Comdata. (4-digit Customer IDs will include a leading zero.)
+        /// </summary>
+        [XmlElement(ElementName = "customerId", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 1)]
         public string? CustomerId { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "discretionaryData", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 2)]
+        /// <summary>
+        /// Customer-assigned value returned in the response record
+        /// </summary>
+        [XmlElement(ElementName = "discretionaryData", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 2)]
         public string? DiscretionaryData { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "trackingNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 3)]
+        /// <summary>
+        /// Customer-assigned value returned in the response record
+        /// </summary>
+        [XmlElement(ElementName = "trackingNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 3)]
         public string? TrackingNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cardStatus", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 4)]
+        /// <summary>
+        /// A = active; B = blocked; C = clear; F = fraud; L = lost; S = stolen
+        /// </summary>
+        [XmlElement(ElementName = "cardStatus", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 4)]
         public string? CardStatus { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "profileFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 5)]
+        /// <summary>
+        /// Y (yes) or N (no)
+        /// </summary>
+        [XmlElement(ElementName = "profileFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 5)]
         public string? ProfileFlag { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "profileValue", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 6)]
+        /// <summary>
+        /// 3-digit number identifying the profile group for the cardholder, if applicable
+        /// </summary>
+        [XmlElement(ElementName = "profileValue", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 6)]
         public string? ProfileValue { get; set; }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "profileDescription", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 7)]
+        [XmlElement(ElementName = "profileDescription", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 7)]
         public string? ProfileDescription { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cardFirstName", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 8)]
+        /// <summary>
+        /// Value assigned to the First Name field
+        /// </summary>
+        [XmlElement(ElementName = "cardFirstName", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 8)]
         public string? CardFirstName { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cardLastName", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 9)]
+        /// <summary>
+        /// Value assigned to the Last Name field
+        /// </summary>
+        [XmlElement(ElementName = "cardLastName", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 9)]
         public string? CardLastName { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "driverLicenseNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 10)]
+        /// <summary>
+        /// Driver's License Number (US or Canadian)
+        /// </summary>
+        [XmlElement(ElementName = "driverLicenseNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 10)]
         public string? DriverLicenseNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "driverLicenseState", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 11)]
+        /// <summary>
+        /// Use 2-letter state abbreviation (US) or province abbreviation(Canada)
+        /// </summary>
+        [XmlElement(ElementName = "driverLicenseState", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 11)]
         public string? DriverLicenseState { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "tripNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 12)]
+        /// <summary>
+        /// For Comdata proprietary (fleet) cards only; this number uniquely identifies a trip
+        /// </summary>
+        [XmlElement(ElementName = "tripNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 12)]
         public string? TripNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "vehicleNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 13)]
+        /// <summary>
+        /// Vehicle Number, also known as Unit Number; although 17 characters are permitted, Vehicle Numbers are 6
+        /// </summary>
+        [XmlElement(ElementName = "vehicleNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 13)]
         public string? VehicleNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "employeeNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 14)]
+        /// <summary>
+        /// Employee number assigned to this card
+        /// </summary>
+        [XmlElement(ElementName = "employeeNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 14)]
         public string? EmployeeNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "vehicleVINNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 15)]
+        /// <summary>
+        /// Vehicle's VIN number
+        /// </summary>
+        [XmlElement(ElementName = "vehicleVINNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 15)]
         public string? VehicleVINNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "vehicleDescription", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 16)]
+        /// <summary>
+        /// Brief, free-form description of a vehicle
+        /// </summary>
+        [XmlElement(ElementName = "vehicleDescription", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 16)]
         public string? VehicleDescription { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "vehicleLicensePlateNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 17)]
+        /// <summary>
+        /// Vehicle license plate number
+        /// </summary>
+        [XmlElement(ElementName = "vehicleLicensePlateNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 17)]
         public string? VehicleLicensePlateNumber { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "registrationExpiration", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, DataType = "date", IsNullable = true, Order = 18)]
-        public System.Nullable<System.DateTime> RegistrationExpiration { get; set; }
+        /// <summary>
+        /// YYYY-MM-DD
+        /// </summary>
+        [XmlElement(ElementName = "registrationExpiration", Form = XmlSchemaForm.Unqualified, DataType = "date", IsNullable = true, Order = 18)]
+        public Nullable<System.DateTime> RegistrationExpiration { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "miscellaneous1", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 19)]
+        /// <summary>
+        /// Miscellaneous storage field one
+        /// </summary>
+        [XmlElement(ElementName = "miscellaneous1", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 19)]
         public string? Miscellaneous1 { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "miscellaneous2", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 20)]
+        /// <summary>
+        /// Miscellaneous storage field two
+        /// </summary>
+        [XmlElement(ElementName = "miscellaneous2", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 20)]
         public string? Miscellaneous2 { get; set; }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cardExpiration", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, DataType = "date", IsNullable = true, Order = 21)]
-        public System.Nullable<System.DateTime> CardExpiration { get; set; }
+        /// <summary>
+        /// YYYY-MM-DD
+        /// </summary>
+        [XmlElement(ElementName = "cardExpiration", Form = XmlSchemaForm.Unqualified, DataType = "date", IsNullable = true, Order = 21)]
+        public Nullable<System.DateTime> CardExpiration { get; set; }
     }
 }
