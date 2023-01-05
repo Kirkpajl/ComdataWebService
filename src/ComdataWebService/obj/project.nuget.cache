@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZEz7IDXUqnOgx4l+VvBbzeUhRFMfjyd2UM//CMpsoUcCS6+ZEpa2BMrHyaHxqZLkD7z71jPBjf7er8hdS8PCHw==",
+  "success": true,
+  "projectFilePath": "D:\\Dropbox\\Projects\\Applications\\Windows\\Comdata\\Code\\v1.0.0\\src\\ComdataWebService\\ComdataWebService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Josh\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.private.servicemodel\\4.6.0\\system.private.servicemodel.4.6.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.reflection.dispatchproxy\\4.5.0\\system.reflection.dispatchproxy.4.5.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.0\\system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.security.cryptography.cng\\4.4.0\\system.security.cryptography.cng.4.4.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.security.cryptography.pkcs\\4.5.0\\system.security.cryptography.pkcs.4.5.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.security.cryptography.xml\\4.5.0\\system.security.cryptography.xml.4.5.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.servicemodel.duplex\\4.6.0\\system.servicemodel.duplex.4.6.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.servicemodel.http\\4.6.0\\system.servicemodel.http.4.6.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.servicemodel.nettcp\\4.6.0\\system.servicemodel.nettcp.4.6.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.servicemodel.primitives\\4.6.0\\system.servicemodel.primitives.4.6.0.nupkg.sha512",
+    "C:\\Users\\Josh\\.nuget\\packages\\system.servicemodel.security\\4.6.0\\system.servicemodel.security.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}
