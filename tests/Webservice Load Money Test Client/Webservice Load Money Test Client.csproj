@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Tekdox.Prime</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ComdataFtpManager.cs" />
+    <Compile Remove="ComdataWebService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Prime Server\Data\Entities\ComdataRequest.cs" Link="Entities\ComdataRequest.cs" />
+    <Compile Include="..\Prime Server\Data\Entities\ComdataTransaction.cs" Link="Entities\ComdataTransaction.cs" />
+    <Compile Include="..\Prime Server\Exceptions\ComdataBatchDocumentException.cs" Link="Exceptions\ComdataBatchDocumentException.cs" />
+    <Compile Include="..\Prime Server\Exceptions\ComdataRequestDocumentException.cs" Link="Exceptions\ComdataRequestDocumentException.cs" />
+    <Compile Include="..\Prime Server\Exceptions\ComdataRequestException.cs" Link="Exceptions\ComdataRequestException.cs" />
+    <Compile Include="..\Prime Server\Exceptions\ComdataResponseDocumentException.cs" Link="Exceptions\ComdataResponseDocumentException.cs" />
+    <Compile Include="..\Prime Server\Exceptions\ComdataResponseException.cs" Link="Exceptions\ComdataResponseException.cs" />
+    <Compile Include="..\Prime Server\Extensions\ComdataRequestExtensions.cs" Link="Extensions\ComdataRequestExtensions.cs" />
+    <Compile Include="..\Prime Server\Extensions\ComdataTransactionExtensions.cs" Link="Extensions\ComdataTransactionExtensions.cs" />
+    <Compile Include="..\Prime Server\Extensions\DateTimeExtensions.cs" Link="DateTimeExtensions.cs" />
+    <Compile Include="..\Prime Server\Models\ComdataBatchDocument.cs" Link="Files\ComdataBatchDocument.cs" />
+    <Compile Include="..\Prime Server\Models\ComdataRequestDocument.cs" Link="Files\ComdataRequestDocument.cs" />
+    <Compile Include="..\Prime Server\Models\ComdataResponseDocument.cs" Link="Files\ComdataResponseDocument.cs" />
+    <Compile Include="..\Prime Server\Models\ComdataTransactionItem.cs" Link="Files\ComdataTransactionItem.cs" />
+    <Compile Include="..\Prime Server\Models\System\ComdataSettings.cs" Link="Entities\ComdataSettings.cs" />
+    <Compile Include="..\Prime Server\Providers\FileManager.cs" Link="Files\FileManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\_Libraries\WindowsCore\Tekdox.WindowsCore.csproj" />
+    <ProjectReference Include="..\ComdataWebService\ComdataWebService.csproj" />
+    <ProjectReference Include="..\Domain\Tekdox.Prime.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
+</Project>
