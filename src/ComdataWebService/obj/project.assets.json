@@ -925,11 +925,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dropbox\\Projects\\Applications\\Windows\\Comdata\\Code\\Releases\\v1.0.0\\src\\ComdataWebService\\ComdataWebService.csproj",
+      "projectUniqueName": "D:\\Dropbox\\Projects\\Applications\\Windows\\Comdata\\Code\\src\\ComdataWebService\\ComdataWebService.csproj",
       "projectName": "ComdataWebService",
-      "projectPath": "D:\\Dropbox\\Projects\\Applications\\Windows\\Comdata\\Code\\Releases\\v1.0.0\\src\\ComdataWebService\\ComdataWebService.csproj",
+      "projectPath": "D:\\Dropbox\\Projects\\Applications\\Windows\\Comdata\\Code\\src\\ComdataWebService\\ComdataWebService.csproj",
       "packagesPath": "C:\\Users\\Josh\\.nuget\\packages\\",
-      "outputPath": "D:\\Dropbox\\Projects\\Applications\\Windows\\Comdata\\Code\\Releases\\v1.0.0\\src\\ComdataWebService\\obj\\",
+      "outputPath": "D:\\Dropbox\\Projects\\Applications\\Windows\\Comdata\\Code\\src\\ComdataWebService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
