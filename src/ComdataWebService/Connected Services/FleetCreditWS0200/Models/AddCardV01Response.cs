@@ -1,22 +1,16 @@
-﻿using Comdata.Models.Internals;
-using System;
-using System.CodeDom.Compiler;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.ServiceModel;
 using System.Text;
-using System.Xml.Schema;
-using System.Xml.Serialization;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
-    [DebuggerStepThrough()]
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [MessageContract(WrapperName = "AddCardResponse", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
-    public partial class AddCardV01Response : IResponse
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "AddCardResponse", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
+    public partial class AddCardV01Response
     {
-        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "response", Form = XmlSchemaForm.Unqualified)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "response", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public CardAddUpdateResponse? Response;
 
 

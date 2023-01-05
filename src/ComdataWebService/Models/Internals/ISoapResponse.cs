@@ -42,6 +42,7 @@ namespace Comdata.Models.Internals
 
         /*
         /// <remarks/>
+<<<<<<< HEAD
         [XmlElement(ElementName = "accountCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 0)]
         public string? AccountCode { get; set; }
 
@@ -63,6 +64,29 @@ namespace Comdata.Models.Internals
 
         /// <remarks/>
         [XmlElement(ElementName = "trackingNumber", Form = XmlSchemaForm.Unqualified, Order = 5)]
+=======
+        [XmlElementAttribute(ElementName = "accountCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 0)]
+        public string? AccountCode { get; set; }
+
+        /// <remarks/>
+        [XmlElementAttribute(ElementName = "customerId", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 1)]
+        public string? CustomerId { get; set; }
+
+        /// <remarks/>
+        [XmlElementAttribute(ElementName = "discretionaryData", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 2)]
+        public string? DiscretionaryData { get; set; }
+
+        /// <remarks/>
+        [XmlElementAttribute(ElementName = "responseCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 3)]
+        public int ResponseCode { get; set; }
+
+        /// <remarks/>
+        [XmlElementAttribute(ElementName = "responseMessage", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true, Order = 4)]
+        public string? ResponseMessage { get; set; }
+
+        /// <remarks/>
+        [XmlElementAttribute(ElementName = "trackingNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 5)]
+>>>>>>> releases/v1.0.0
         public long? TrackingNumber { get; set; }
         */
     }

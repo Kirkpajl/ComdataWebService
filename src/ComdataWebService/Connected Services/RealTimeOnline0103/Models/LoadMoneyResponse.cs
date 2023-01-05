@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+<<<<<<< HEAD
 using System.Diagnostics;
 using System.ServiceModel;
 using System.CodeDom.Compiler;
@@ -29,6 +30,29 @@ namespace Comdata.RealTimeOnline0103.Models
     /*[DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "loadMoneyResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+=======
+
+namespace Comdata.RealTimeOnline0103.Models
+{
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "loadMoneyResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+    public partial class LoadMoneyResponseBody : ISoapResponseBody<LoadMoneyResponse>
+    {
+        public LoadMoneyResponseBody() : this(new LoadMoneyResponse()) { }
+        public LoadMoneyResponseBody(LoadMoneyResponse response) { Response = response; }
+
+
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
+        [XmlElement(ElementName = "loadMoneyReturn", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public LoadMoneyResponse Response { get; set; }
+    }
+
+    /*[System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "loadMoneyResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+>>>>>>> releases/v1.0.0
     public partial class LoadMoneyResponseBody
     {
         public LoadMoneyResponseBody() : this(new LoadMoneyResponse()) { }
@@ -40,7 +64,11 @@ namespace Comdata.RealTimeOnline0103.Models
 
 
 
+<<<<<<< HEAD
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
+=======
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
+>>>>>>> releases/v1.0.0
         [XmlElement(ElementName = "loadMoneyReturn", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public LoadMoneyResponse Response { get; set; }
     }*/
@@ -50,10 +78,17 @@ namespace Comdata.RealTimeOnline0103.Models
     /// <summary>
     /// Response Record Express Cash Load Money 1.0
     /// </summary>
+<<<<<<< HEAD
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
     public partial class LoadMoneyResponse  // : ISoapResponse
+=======
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cows0103.comdata.com")]
+    public partial class LoadMoneyResponse : ISoapResponse
+>>>>>>> releases/v1.0.0
     {
         /// <summary>
         /// Value assigned by Comdata.

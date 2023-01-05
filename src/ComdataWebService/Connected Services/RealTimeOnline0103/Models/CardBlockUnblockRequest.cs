@@ -5,6 +5,7 @@ using System.ServiceModel;
 using System.Xml.Serialization;
 using Comdata.Models.Internals;
 using System.Xml.Schema;
+<<<<<<< HEAD
 using System.Diagnostics;
 using System.CodeDom.Compiler;
 
@@ -14,20 +15,39 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "cardBlockUnblock", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
     public partial class CardBlockUnblockRequestBody : IRequest  //, ISoapRequestBody<CardBlockUnblockRequest> 
+=======
+
+namespace Comdata.RealTimeOnline0103.Models
+{
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [MessageContractAttribute(WrapperName = "cardBlockUnblock", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+    public partial class CardBlockUnblockRequestBody : ISoapRequestBody<CardBlockUnblockRequest> 
+>>>>>>> releases/v1.0.0
     {
         public CardBlockUnblockRequestBody() : this(new CardBlockUnblockRequest()) { }
         public CardBlockUnblockRequestBody(CardBlockUnblockRequest request) { Request = request; }
 
 
 
+<<<<<<< HEAD
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
+=======
+        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
+>>>>>>> releases/v1.0.0
         [XmlElement(ElementName = "blockRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public CardBlockUnblockRequest Request { get; set; }
     }
 
+<<<<<<< HEAD
     /*[DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "cardBlockUnblock", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+=======
+    /*[System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [MessageContractAttribute(WrapperName = "cardBlockUnblock", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+>>>>>>> releases/v1.0.0
     public partial class CardBlockUnblockRequestBody
     {
         public CardBlockUnblockRequestBody()
@@ -42,7 +62,11 @@ namespace Comdata.RealTimeOnline0103.Models
 
 
 
+<<<<<<< HEAD
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
+=======
+        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
+>>>>>>> releases/v1.0.0
         [XmlElement(ElementName = "blockRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public CardBlockUnblockRequest Request { get; set; }
     }*/
@@ -50,10 +74,17 @@ namespace Comdata.RealTimeOnline0103.Models
 
 
     /// <remarks/>
+<<<<<<< HEAD
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlTypeAttribute(Namespace = "http://cows0103.comdata.com")]
     public partial class CardBlockUnblockRequest// : ISoapRequest
+=======
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [XmlTypeAttribute(Namespace = "http://cows0103.comdata.com")]
+    public partial class CardBlockUnblockRequest : ISoapRequest
+>>>>>>> releases/v1.0.0
     {
         /// <summary>
         /// Value assigned by Comdata.

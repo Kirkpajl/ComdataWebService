@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+<<<<<<< HEAD
 using System.ServiceModel;
 using System.Xml.Serialization;
 using System.Xml.Schema;
@@ -71,6 +72,47 @@ namespace Comdata.FleetCreditWS0200.Models
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 7)]
         [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public string? MaskCardFlag { get; set; }
+=======
+
+namespace Comdata.FleetCreditWS0200.Models
+{
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "CardSecurityCodeInquiryRequest", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
+    public partial class InquireCardSecurityCodeRequest
+    {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "accountCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? AccountCode;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "customerId", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? CustomerId;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "discretionaryData", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? DiscretionaryData;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "trackingNumber", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? TrackingNumber;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "empNumCardNumFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
+        public System.Nullable<EmpNumCardNumFlag> EmpNumCardNumFlag;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "empNumCardNumValue", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? EmpNumCardNumValue;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 6)]
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cardExpirationDate", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, DataType = "date", IsNullable = true)]
+        public System.Nullable<System.DateTime> CardExpirationDate;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 7)]
+        [System.Xml.Serialization.XmlElementAttribute(ElementName = "maskCardFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? MaskCardFlag;
+>>>>>>> releases/v1.0.0
 
 
 

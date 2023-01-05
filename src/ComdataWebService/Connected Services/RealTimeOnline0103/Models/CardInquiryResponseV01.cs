@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+<<<<<<< HEAD
 using System.Diagnostics;
 using System.ServiceModel;
 using System.CodeDom.Compiler;
@@ -29,6 +30,29 @@ namespace Comdata.RealTimeOnline0103.Models
     /*[DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "cardInquiryResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+=======
+
+namespace Comdata.RealTimeOnline0103.Models
+{
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "cardInquiryResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+    public partial class CardInquiryResponseV01Body : ISoapResponseBody<CardInquiryResponseV01>
+    {
+        public CardInquiryResponseV01Body() : this(new CardInquiryResponseV01()) { }
+        public CardInquiryResponseV01Body(CardInquiryResponseV01 response) { Response = response; }
+
+
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
+        [XmlElement(ElementName = "cardInquiryReturn", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public CardInquiryResponseV01 Response { get; set; }
+    }
+
+    /*[System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "cardInquiryResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+>>>>>>> releases/v1.0.0
     public partial class CardInquiryResponseBody
     {
         public CardInquiryResponseBody()
@@ -43,7 +67,11 @@ namespace Comdata.RealTimeOnline0103.Models
 
 
 
+<<<<<<< HEAD
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
+=======
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
+>>>>>>> releases/v1.0.0
         [XmlElement(ElementName = "cardInquiryReturn", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public CardInquiryResponse Response { get; set; }
     }*/
@@ -51,10 +79,17 @@ namespace Comdata.RealTimeOnline0103.Models
 
 
     /// <remarks/>
+<<<<<<< HEAD
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
     public partial class CardInquiryResponseV01  // : ISoapResponse
+=======
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cows0103.comdata.com")]
+    public partial class CardInquiryResponseV01 : ISoapResponse
+>>>>>>> releases/v1.0.0
     {
         /// <summary>
         /// Value assigned by Comdata.
@@ -67,6 +102,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// N or blank = No
         /// </summary>
         [XmlElement(ElementName = "atmAccess", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 1)]
+<<<<<<< HEAD
         public AtmAccessType? AtmAccess { get; set; }
 
         /// <summary>
@@ -74,6 +110,12 @@ namespace Comdata.RealTimeOnline0103.Models
         /// </summary>
         [XmlIgnore]
         public bool HasAtmAccess => AtmAccess == AtmAccessType.CashOnCard || AtmAccess == AtmAccessType.ExpressCash;
+=======
+        public string? AtmAccessString { get; set; }
+
+        [XmlIgnore]
+        public bool AtmAccess => AtmAccessString == "C" || AtmAccessString == "E";
+>>>>>>> releases/v1.0.0
 
         /// <summary>
         /// Express Cash balance (999999.99 to -999999.99).
@@ -91,7 +133,11 @@ namespace Comdata.RealTimeOnline0103.Models
         /// A=Active B=Blocked C=Clear D=Delete
         /// </summary>
         [XmlElement(ElementName = "cardStatus", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 4)]
+<<<<<<< HEAD
         public Nullable<CardStatusType> CardStatus { get; set; }  //string?
+=======
+        public Nullable<CardInquiryCardStatus> CardStatus { get; set; }  //string?
+>>>>>>> releases/v1.0.0
 
         /// <summary>
         /// 99999.99
@@ -313,9 +359,13 @@ namespace Comdata.RealTimeOnline0103.Models
         [XmlElement(ElementName = "unitNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 37)]
         public string? UnitNumber { get; set; }
 
+<<<<<<< HEAD
         /// <summary>
         /// V=Voice E=Email B=Both N or Blank=None
         /// </summary>
+=======
+        /// <remarks/>
+>>>>>>> releases/v1.0.0
         [XmlElement(ElementName = "voiceMailEmail", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 38)]
         public Nullable<CardInquiryVoicemailEmail> VoiceMailEmail { get; set; }  //string?
 
@@ -401,7 +451,11 @@ namespace Comdata.RealTimeOnline0103.Models
 
         /// <remarks/>
         [XmlElement(ElementName = "ignore1HourCheck", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 59)]
+<<<<<<< HEAD
         public Nullable<bool> Ignore1HourCheck { get; set; }
+=======
+        public System.Nullable<bool> Ignore1HourCheck { get; set; }
+>>>>>>> releases/v1.0.0
 
         /// <remarks/>
         [XmlElement(ElementName = "otherQuantityLimit", Form = XmlSchemaForm.Unqualified, Order = 60)]
@@ -409,7 +463,11 @@ namespace Comdata.RealTimeOnline0103.Models
 
         /// <remarks/>
         [XmlElement(ElementName = "oneTwoRenewDailyReset", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 61)]
+<<<<<<< HEAD
         public Nullable<bool> OneTwoRenewDailyReset { get; set; }
+=======
+        public System.Nullable<bool> OneTwoRenewDailyReset { get; set; }
+>>>>>>> releases/v1.0.0
 
         /// <remarks/>
         [XmlElement(ElementName = "oneTwoRenewDayOfWeek", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 62)]
@@ -417,11 +475,19 @@ namespace Comdata.RealTimeOnline0103.Models
 
         /// <remarks/>
         [XmlElement(ElementName = "oneTwoRenewResetByTrip", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 63)]
+<<<<<<< HEAD
         public Nullable<bool> OneTwoRenewResetByTrip { get; set; }
 
         /// <remarks/>
         [XmlElement(ElementName = "reeferRenewDailyReset", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 64)]
         public Nullable<bool> ReeferRenewDailyReset { get; set; }
+=======
+        public System.Nullable<bool> OneTwoRenewResetByTrip { get; set; }
+
+        /// <remarks/>
+        [XmlElement(ElementName = "reeferRenewDailyReset", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 64)]
+        public System.Nullable<bool> ReeferRenewDailyReset { get; set; }
+>>>>>>> releases/v1.0.0
 
         /// <remarks/>
         [XmlElement(ElementName = "reeferRenewDayOfWeek", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 65)]
@@ -429,11 +495,19 @@ namespace Comdata.RealTimeOnline0103.Models
 
         /// <remarks/>
         [XmlElement(ElementName = "reeferRenewResetByTrip", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 66)]
+<<<<<<< HEAD
         public Nullable<bool> ReeferRenewResetByTrip { get; set; }
 
         /// <remarks/>
         [XmlElement(ElementName = "otherRenewDailyReset", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 67)]
         public Nullable<bool> OtherRenewDailyReset { get; set; }
+=======
+        public System.Nullable<bool> ReeferRenewResetByTrip { get; set; }
+
+        /// <remarks/>
+        [XmlElement(ElementName = "otherRenewDailyReset", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 67)]
+        public System.Nullable<bool> OtherRenewDailyReset { get; set; }
+>>>>>>> releases/v1.0.0
 
         /// <remarks/>
         [XmlElement(ElementName = "otherRenewDayOfWeek", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 68)]
@@ -441,7 +515,11 @@ namespace Comdata.RealTimeOnline0103.Models
 
         /// <remarks/>
         [XmlElement(ElementName = "otherRenewResetByTrip", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 69)]
+<<<<<<< HEAD
         public Nullable<bool> OtherRenewResetByTrip { get; set; }
+=======
+        public System.Nullable<bool> OtherRenewResetByTrip { get; set; }
+>>>>>>> releases/v1.0.0
 
         /// <remarks/>
         [XmlElement(ElementName = "tripNumber2", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 70)]

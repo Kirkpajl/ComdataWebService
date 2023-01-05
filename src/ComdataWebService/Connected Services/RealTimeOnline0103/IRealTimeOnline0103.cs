@@ -8,12 +8,16 @@
 //------------------------------------------------------------------------------
 
 using Comdata.RealTimeOnline0103.Models;
+<<<<<<< HEAD
 using System.CodeDom.Compiler;
+=======
+>>>>>>> releases/v1.0.0
 using System.ServiceModel;
 using System.Threading.Tasks;
 
 namespace Comdata.RealTimeOnline0103
 {
+<<<<<<< HEAD
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [ServiceContract(Namespace="http://cows0103.comdata.com", ConfigurationName="Comdata.RealTimeOnline0103")]
     public interface IRealTimeOnline0103
@@ -48,20 +52,66 @@ namespace Comdata.RealTimeOnline0103
 
         [OperationContract(Action = "cardUpdateV03", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
+=======
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [ServiceContractAttribute(Namespace="http://cows0103.comdata.com", ConfigurationName="Comdata.RealTimeOnline0103")]
+    public interface IRealTimeOnline0103
+    {
+        [OperationContractAttribute(Action = "cardBlockUnblock", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<CardBlockUnblockResponseBody> CardBlockUnblockAsync(CardBlockUnblockRequestBody request);
+
+        [OperationContractAttribute(Action = "cardInquiry", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<CardInquiryResponseV01Body> CardInquiryAsync(CardInquiryRequestV01Body request);
+
+        [OperationContractAttribute(Action = "cardInquiryV02", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<CardInquiryResponseV02Body> CardInquiryV02Async(CardInquiryRequestV02Body request);
+
+        [OperationContractAttribute(Action = "cardInquiryV03", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<CardInquiryResponseV03Body> CardInquiryV03Async(CardInquiryRequestV03Body request);
+
+        [OperationContractAttribute(Action = "cardMoveMaintenance", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<CardMoveMaintenanceResponseBody> CardMoveMaintenanceAsync(CardMoveMaintenanceRequestBody request);
+
+        [OperationContractAttribute(Action = "cardUpdate", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<CardUpdateResponseV01Body> CardUpdateAsync(CardUpdateRequestV01Body request);
+
+        [OperationContractAttribute(Action = "cardUpdateV02", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<CardUpdateResponseV02Body> CardUpdateV02Async(CardUpdateRequestV02Body request);
+
+        [OperationContractAttribute(Action = "cardUpdateV03", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+>>>>>>> releases/v1.0.0
         Task<CardUpdateResponseV03Body> CardUpdateV03Async(CardUpdateRequestV03Body request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action = "DirectDepositAddUpdate", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
         Task<DirectDepositAddUpdateResponseBody> DirectDepositAddUpdateAsync(DirectDepositAddUpdateRequestBody request);
 
         [OperationContract(Action = "DirectDepositInquiry", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
+=======
+        [OperationContractAttribute(Action = "DirectDepositAddUpdate", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<DirectDepositAddUpdateResponseBody> DirectDepositAddUpdateAsync(DirectDepositAddUpdateRequestBody request);
+
+        [OperationContractAttribute(Action = "DirectDepositInquiry", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+>>>>>>> releases/v1.0.0
         Task<DirectDepositInquiryResponseBody> DirectDepositInquiryAsync(DirectDepositInquiryRequestBody request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action="expressCheckInquiry", ReplyAction="*")]
         [XmlSerializerFormat(SupportFaults=true)]
         Task<ExpressCheckInquiryResponseBody> ExpressCheckInquiryAsync(ExpressCheckInquiryRequestBody request);
@@ -80,22 +130,53 @@ namespace Comdata.RealTimeOnline0103
 
         [OperationContract(Action = "expressCheckRetrieval", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
+=======
+        [OperationContractAttribute(Action="expressCheckInquiry", ReplyAction="*")]
+        [XmlSerializerFormatAttribute(SupportFaults=true)]
+        Task<ExpressCheckInquiryResponseBody> ExpressCheckInquiryAsync(ExpressCheckInquiryRequestBody request);
+        
+        [OperationContractAttribute(Action="expressCheckIssue", ReplyAction="*")]
+        [XmlSerializerFormatAttribute(SupportFaults=true)]
+        Task<ExpressCheckIssueResponseBody> ExpressCheckIssueAsync(ExpressCheckIssueRequestBody request);
+        
+        [OperationContractAttribute(Action="expressCheckMaintenance", ReplyAction="*")]
+        [XmlSerializerFormatAttribute(SupportFaults=true)]
+        Task<ExpressCheckMaintenanceResponseBody> ExpressCheckMaintenanceAsync(ExpressCheckMaintenanceRequestBody request);
+
+        [OperationContractAttribute(Action = "expressCheckBatch", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<ExpressCheckBatchResponseBody> ExpressCheckBatchAsync(ExpressCheckBatchRequestBody request);
+
+        [OperationContractAttribute(Action = "expressCheckRetrieval", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+>>>>>>> releases/v1.0.0
         Task<ExpressCheckRetrievalResponseBody> ExpressCheckRetrievalAsync(ExpressCheckRetrievalRequestBody request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action="limitedNetworkByCardUpdate", ReplyAction="*")]
         [XmlSerializerFormat(SupportFaults=true)]
+=======
+        [OperationContractAttribute(Action="limitedNetworkByCardUpdate", ReplyAction="*")]
+        [XmlSerializerFormatAttribute(SupportFaults=true)]
+>>>>>>> releases/v1.0.0
         Task<LimitedNetworkByCardUpdateResponseBody> LimitedNetworkByCardUpdateAsync(LimitedNetworkByCardUpdateRequestBody request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action = "locationMaintenance", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
+=======
+        [OperationContractAttribute(Action = "locationMaintenance", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+>>>>>>> releases/v1.0.0
         Task<LocationMaintenanceResponseBody> LocationMaintenanceAsync(LocationMaintenanceRequestBody request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action="loadMoney", ReplyAction="*")]
         [XmlSerializerFormat(SupportFaults=true)]
         Task<LoadMoneyResponseBody> LoadMoneyAsync(LoadMoneyRequestBody request);
@@ -106,28 +187,56 @@ namespace Comdata.RealTimeOnline0103
         
         [OperationContract(Action="loadMoneyCancel", ReplyAction="*")]
         [XmlSerializerFormat(SupportFaults=true)]
+=======
+        [OperationContractAttribute(Action="loadMoney", ReplyAction="*")]
+        [XmlSerializerFormatAttribute(SupportFaults=true)]
+        Task<LoadMoneyResponseBody> LoadMoneyAsync(LoadMoneyRequestBody request);
+        
+        [OperationContractAttribute(Action="loadMoneyComchek", ReplyAction="*")]
+        [XmlSerializerFormatAttribute(SupportFaults=true)]
+        Task<LoadMoneyComchekResponseBody> LoadMoneyComchekAsync(LoadMoneyComchekRequestBody request);
+        
+        [OperationContractAttribute(Action="loadMoneyCancel", ReplyAction="*")]
+        [XmlSerializerFormatAttribute(SupportFaults=true)]
+>>>>>>> releases/v1.0.0
         Task<LoadMoneyCancelResponseBody> LoadMoneyCancelAsync(LoadMoneyCancelRequestBody request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action = "pinSet", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
+=======
+        [OperationContractAttribute(Action = "pinSet", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+>>>>>>> releases/v1.0.0
         Task<PinSetResponseBody> PinSetAsync(PinSetRequestBody request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action = "pinReset", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
+=======
+        [OperationContractAttribute(Action = "pinReset", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+>>>>>>> releases/v1.0.0
         Task<PinResetResponseBody> PinResetAsync(PinResetRequestBody request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action = "trackCardShipmentStatus", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
+=======
+        [OperationContractAttribute(Action = "trackCardShipmentStatus", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+>>>>>>> releases/v1.0.0
         Task<TrackCardShipmentResponseBody> TrackCardShipmentStatusAsync(TrackCardShipmentRequestBody request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action = "transferToBank", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
         Task<TransferToBankResponseBody> TransferToBankAsync(TransferToBankRequestBody request);
@@ -138,10 +247,23 @@ namespace Comdata.RealTimeOnline0103
 
         [OperationContract(Action = "transferMaintenanceByCardtoken", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
+=======
+        [OperationContractAttribute(Action = "transferToBank", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<TransferToBankResponseBody> TransferToBankAsync(TransferToBankRequestBody request);
+
+        [OperationContractAttribute(Action = "transferMaintenance", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<CardTransferMaintenanceResponseBody> TransferMaintenanceAsync(CardTransferMaintenanceRequestBody request);
+
+        [OperationContractAttribute(Action = "transferMaintenanceByCardtoken", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+>>>>>>> releases/v1.0.0
         Task<TransferMaintenanceByCardtokenResponseBody> TransferMaintenanceByCardtokenAsync(TransferMaintenanceByCardtokenRequestBody request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action = "virtualCardAdd", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
         Task<VirtualCardAddResponseBody> VirtualCardAddAsync(VirtualCardAddRequestBody request);
@@ -163,10 +285,34 @@ namespace Comdata.RealTimeOnline0103
 
         //[OperationContract(Action = "virtualCardUpdateAsync", ReplyAction = "*")]
         //[XmlSerializerFormat(SupportFaults = true)]
+=======
+        [OperationContractAttribute(Action = "virtualCardAdd", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<VirtualCardAddResponseBody> VirtualCardAddAsync(VirtualCardAddRequestBody request);
+
+        //[OperationContractAttribute(Action = "virtualCardAddAsync", ReplyAction = "*")]
+        //[XmlSerializerFormatAttribute(SupportFaults = true)]
+        //Task<VirtualCardAddAsyncResponse> VirtualCardAddAsync(VirtualCardAddAsyncRequest request);
+
+        [OperationContractAttribute(Action = "virtualCardInquiry", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<VirtualCardInquiryResponseBody> VirtualCardInquiryAsync(VirtualCardInquiryRequestBody request);
+
+        //[OperationContractAttribute(Action = "virtualCardInquiryAsync", ReplyAction = "*")]
+        //[XmlSerializerFormatAttribute(SupportFaults = true)]
+        //Task<VirtualCardInquiryAsyncResponse> VirtualCardInquiryAsync(VirtualCardInquiryAsyncRequest request);
+
+        [OperationContractAttribute(Action = "virtualCardUpdate", ReplyAction = "*")]
+        Task<VirtualCardUpdateResponseBody> VirtualCardUpdateAsync(VirtualCardUpdateRequestBody request);
+
+        //[OperationContractAttribute(Action = "virtualCardUpdateAsync", ReplyAction = "*")]
+        //[XmlSerializerFormatAttribute(SupportFaults = true)]
+>>>>>>> releases/v1.0.0
         //Task<VirtualCardUpdateAsyncResponse> VirtualCardUpdateAsync(VirtualCardUpdateAsyncRequest request);
 
 
 
+<<<<<<< HEAD
         [OperationContract(Action = "virtualComchekAdd", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
         Task<VirtualComchekAddResponseBody> VirtualComchekAddAsync(VirtualComchekAddRequestBody request);
@@ -177,6 +323,18 @@ namespace Comdata.RealTimeOnline0103
 
         [OperationContract(Action = "virtualComchekUpdate", ReplyAction = "*")]
         [XmlSerializerFormat(SupportFaults = true)]
+=======
+        [OperationContractAttribute(Action = "virtualComchekAdd", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<VirtualComchekAddResponseBody> VirtualComchekAddAsync(VirtualComchekAddRequestBody request);
+
+        [OperationContractAttribute(Action = "virtualComchekInquiry", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+        Task<VirtualComchekInquiryResponseBody> VirtualComchekInquiryAsync(VirtualComchekInquiryRequestBody request);
+
+        [OperationContractAttribute(Action = "virtualComchekUpdate", ReplyAction = "*")]
+        [XmlSerializerFormatAttribute(SupportFaults = true)]
+>>>>>>> releases/v1.0.0
         Task<VirtualComchekUpdateResponseBody> VirtualComchekUpdateAsync(VirtualComchekUpdateRequestBody request);
     }    
 }

@@ -1,42 +1,31 @@
 ﻿using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Text;
-using System.Xml.Serialization;
 
 namespace Comdata.FleetCreditWS0200.Enumerations
 {
     /// <remarks/>
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [XmlType(Namespace = "http://fleetCredit02.comdata.com/domain/")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://fleetCredit02.comdata.com/domain/")]
     public enum CardIdentifierType
     {
-        [XmlEnum(Name = "T")]
-        Token,
 
-        [XmlEnum(Name = "C")]
-        CardNumber,
+        /// <remarks/>
+        c,
 
-        [XmlEnum(Name = "E")]
-        Employee,
+        /// <remarks/>
+        e,
 
+        /// <remarks/>
+        C,
 
-        ///// <remarks/>
-        //c,
+        /// <remarks/>
+        E,
 
-        ///// <remarks/>
-        //e,
+        /// <remarks/>
+        t,
 
-        ///// <remarks/>
-        //C,
-
-        ///// <remarks/>
-        //E,
-
-        ///// <remarks/>
-        //t,
-
-        ///// <remarks/>
-        //T,
+        /// <remarks/>
+        T,
     }
 }
