@@ -1,30 +1,48 @@
 ﻿using Comdata.FleetCreditWS0200.Enumerations;
+using Comdata.Models.Internals;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "RecycleCardLimitsRequest", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
-    public partial class RecycleCardLimitsRequest
+    [DebuggerStepThrough()]
+    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [MessageContract(WrapperName = "RecycleCardLimitsRequest", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
+    public partial class RecycleCardLimitsRequest : IRequest
     {
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "accountCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? AccountCode;
+        /// <summary>
+        /// Value assigned by Comdata
+        /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
+        [XmlElement(ElementName = "accountCode", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? AccountCode { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "customerId", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? CustomerId;
+        /// <summary>
+        /// Value assigned by Comdata (4-digit customer IDs will include a leading zero)
+        /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
+        [XmlElement(ElementName = "customerId", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? CustomerId { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cardIdentifierType", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public System.Nullable<CardIdentifierType> CardIdentifierType;
+        /// <summary>
+        /// Card number, card token, or employee number
+        /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
+        [XmlElement(ElementName = "cardIdentifierType", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public Nullable<CardIdentifierType> CardIdentifierType { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "cardIdentifier", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? CardIdentifier;
+        /// <summary>
+        /// C = Card number, T = Card token, E = Employee number
+        /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
+        [XmlElement(ElementName = "cardIdentifier", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? CardIdentifier { get; set; }
 
 
 

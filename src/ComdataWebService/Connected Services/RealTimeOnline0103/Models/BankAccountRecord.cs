@@ -1,6 +1,8 @@
 ﻿using Comdata.RealTimeOnline0103.Enumerations;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Xml.Schema;
 using System.Xml.Serialization;
@@ -8,8 +10,8 @@ using System.Xml.Serialization;
 namespace Comdata.RealTimeOnline0103.Models
 {
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
     public partial class BankAccountRecord
     {

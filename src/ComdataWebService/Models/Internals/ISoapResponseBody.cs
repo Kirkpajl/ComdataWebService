@@ -10,6 +10,6 @@ namespace Comdata.Models.Internals
     public interface ISoapResponseBody<TResponse>
         where TResponse : class, ISoapResponse, new()
     { 
-        TResponse Response { get; set; } 
+        TResponse Content { get; set; } 
     }
 }

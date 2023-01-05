@@ -4,27 +4,30 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.CodeDom.Compiler;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "cardInquiry", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardInquiryRequestV01Body : ISoapRequestBody<CardInquiryRequestV01>
+    [DebuggerStepThrough()]
+    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [MessageContract(WrapperName = "cardInquiry", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+    public partial class CardInquiryRequestV01Body : IRequest  //, ISoapRequestBody<CardInquiryRequestV01>
     {
         public CardInquiryRequestV01Body() : this(new CardInquiryRequestV01()) { }
         public CardInquiryRequestV01Body(CardInquiryRequestV01 request) { Request = request; }
 
 
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
+        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "inquiryRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public CardInquiryRequestV01 Request { get; set; }
     }
 
-    /*[System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "cardInquiry", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
+    /*[DebuggerStepThrough()]
+    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [MessageContract(WrapperName = "cardInquiry", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
     public partial class CardInquiryRequestBody
     {
         public CardInquiryRequestBody()
@@ -39,7 +42,7 @@ namespace Comdata.RealTimeOnline0103.Models
 
 
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
+        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "inquiryRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public CardInquiryRequest Request { get; set; }
     }*/
@@ -50,10 +53,10 @@ namespace Comdata.RealTimeOnline0103.Models
     /// Requests the current attributes of a Comdata Proprietary Card.  
     /// No card updates are performed.It is an information only request.
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://cows0103.comdata.com")]
-    public partial class CardInquiryRequestV01 : ISoapRequest
+    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [DebuggerStepThrough()]
+    [XmlType(Namespace = "http://cows0103.comdata.com")]
+    public partial class CardInquiryRequestV01// : ISoapRequest
     {
         /// <summary>
         /// Value assigned by Comdata.

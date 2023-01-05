@@ -9,13 +9,22 @@
     <Company>Tekdox Technical Services</Company>
     <Description>This library allows for strongly-typed communication with the Comdata SOAP XML web service.</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Version>1.0.1</Version>
+    <PackageIcon>credit-card-128x128.png</PackageIcon>
+    <PackageIconUrl />
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Connected Services\FleetCreditWS0200\Enumerations\CardSortOption.cs" />
     <Compile Remove="Connected Services\RealTimeOnline0103\Reference.cs" />
     <Compile Remove="Models\AsyncSecurity.cs" />
+    <Compile Remove="Models\Internals\ISoapRequest.cs" />
+    <Compile Remove="Models\Internals\ISoapRequestBody.cs" />
+    <Compile Remove="Models\Internals\ISoapResponse.cs" />
+    <Compile Remove="Models\Internals\ISoapResponseBody.cs" />
     <Compile Remove="Models\Internals\RequestBase.cs" />
     <Compile Remove="Models\Internals\RequestBody.cs" />
     <Compile Remove="Models\Internals\ResponseBase.cs" />
@@ -41,9 +50,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="readme.md">
+    <None Update="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
     </None>
   </ItemGroup>
 

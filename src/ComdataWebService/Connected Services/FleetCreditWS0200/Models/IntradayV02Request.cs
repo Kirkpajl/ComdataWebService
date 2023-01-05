@@ -1,37 +1,43 @@
-﻿using System;
+﻿using Comdata.Models.Internals;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "IntradayRequestV02", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
-    public partial class IntradayV02Request
+    [DebuggerStepThrough()]
+    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [MessageContract(WrapperName = "IntradayRequestV02", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
+    public partial class IntradayV02Request : IRequest
     {
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "maxRows", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaxRows;
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
+        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? MaxRows { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "startDate", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? StartDate;
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
+        [XmlElement(ElementName = "startDate", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? StartDate { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "maskCardFlag", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaskCardFlag;
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
+        [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? MaskCardFlag { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "pageNbr", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? PageNbr;
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? PageNumber { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "detailType", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? DetailType;
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
+        [XmlElement(ElementName = "detailType", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? DetailType { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "startTime", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? StartTime;
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
+        [XmlElement(ElementName = "startTime", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public string? StartTime { get; set; }
 
 
 
@@ -44,7 +50,7 @@ namespace Comdata.FleetCreditWS0200.Models
             this.MaxRows = maxRows;
             this.StartDate = startDate;
             this.MaskCardFlag = maskCardFlag;
-            this.PageNbr = pageNbr;
+            this.PageNumber = pageNbr;
             this.DetailType = detailType;
             this.StartTime = startTime;
         }

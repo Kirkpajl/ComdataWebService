@@ -1,38 +1,59 @@
-﻿using System;
+﻿using Comdata.Models.Internals;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "DriverIdInquireResponse", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
-    public partial class InquireDriverIdResponse
+    [DebuggerStepThrough()]
+    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [MessageContract(WrapperName = "DriverIdInquireResponse", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
+    public partial class InquireDriverIdResponse : IResponse
     {
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "pageCount", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public System.Nullable<int> PageCount;
+        /// <summary>
+        /// Number of pages in the search result
+        /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
+        [XmlElement(ElementName = "pageCount", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public Nullable<int> PageCount { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "pageNbr", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public System.Nullable<int> PageNbr;
+        /// <summary>
+        /// Current page in the search result; number value of <= 6 digits
+        /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public Nullable<int> PageNumber { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "recordCount", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        public System.Nullable<int> RecordCount;
+        /// <summary>
+        /// Number of records ( 50) in the current page
+        /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
+        [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public Nullable<int> RecordCount { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [System.Xml.Serialization.XmlArrayAttribute(ElementName = "records", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable = true)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("driverIdSearchRecord", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public DriverIdSearchRecord[]? Records;
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
+        [XmlArray(ElementName = "records", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        [XmlArrayItem("driverIdSearchRecord", Form = XmlSchemaForm.Unqualified)]
+        public DriverIdSearchRecord[]? Records { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "responseCode", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string? ResponseCode;
+        /// <summary>
+        /// 0=Success Anything Else=Error
+        /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
+        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
+        public string? ResponseCode { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
-        [System.Xml.Serialization.XmlElementAttribute(ElementName = "responseDescription", Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string? ResponseDescription;
+        /// <summary>
+        /// If the request succeeded, the message should be: OK
+        /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
+        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
+        public string? ResponseDescription { get; set; }
 
 
 
@@ -43,7 +64,7 @@ namespace Comdata.FleetCreditWS0200.Models
         public InquireDriverIdResponse(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, DriverIdSearchRecord[] records, string responseCode, string responseDescription)
         {
             this.PageCount = pageCount;
-            this.PageNbr = pageNbr;
+            this.PageNumber = pageNbr;
             this.RecordCount = recordCount;
             this.Records = records;
             this.ResponseCode = responseCode;
