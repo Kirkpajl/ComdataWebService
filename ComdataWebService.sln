@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33130.400
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComdataWebService", "src\ComdataWebService\ComdataWebService.csproj", "{655A83BF-825F-49F6-B69A-9790FCA3DDCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComdataWebService", "src\ComdataWebService.csproj", "{655A83BF-825F-49F6-B69A-9790FCA3DDCA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D4995F40-3859-4729-9F16-8E6B9C40C324}"
 EndProject

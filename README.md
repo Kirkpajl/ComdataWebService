@@ -1,5 +1,12 @@
 # Comdata Web Service
 
+#### IMPORTANT NOTE:
+* I am not actively maintaining this repo project.
+* If you find issues - please reach out with a PR that would solve it. I would try to push NuGET with updates to help as soon as I can.
+* If anyone is interested to take over as maintainer - please contact me, thanks!
+
+---
+
 This package allows for strongly-typed communication with the Comdata FleetCreditWS0200 
 and RealTimeOnline0103 SOAP XML web services.  It handles the XML serialization, wraps 
 the communication faults as Exceptions, and handles much of the duplicate code for you.
