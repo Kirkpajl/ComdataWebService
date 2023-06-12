@@ -1,4 +1,4 @@
-<img src="https://github.com/Kirkpajl/ComdataWebService/blob/main/comdata-logo.png?raw=true" alt="Comdata Logo" width="100" height="20"/>
+![Comdata Logo](https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/master/comdata-logo.png "Comdata Logo")
 
 # Comdata Web Service
 
