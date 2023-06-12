@@ -1,3 +1,5 @@
+<img src="https://github.com/Kirkpajl/ComdataWebService/blob/master/comdata-logo.png?raw=true" alt="Comdata Logo" width="100" height="20"/>
+
 # Comdata Web Service
 
 #### IMPORTANT NOTE:
