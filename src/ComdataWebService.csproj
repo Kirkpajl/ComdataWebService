@@ -31,7 +31,7 @@
     <PackageIconUrl>https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/main/comdata-logo.png</PackageIconUrl>
     <PackageIcon>comdata-logo.png</PackageIcon>
     <PackageTags>Comdata, Comcheck, Fleet Payment</PackageTags>
-    <PackageReadmeFile>..\README.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
