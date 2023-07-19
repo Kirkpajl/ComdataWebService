@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\res\credit-card-128x128.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,9 +28,10 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <RepositoryUrl>https://github.com/Kirkpajl/ComdataWebService</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Kirkpajl/ComdataWebService</PackageProjectUrl>
-    <PackageIcon>https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/main/comdata-logo.png</PackageIcon>
+    <PackageIconUrl>https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/main/res/credit-card-128x128.png</PackageIconUrl>
+    <PackageIcon>credit-card-128x128.png</PackageIcon>
     <PackageTags>Comdata, Comcheck, Fleet Payment</PackageTags>
-    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
