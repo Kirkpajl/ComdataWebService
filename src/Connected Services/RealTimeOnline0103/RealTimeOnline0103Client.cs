@@ -19,31 +19,31 @@ namespace Comdata.RealTimeOnline0103
 
         #region Constructors
 
-        public RealTimeOnline0103Client() : base(RealTimeOnline0103Client.GetDefaultBinding(), RealTimeOnline0103Client.GetDefaultEndpointAddress())
+        public RealTimeOnline0103Client() : base(GetDefaultBinding(), GetDefaultEndpointAddress())
         {
             Endpoint.Name = EndpointConfiguration.RealTimeOnline0103.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public RealTimeOnline0103Client(string remoteAddress) : base(RealTimeOnline0103Client.GetDefaultBinding(), RealTimeOnline0103Client.GetEndpointAddress(remoteAddress))
+        public RealTimeOnline0103Client(string remoteAddress) : base(GetDefaultBinding(), GetEndpointAddress(remoteAddress))
         {
             Endpoint.Name = EndpointConfiguration.RealTimeOnline0103.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public RealTimeOnline0103Client(EndpointConfiguration endpointConfiguration) : base(RealTimeOnline0103Client.GetBindingForEndpoint(endpointConfiguration), RealTimeOnline0103Client.GetEndpointAddress(endpointConfiguration))
+        public RealTimeOnline0103Client(EndpointConfiguration endpointConfiguration) : base(GetBindingForEndpoint(endpointConfiguration), GetEndpointAddress(endpointConfiguration))
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public RealTimeOnline0103Client(EndpointConfiguration endpointConfiguration, string remoteAddress) : base(RealTimeOnline0103Client.GetBindingForEndpoint(endpointConfiguration), new EndpointAddress(remoteAddress))
+        public RealTimeOnline0103Client(EndpointConfiguration endpointConfiguration, string remoteAddress) : base(GetBindingForEndpoint(endpointConfiguration), new EndpointAddress(remoteAddress))
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public RealTimeOnline0103Client(EndpointConfiguration endpointConfiguration, EndpointAddress remoteAddress) : base(RealTimeOnline0103Client.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
+        public RealTimeOnline0103Client(EndpointConfiguration endpointConfiguration, EndpointAddress remoteAddress) : base(GetBindingForEndpoint(endpointConfiguration), remoteAddress)
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
@@ -71,7 +71,7 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
         /// <returns></returns>
-        public async Task<CardBlockUnblockResponse?> CardBlockUnblockAsync(string accountCode, string cardNumber, string customerId, 
+        public async Task<CardBlockUnblockResponse?> CardBlockUnblockAsync(string accountCode, string cardNumber, string customerId,
             string discretionaryData = "", long? trackingNumber = null, bool cardActive = true)
         {
             var request = new CardBlockUnblockRequest
@@ -91,7 +91,7 @@ namespace Comdata.RealTimeOnline0103
             try
             {
                 var response = await SendAsync(Channel.CardBlockUnblockAsync, new CardBlockUnblockRequestBody(request));
-                
+
                 if (response.Content.ResponseCode > 0)
                     throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
@@ -118,10 +118,10 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataException"></exception>
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
-        public async Task<CardInquiryResponseV01> CardInquiryAsync(string accountCode, string cardNumber, string customerId, 
+        public async Task<CardInquiryResponseV01> CardInquiryAsync(string accountCode, string cardNumber, string customerId,
             string discretionaryData = "", long? trackingNumber = null)
         {
-            var request = new CardInquiryRequestV01 
+            var request = new CardInquiryRequestV01
             {
                 AccountCode = accountCode,
                 CardNumber = cardNumber,
@@ -165,7 +165,7 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataException"></exception>
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
-        public async Task<CardInquiryResponseV02> CardInquiryV02Async(string accountCode, string cardIdentifier, CardIdentifierType cardIdentifierType, string customerId, 
+        public async Task<CardInquiryResponseV02> CardInquiryV02Async(string accountCode, string cardIdentifier, CardIdentifierType cardIdentifierType, string customerId,
             string discretionaryData = "", long? trackingNumber = null, bool maskCard = false)
         {
             var request = new CardInquiryRequestV02
@@ -215,7 +215,7 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataException"></exception>
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
-        public async Task<CardInquiryResponseV03> CardInquiryV03Async(string accountCode, string cardIdentifier, CardIdentifierType cardIdentifierType, string customerId, 
+        public async Task<CardInquiryResponseV03> CardInquiryV03Async(string accountCode, string cardIdentifier, CardIdentifierType cardIdentifierType, string customerId,
             string discretionaryData = "", long? trackingNumber = null, bool maskCard = false)
         {
             var request = new CardInquiryRequestV03
@@ -319,7 +319,7 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataException"></exception>
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
-        public async Task<CardTransferMaintenanceResponse> CardTransferMaintenanceAsync(string accountCode, string customerId, 
+        public async Task<CardTransferMaintenanceResponse> CardTransferMaintenanceAsync(string accountCode, string customerId,
             string cardAccountCode, string cardCustomerId, string transferFromCardNumber, string transferToCardNumber,
             string discretionaryData = "", long? trackingNumber = null)
         {
@@ -431,7 +431,7 @@ namespace Comdata.RealTimeOnline0103
                 throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
             }
         }
-        
+
 
 
         public async Task<TrackCardShipmentResponse> TrackCardShipmentStatusAsync(string accountCode, string customerId, string dateType, string startDate, string endDate)
@@ -697,7 +697,7 @@ namespace Comdata.RealTimeOnline0103
             }
         }
 
-        
+
 
         /// <summary>
         /// Used for adding or subtracting money to/from a card's Express Cash Balance.
@@ -1047,7 +1047,7 @@ namespace Comdata.RealTimeOnline0103
                 throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
             }
         }
-        
+
         /// <summary>
         /// Makes updates to an existing Comdata Virtual Comchek card.
         /// </summary>
@@ -1069,41 +1069,59 @@ namespace Comdata.RealTimeOnline0103
                 throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
             }
         }
-      
+
         #endregion Virtual Comchek Webservice Methods
 
 
 
         #region Endpoint Helper Methods
 
-        private static Binding GetDefaultBinding() => RealTimeOnline0103Client.GetBindingForEndpoint(EndpointConfiguration.RealTimeOnline0103);
+        private static Binding GetDefaultBinding() => GetBindingForEndpoint(EndpointConfiguration.RealTimeOnline0103);
 
         private static Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
-            if ((endpointConfiguration == EndpointConfiguration.RealTimeOnline0103))
+            if (endpointConfiguration == EndpointConfiguration.RealTimeOnline0103)
             {
                 var securityElement = SecurityBindingElement.CreateUserNameOverTransportBindingElement();
                 securityElement.IncludeTimestamp = false;
-                securityElement.MessageSecurityVersion = MessageSecurityVersion.WSSecurity10WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10;                
+                securityElement.MessageSecurityVersion = MessageSecurityVersion.WSSecurity10WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10;
 
-                var customBinding = new CustomBinding
+                var encodingElement = new TextMessageEncodingBindingElement
                 {
-                    Elements =
-                    {
-                        securityElement,
-                        new TextMessageEncodingBindingElement
-                        {
-                            MessageVersion =  MessageVersion.Soap11
-                        },
-                        new HttpsTransportBindingElement
-                        {
-                            MaxBufferSize = int.MaxValue,
-                            //ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max,
-                            MaxReceivedMessageSize = int.MaxValue,
-                            AllowCookies = true,
-                        }
-                    }
+                    MessageVersion = MessageVersion.Soap11
                 };
+
+                var transportElement = new HttpsTransportBindingElement
+                {
+                    MaxBufferSize = int.MaxValue,
+                    //ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max,
+                    MaxReceivedMessageSize = int.MaxValue,
+                    AllowCookies = true
+                };
+
+                var customBinding = new CustomBinding();
+                customBinding.Elements.Add(securityElement);
+                customBinding.Elements.Add(encodingElement);
+                customBinding.Elements.Add(transportElement);
+
+                //var customBinding = new CustomBinding
+                //{
+                //    Elements =
+                //    {
+                //        securityElement,
+                //        new TextMessageEncodingBindingElement
+                //        {
+                //            MessageVersion =  MessageVersion.Soap11
+                //        },
+                //        new HttpsTransportBindingElement
+                //        {
+                //            MaxBufferSize = int.MaxValue,
+                //            //ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max,
+                //            MaxReceivedMessageSize = int.MaxValue,
+                //            AllowCookies = true,
+                //        }
+                //    }
+                //};
 
                 return customBinding;
 
@@ -1123,11 +1141,11 @@ namespace Comdata.RealTimeOnline0103
 
 
 
-        private static EndpointAddress GetDefaultEndpointAddress() => RealTimeOnline0103Client.GetEndpointAddress(EndpointConfiguration.RealTimeOnline0103);
+        private static EndpointAddress GetDefaultEndpointAddress() => GetEndpointAddress(EndpointConfiguration.RealTimeOnline0103);
 
         private static EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
         {
-            if ((endpointConfiguration == EndpointConfiguration.RealTimeOnline0103))
+            if (endpointConfiguration == EndpointConfiguration.RealTimeOnline0103)
             {
                 return new EndpointAddress("https://w6.iconnectdata.com/cows/services/RealTimeOnline0103");
             }
@@ -1204,10 +1222,10 @@ namespace Comdata.RealTimeOnline0103
         #region Factory Helper Methods
 
         public virtual Task OpenAsync()
-            => System.Threading.Tasks.Task.Factory.FromAsync(((ICommunicationObject)(this)).BeginOpen(null, null), new Action<IAsyncResult>(((ICommunicationObject)(this)).EndOpen));
+            => Task.Factory.FromAsync(((ICommunicationObject)(this)).BeginOpen(null, null), new Action<IAsyncResult>(((ICommunicationObject)(this)).EndOpen));
 
         public virtual Task CloseAsync()
-            => System.Threading.Tasks.Task.Factory.FromAsync(((ICommunicationObject)(this)).BeginClose(null, null), new Action<IAsyncResult>(((ICommunicationObject)(this)).EndClose));
+            => Task.Factory.FromAsync(((ICommunicationObject)(this)).BeginClose(null, null), new Action<IAsyncResult>(((ICommunicationObject)(this)).EndClose));
 
         #endregion Factory Helper Methods
 
@@ -1228,7 +1246,7 @@ namespace Comdata.RealTimeOnline0103
             catch (FaultException ex)
             {
                 throw new ComdataOperationException($"An {ex.GetType().Name} occurred while executing the request.", ex);
-            }        
+            }
         }
 
         #endregion Webservice Helper Methods

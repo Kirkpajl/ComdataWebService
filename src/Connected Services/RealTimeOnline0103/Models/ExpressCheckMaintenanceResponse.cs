@@ -1,13 +1,10 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Comdata.RealTimeOnline0103.Enumerations;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using Comdata.RealTimeOnline0103.Enumerations;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
@@ -96,8 +93,8 @@ namespace Comdata.RealTimeOnline0103.Models
         /// <summary>
         /// A = Activate; B = Block; C = Cancel
         /// </summary>
-        [XmlElement(ElementName = "status", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 8)]
-        public ExpressCheckStatusType Status { get; set; }  // string?
+        [XmlElement(ElementName = "status", Form = XmlSchemaForm.Unqualified, Order = 8)]
+        public ExpressCheckStatusType Status { get; set; } = ExpressCheckStatusType.Active;  // string?
 
         /// <summary>
         /// Comdata assigned value attached to this response record.

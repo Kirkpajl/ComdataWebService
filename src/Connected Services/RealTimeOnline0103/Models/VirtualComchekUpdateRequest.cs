@@ -1,14 +1,11 @@
 ﻿using Comdata.Models.Internals;
+using Comdata.RealTimeOnline0103.Enumerations;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using Comdata.RealTimeOnline0103.Enumerations;
-using System.Runtime.ConstrainedExecution;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
@@ -161,8 +158,8 @@ namespace Comdata.RealTimeOnline0103.Models
         /// <summary>
         /// A = Active; B = Blocked; F = Fraud; S = Stolen
         /// </summary>
-        [XmlElement(ElementName = "cardStatus", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 19)]
-        public VirtualCardStatusType CardStatus { get; set; }  // string?
+        [XmlElement(ElementName = "cardStatus", Form = XmlSchemaForm.Unqualified, Order = 19)]
+        public VirtualCardStatusType CardStatus { get; set; } = VirtualCardStatusType.Active;  // string?
 
         /// <summary>
         /// YES = Open; NO = Closed; If no value specified, default is NO.

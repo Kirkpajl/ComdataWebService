@@ -1,0 +1,302 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\XML Test Client\\XML Test Client.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\ComdataWebService\\ComdataWebService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\ComdataWebService\\ComdataWebService.csproj",
+        "projectName": "ComdataWebService",
+        "projectPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\ComdataWebService\\ComdataWebService.csproj",
+        "packagesPath": "C:\\Users\\JKirkpatrick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\ComdataWebService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\JKirkpatrick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "System.ServiceModel.Duplex": {
+              "target": "Package",
+              "version": "[4.6.*, )"
+            },
+            "System.ServiceModel.Http": {
+              "target": "Package",
+              "version": "[4.6.*, )"
+            },
+            "System.ServiceModel.NetTcp": {
+              "target": "Package",
+              "version": "[4.6.*, )"
+            },
+            "System.ServiceModel.Security": {
+              "target": "Package",
+              "version": "[4.6.*, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\Domain\\Tekdox.Prime.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\Domain\\Tekdox.Prime.Domain.csproj",
+        "projectName": "Tekdox.Prime.Domain",
+        "projectPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\Domain\\Tekdox.Prime.Domain.csproj",
+        "packagesPath": "C:\\Users\\JKirkpatrick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\JKirkpatrick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.11.7, )"
+            },
+            "RestSharp.Serializers.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[106.11.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\XML Test Client\\XML Test Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\XML Test Client\\XML Test Client.csproj",
+        "projectName": "XML Test Client",
+        "projectPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\XML Test Client\\XML Test Client.csproj",
+        "packagesPath": "C:\\Users\\JKirkpatrick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\XML Test Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\JKirkpatrick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\ComdataWebService\\ComdataWebService.csproj": {
+                "projectPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\ComdataWebService\\ComdataWebService.csproj"
+              },
+              "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\Domain\\Tekdox.Prime.Domain.csproj": {
+                "projectPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\Prime\\Code\\v1.3\\Domain\\Tekdox.Prime.Domain.csproj"
+              },
+              "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\_Libraries\\WindowsCore\\Tekdox.WindowsCore.csproj": {
+                "projectPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\_Libraries\\WindowsCore\\Tekdox.WindowsCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\_Libraries\\WindowsCore\\Tekdox.WindowsCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\_Libraries\\WindowsCore\\Tekdox.WindowsCore.csproj",
+        "projectName": "Tekdox.WindowsCore",
+        "projectPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\_Libraries\\WindowsCore\\Tekdox.WindowsCore.csproj",
+        "packagesPath": "C:\\Users\\JKirkpatrick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JKirkpatrick\\Dropbox\\Projects\\Applications\\Windows\\_Libraries\\WindowsCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\JKirkpatrick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

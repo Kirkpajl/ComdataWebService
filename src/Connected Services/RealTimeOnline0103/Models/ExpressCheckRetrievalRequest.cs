@@ -1,14 +1,10 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Comdata.RealTimeOnline0103.Enumerations;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using System.Diagnostics.Contracts;
-using Comdata.RealTimeOnline0103.Enumerations;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
@@ -136,8 +132,8 @@ namespace Comdata.RealTimeOnline0103.Models
         /// <summary>
         /// 1 = Plus Fees; 2 = Less Fees
         /// </summary>
-        [XmlElement(ElementName = "plusLessFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 15)]
-        public PlusLessFlag PlusLessFlag { get; set; }  // string?
+        [XmlElement(ElementName = "plusLessFlag", Form = XmlSchemaForm.Unqualified, Order = 15)]
+        public PlusLessFlag PlusLessFlag { get; set; } = PlusLessFlag.PlusFees;  // string?
 
         /// <summary>
         /// Valid Amounts 0.01 to 9999.99

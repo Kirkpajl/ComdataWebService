@@ -1,15 +1,10 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Comdata.RealTimeOnline0103.Enumerations;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using Comdata.RealTimeOnline0103.Enumerations;
-using System.Collections;
-using System.Reflection.Emit;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
@@ -83,7 +78,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// 9999999.99
         /// </summary>
         [XmlElement(ElementName = "dollarAmount", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 6)]
-        public Nullable<decimal> DollarAmount { get; set; }
+        public decimal? DollarAmount { get; set; }
 
         /// <summary>
         /// If MM < 10 then Expiration Date in MYY format.
@@ -109,7 +104,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// 9999999.99
         /// </summary>
         [XmlElement(ElementName = "GLCode1Amount", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 10)]
-        public Nullable<decimal> GLCode1Amount { get; set; }
+        public decimal? GLCode1Amount { get; set; }
 
         /// <summary>
         /// GL Code value
@@ -121,7 +116,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// 9999999.99
         /// </summary>
         [XmlElement(ElementName = "GLCode2Amount", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 12)]
-        public Nullable<decimal> GLCode2Amount { get; set; }
+        public decimal? GLCode2Amount { get; set; }
 
         /// <summary>
         /// GL Code value
@@ -133,7 +128,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// 9999999.99
         /// </summary>
         [XmlElement(ElementName = "GLCode3Amount", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 14)]
-        public Nullable<decimal> GLCode3Amount { get; set; }
+        public decimal? GLCode3Amount { get; set; }
 
         /// <summary>
         /// GL Code value
@@ -145,7 +140,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// 9999999.99
         /// </summary>
         [XmlElement(ElementName = "GLCode4Amount", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 16)]
-        public Nullable<decimal> GLCode4Amount { get; set; }
+        public decimal? GLCode4Amount { get; set; }
 
         /// <summary>
         /// Value assigned to the Last Name field
@@ -163,7 +158,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// 9999999.99
         /// </summary>
         [XmlElement(ElementName = "miscCost", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 19)]
-        public Nullable<decimal> MiscCost { get; set; }
+        public decimal? MiscCost { get; set; }
 
         /// <summary>
         /// Value assigned to card from 1 to 999. 0 will be returned if card does not exist
@@ -174,73 +169,73 @@ namespace Comdata.RealTimeOnline0103.Models
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForAirlineMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 21)]
+        [XmlElement(ElementName = "openForAirlineMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 21)]
         public YesNoCharFlag OpenForAirlineMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForBusinessServicesMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 22)]
+        [XmlElement(ElementName = "openForBusinessServicesMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 22)]
         public YesNoCharFlag OpenForBusinessServicesMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForCarRentalsMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 23)]
+        [XmlElement(ElementName = "openForCarRentalsMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 23)]
         public YesNoCharFlag OpenForCarRentalsMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForFinancialServicesMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 24)]
+        [XmlElement(ElementName = "openForFinancialServicesMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 24)]
         public YesNoCharFlag OpenForFinancialServicesMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForFuelMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 25)]
+        [XmlElement(ElementName = "openForFuelMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 25)]
         public YesNoCharFlag OpenForFuelMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForHotelsMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 26)]
+        [XmlElement(ElementName = "openForHotelsMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 26)]
         public YesNoCharFlag OpenForHotelsMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForLegalAndInsuranceMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 27)]
+        [XmlElement(ElementName = "openForLegalAndInsuranceMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 27)]
         public YesNoCharFlag OpenForLegalAndInsuranceMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForMaintenanceMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 28)]
+        [XmlElement(ElementName = "openForMaintenanceMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 28)]
         public YesNoCharFlag OpenForMaintenanceMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForMedicalMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 29)]
+        [XmlElement(ElementName = "openForMedicalMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 29)]
         public YesNoCharFlag OpenForMedicalMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForMiscMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 30)]
+        [XmlElement(ElementName = "openForMiscMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 30)]
         public YesNoCharFlag OpenForMiscMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForMiscTransportationMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 31)]
+        [XmlElement(ElementName = "openForMiscTransportationMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 31)]
         public YesNoCharFlag OpenForMiscTransportationMerchantGroup { get; set; }  // string?
 
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "openForRestaurantsMerchantGroup", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 32)]
+        [XmlElement(ElementName = "openForRestaurantsMerchantGroup", Form = XmlSchemaForm.Unqualified, Order = 32)]
         public YesNoCharFlag OpenForRestaurantsMerchantGroup { get; set; }  // string?
 
         /// <summary>
@@ -286,19 +281,19 @@ namespace Comdata.RealTimeOnline0103.Models
         /// 9999999.99
         /// </summary>
         [XmlElement(ElementName = "totalLaborCost", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 38)]
-        public Nullable<decimal> TotalLaborCost { get; set; }
+        public decimal? TotalLaborCost { get; set; }
 
         /// <summary>
         /// 9999999.99
         /// </summary>
         [XmlElement(ElementName = "totalPartsCost", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 39)]
-        public Nullable<decimal> TotalPartsCost { get; set; }
+        public decimal? TotalPartsCost { get; set; }
 
         /// <summary>
         /// 9999.99
         /// </summary>
         [XmlElement(ElementName = "totalTaxCost", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 40)]
-        public Nullable<decimal> TotalTaxCost { get; set; }
+        public decimal? TotalTaxCost { get; set; }
 
         /// <summary>
         /// Comdata assigned value attached to this response record.
@@ -309,7 +304,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "useGLCode1AsDefault", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 42)]
+        [XmlElement(ElementName = "useGLCode1AsDefault", Form = XmlSchemaForm.Unqualified, Order = 42)]
         public YesNoCharFlag UseGLCode1AsDefault { get; set; }  // string?
 
         /// <summary>
@@ -339,7 +334,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// <summary>
         /// Y = Yes; N = No
         /// </summary>
-        [XmlElement(ElementName = "warrantyReport", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 47)]
+        [XmlElement(ElementName = "warrantyReport", Form = XmlSchemaForm.Unqualified, Order = 47)]
         public YesNoCharFlag WarrantyReport { get; set; }  //string?
 
         /// <summary>
@@ -352,7 +347,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// <summary>
         /// E = Email (or) M = SMS (Mobile)
         /// </summary>
-        [XmlElement(ElementName = "remitType", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 49)]
+        [XmlElement(ElementName = "remitType", Form = XmlSchemaForm.Unqualified, Order = 49)]
         public RemitType RemitType { get; set; }  // string?
 
         /// <summary>

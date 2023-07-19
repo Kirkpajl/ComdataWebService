@@ -192,7 +192,7 @@ namespace Comdata.FleetCreditWS0200
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
-        public void SetUsernameTokenCredentials(string userName, string password)
+        public void SetServiceCredentials(string userName, string password)
         {
             ClientCredentials.UserName.UserName = userName;
             ClientCredentials.UserName.Password = password;
@@ -203,7 +203,7 @@ namespace Comdata.FleetCreditWS0200
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
-        public void SetActiveDirectoryCredentials(string userName, string password)
+        public void SetNetworkCredentials(string userName, string password)
         {
             ClientCredentials.Windows.AllowedImpersonationLevel = System.Security.Principal.TokenImpersonationLevel.Impersonation;
             ClientCredentials.Windows.ClientCredential.Domain = "";

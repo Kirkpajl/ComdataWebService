@@ -28,3 +28,13 @@ D:\Dropbox\Projects\Applications\Windows\Comdata\Repository\src\obj\Release\nets
 D:\Dropbox\Projects\Applications\Windows\Comdata\Repository\src\bin\Release\netstandard2.1\ComdataWebService.deps.json
 D:\Dropbox\Projects\Applications\Windows\Comdata\Repository\src\bin\Release\netstandard2.1\ComdataWebService.dll
 D:\Dropbox\Projects\Applications\Windows\Comdata\Repository\src\bin\Release\netstandard2.1\ComdataWebService.pdb
+C:\Users\JKirkpatrick.NBREALM\Dropbox\Projects\Applications\Windows\Comdata\Code\Repository\src\bin\Release\netstandard2.1\ComdataWebService.deps.json
+C:\Users\JKirkpatrick.NBREALM\Dropbox\Projects\Applications\Windows\Comdata\Code\Repository\src\bin\Release\netstandard2.1\ComdataWebService.dll
+C:\Users\JKirkpatrick.NBREALM\Dropbox\Projects\Applications\Windows\Comdata\Code\Repository\src\bin\Release\netstandard2.1\ComdataWebService.pdb
+C:\Users\JKirkpatrick.NBREALM\Dropbox\Projects\Applications\Windows\Comdata\Code\Repository\src\obj\Release\netstandard2.1\ComdataWebService.csproj.AssemblyReference.cache
+C:\Users\JKirkpatrick.NBREALM\Dropbox\Projects\Applications\Windows\Comdata\Code\Repository\src\obj\Release\netstandard2.1\ComdataWebService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JKirkpatrick.NBREALM\Dropbox\Projects\Applications\Windows\Comdata\Code\Repository\src\obj\Release\netstandard2.1\ComdataWebService.AssemblyInfoInputs.cache
+C:\Users\JKirkpatrick.NBREALM\Dropbox\Projects\Applications\Windows\Comdata\Code\Repository\src\obj\Release\netstandard2.1\ComdataWebService.AssemblyInfo.cs
+C:\Users\JKirkpatrick.NBREALM\Dropbox\Projects\Applications\Windows\Comdata\Code\Repository\src\obj\Release\netstandard2.1\ComdataWebService.csproj.CoreCompileInputs.cache
+C:\Users\JKirkpatrick.NBREALM\Dropbox\Projects\Applications\Windows\Comdata\Code\Repository\src\obj\Release\netstandard2.1\ComdataWebService.dll
+C:\Users\JKirkpatrick.NBREALM\Dropbox\Projects\Applications\Windows\Comdata\Code\Repository\src\obj\Release\netstandard2.1\ComdataWebService.pdb
