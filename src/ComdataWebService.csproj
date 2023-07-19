@@ -27,7 +27,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <RepositoryUrl>https://github.com/Kirkpajl/ComdataWebService</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Kirkpajl/ComdataWebService</PackageProjectUrl>
-    <PackageIcon>https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/master/comdata-logo.png</PackageIcon>
+    <PackageIcon>https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/main/comdata-logo.png</PackageIcon>
     <PackageTags>Comdata, Comcheck, Fleet Payment</PackageTags>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
