@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="\" />
-    <None Include="..\res\credit-card-128x128.png" Pack="true" PackagePath="\" />
+    <None Include="..\res\comdata-icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,14 +22,14 @@
     <PackageId>ComdataWebService</PackageId>
     <Title>ComdataWebService</Title>
     <Description>This library allows for strongly-typed communication with the Comdata SOAP XML web service.</Description>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
     <Authors>Joshua L. Kirkpatrick</Authors>
     <Company>Tekdox Technical Services</Company>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <RepositoryUrl>https://github.com/Kirkpajl/ComdataWebService</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Kirkpajl/ComdataWebService</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/main/res/credit-card-128x128.png</PackageIconUrl>
-    <PackageIcon>credit-card-128x128.png</PackageIcon>
+    <PackageIconUrl>https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/main/res/comdata-icon.png</PackageIconUrl>
+    <PackageIcon>comdata-icon.png</PackageIcon>
     <PackageTags>Comdata, Comcheck, Fleet Payment</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>

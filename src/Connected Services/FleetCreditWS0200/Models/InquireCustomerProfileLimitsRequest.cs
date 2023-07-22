@@ -13,12 +13,12 @@ namespace Comdata.FleetCreditWS0200.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "CustomerProfileLimitInquiryRequest", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
-    public partial class InquireCustomerProfileLimitsRequest : IRequest
+    public partial class InquireCustomerProfileLimitsRequest : IRequest<CustomerProfileLimitReqRespUtil>
     {
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "requestUtil", Form = XmlSchemaForm.Unqualified)]
-        public CustomerProfileLimitReqRespUtil? RequestUtil { get; set; }
+        public CustomerProfileLimitReqRespUtil Content { get; set; } = default!;
 
 
 
@@ -28,7 +28,7 @@ namespace Comdata.FleetCreditWS0200.Models
 
         public InquireCustomerProfileLimitsRequest(CustomerProfileLimitReqRespUtil requestUtil)
         {
-            this.RequestUtil = requestUtil;
+            this.Content = requestUtil;
         }
     }
 }

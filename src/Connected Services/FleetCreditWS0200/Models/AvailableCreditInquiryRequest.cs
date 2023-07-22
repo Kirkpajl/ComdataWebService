@@ -26,8 +26,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// True or false, default is false.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "activeAccountsOnly", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<bool> ActiveAccountsOnly { get; set; }
+        [XmlElement(ElementName = "activeAccountsOnly", Form = XmlSchemaForm.Unqualified)]
+        public bool ActiveAccountsOnly { get; set; }
 
 
 
@@ -35,7 +35,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public AvailableCreditInquiryRequest(string[] accountCodes, System.Nullable<bool> activeAccountsOnly)
+        public AvailableCreditInquiryRequest(string[] accountCodes, bool activeAccountsOnly = false)
         {
             this.AccountCodes = accountCodes;
             this.ActiveAccountsOnly = activeAccountsOnly;

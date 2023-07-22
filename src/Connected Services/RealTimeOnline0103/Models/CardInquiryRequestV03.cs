@@ -1,54 +1,27 @@
-﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Comdata.FleetCreditWS0200.Enumerations;
+using Comdata.Models.Internals;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using Comdata.FleetCreditWS0200.Enumerations;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "cardInquiryV03", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardInquiryRequestV03Body : IRequest  //ISoapRequestBody<CardInquiryRequestV03>
+    public partial class CardInquiryRequestV03Body : IRequest<CardInquiryRequestV03>
     {
         public CardInquiryRequestV03Body() : this(new CardInquiryRequestV03()) { }
-        public CardInquiryRequestV03Body(CardInquiryRequestV03 request) { Request = request; }
+        public CardInquiryRequestV03Body(CardInquiryRequestV03 request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "inquiryRequestV03", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public CardInquiryRequestV03 Request { get; set; }
+        public CardInquiryRequestV03 Content { get; set; }
     }
-
-    /*[DebuggerStepThrough()]
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [MessageContract(WrapperName = "cardInquiryV03", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardInquiryRequestV03Body
-    {
-        public CardInquiryRequestV03Body() : this(new CardInquiryRequestV03()) { }
-
-        public CardInquiryRequestV03Body(CardInquiryRequestV03 request)
-        {
-            this.Request = request;
-        }
-
-
-
-<<<<<<< HEAD
-        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElement(ElementName = "inquiryRequestV03", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-=======
-        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElementAttribute(ElementName = "inquiryRequestV03", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
->>>>>>> releases/v1.0.0
-        public CardInquiryRequestV03 Request { get; set; }
-    }*/
 
 
 
@@ -56,7 +29,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class CardInquiryRequestV03// : ISoapRequest
+    public partial class CardInquiryRequestV03 : IRequest
     {
         /// <remarks/>
         [XmlElement(ElementName = "accountCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 0)]

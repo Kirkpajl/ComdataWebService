@@ -1,12 +1,9 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
@@ -17,16 +14,16 @@ namespace Comdata.RealTimeOnline0103.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "expressCheckInquiry", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class ExpressCheckInquiryRequestBody : IRequest  //ISoapRequestBody<ExpressCheckInquiryRequest>
+    public partial class ExpressCheckInquiryRequestBody : IRequest<ExpressCheckInquiryRequest>
     {
         public ExpressCheckInquiryRequestBody() : this(new ExpressCheckInquiryRequest()) { }
-        public ExpressCheckInquiryRequestBody(ExpressCheckInquiryRequest request) { Request = request; }
+        public ExpressCheckInquiryRequestBody(ExpressCheckInquiryRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "inquiryRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public ExpressCheckInquiryRequest Request { get; set; }
+        public ExpressCheckInquiryRequest Content { get; set; }
     }
 
 
@@ -38,7 +35,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class ExpressCheckInquiryRequest// : ISoapRequest
+    public partial class ExpressCheckInquiryRequest : IRequest
     {
         /// <summary>
         /// Value assigned by Comdata.

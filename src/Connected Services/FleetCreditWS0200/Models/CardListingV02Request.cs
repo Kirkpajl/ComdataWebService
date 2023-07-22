@@ -16,7 +16,6 @@ namespace Comdata.FleetCreditWS0200.Models
     [MessageContract(WrapperName = "CardListingRequestV02", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
     public partial class CardListingV02Request : IRequest
     {
-
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlArray(ElementName = "acctCustidList", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         [XmlArrayItem("acctCustidElement", Form = XmlSchemaForm.Unqualified)]
@@ -35,12 +34,12 @@ namespace Comdata.FleetCreditWS0200.Models
         public Nullable<CardListingSortOption> SortOption { get; set; }
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
-        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? MaxRows { get; set; }  //string?
+        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified)]
+        public int MaxRows { get; set; }  //string?
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
-        [XmlElement(ElementName = "pageNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? PageNumber { get; set; }  //string?
+        [XmlElement(ElementName = "pageNumber", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; } = 1;  //string?
 
 
 

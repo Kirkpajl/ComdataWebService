@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>Comdata.Tests.LoadMoney</RootNamespace>
+    <RootNamespace>Comdata.Samples.LoadMoney</RootNamespace>
     <UserSecretsId>ec180eac-27df-461e-8743-7be6fd673aa8</UserSecretsId>
   </PropertyGroup>
 

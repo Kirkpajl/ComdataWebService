@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
     public class PaginatedDataSet<TRecord>
     {
-        public PaginatedDataSet(TRecord[] records, int recordCount, int pageNumber, int pageCount)
+        public PaginatedDataSet(TRecord[]? records, int? recordCount, int? pageNumber, int? pageCount)
         {
-            Records = records;
-            RecordCount = recordCount;
+            Records = records ?? Array.Empty<TRecord>();
+            RecordCount = recordCount ?? 0;
 
-            PageNumber = pageNumber;
-            PageCount = pageCount;
+            PageNumber = pageNumber ?? 0;
+            PageCount = pageCount ?? 0;
         }
 
 

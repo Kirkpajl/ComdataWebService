@@ -15,7 +15,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "virtualComchekInquiryResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class VirtualComchekInquiryResponseBody : IResponse //ISoapResponseBody<VirtualComchekInquiryResponse>
+    public partial class VirtualComchekInquiryResponseBody : IResponse<VirtualComchekInquiryResponse>
     {
         public VirtualComchekInquiryResponseBody() : this(new VirtualComchekInquiryResponse()) { }
         public VirtualComchekInquiryResponseBody(VirtualComchekInquiryResponse response) { Content = response; }
@@ -36,7 +36,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class VirtualComchekInquiryResponse  // : ISoapResponse
+    public partial class VirtualComchekInquiryResponse : IResponse
     {
         /// <summary>
         /// Value assigned by Comdata.

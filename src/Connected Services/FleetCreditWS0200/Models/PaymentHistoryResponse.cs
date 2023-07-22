@@ -17,16 +17,16 @@ namespace Comdata.FleetCreditWS0200.Models
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseCode { get; set; }
+        public int ResponseCode { get; set; }  //string?
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseDescription { get; set; }
+        public string ResponseDescription { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlArray(ElementName = "records", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        [XmlArray(ElementName = "records", Form = XmlSchemaForm.Unqualified)]
         [XmlArrayItem(Form = XmlSchemaForm.Unqualified)]
-        public PaymentHistoryRecord[]? Records { get; set; }
+        public PaymentHistoryRecord[] Records { get; set; } = Array.Empty<PaymentHistoryRecord>();
 
 
 
@@ -34,7 +34,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public PaymentHistoryResponse(string responseCode, string responseDescription, PaymentHistoryRecord[] records)
+        public PaymentHistoryResponse(int responseCode, string responseDescription, PaymentHistoryRecord[] records)
         {
             this.ResponseCode = responseCode;
             this.ResponseDescription = responseDescription;

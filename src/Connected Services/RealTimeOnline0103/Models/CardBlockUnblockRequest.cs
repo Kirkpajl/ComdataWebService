@@ -8,23 +8,23 @@ namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [MessageContract(WrapperName = "cardBlockUnblock", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardBlockUnblockRequestBody : IRequest  //, ISoapRequestBody<CardBlockUnblockRequest> 
+    public partial class CardBlockUnblockRequestBody : IRequest<CardBlockUnblockRequest>
     {
         public CardBlockUnblockRequestBody() : this(new CardBlockUnblockRequest()) { }
-        public CardBlockUnblockRequestBody(CardBlockUnblockRequest request) { Request = request; }
+        public CardBlockUnblockRequestBody(CardBlockUnblockRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "blockRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public CardBlockUnblockRequest Request { get; set; }
+        public CardBlockUnblockRequest Content { get; set; }
     }
 
 
 
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class CardBlockUnblockRequest// : ISoapRequest
+    public partial class CardBlockUnblockRequest : IRequest
     {
         /// <summary>
         /// Value assigned by Comdata.
@@ -36,7 +36,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// This is the card that needs to be modified.  Include full 10-digit card number.
         /// </summary>
         [XmlElement(ElementName = "cardNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 1)]
-        public string? CardNumber { get;set; }
+        public string? CardNumber { get; set; }
 
         /// <summary>
         /// Value assigned by Comdata. Leading zero on 4-digit CustomerId's is optional.
@@ -48,7 +48,7 @@ namespace Comdata.RealTimeOnline0103.Models
         /// Any discretionary data that the requestor would like returned in the response record.
         /// </summary>
         [XmlElement(ElementName = "discretionaryData", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 3)]
-        public string? DiscretionaryData {get;set; }
+        public string? DiscretionaryData { get; set; }
 
         /// <summary>
         /// Must be a secure card for real-time processing.  Value assigned by Comdata.

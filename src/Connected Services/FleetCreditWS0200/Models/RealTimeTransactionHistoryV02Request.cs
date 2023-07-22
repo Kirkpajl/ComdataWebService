@@ -17,11 +17,11 @@ namespace Comdata.FleetCreditWS0200.Models
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "criteria", Form = XmlSchemaForm.Unqualified)]
-        public RtTransactionCriteriaV02? Criteria { get; set; }
+        public RtTransactionCriteriaV02 Criteria { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; } = 1; //string?
 
 
 
@@ -29,10 +29,10 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public RealTimeTransactionHistoryV02Request(RtTransactionCriteriaV02 criteria, string pageNbr)
+        public RealTimeTransactionHistoryV02Request(RtTransactionCriteriaV02 criteria, int pageNumber)
         {
             this.Criteria = criteria;
-            this.PageNumber = pageNbr;
+            this.PageNumber = pageNumber;
         }
     }
 }

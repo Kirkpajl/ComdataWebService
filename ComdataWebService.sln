@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComdataWebService", "src\Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D4995F40-3859-4729-9F16-8E6B9C40C324}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A83E62DB-00ED-4BA9-8AE1-890D08C13B5F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{A83E62DB-00ED-4BA9-8AE1-890D08C13B5F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadMoney", "tests\LoadMoney\LoadMoney.csproj", "{DBFC8B23-1D1E-49BB-89A8-4E62DEEBC48A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadMoney", "samples\LoadMoney\LoadMoney.csproj", "{DBFC8B23-1D1E-49BB-89A8-4E62DEEBC48A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectDeposit", "tests\DirectDeposit\DirectDeposit.csproj", "{6A766444-D974-45E0-9AF4-D196850C1268}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectDeposit", "samples\DirectDeposit\DirectDeposit.csproj", "{6A766444-D974-45E0-9AF4-D196850C1268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

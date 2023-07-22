@@ -17,25 +17,25 @@ namespace Comdata.FleetCreditWS0200.Models
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "responseUtil", Form = XmlSchemaForm.Unqualified)]
-        public CardProfileLimitReqResUtil? ResponseUtil { get; set; }
+        public CardProfileLimitReqResUtil ResponseUtil { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "profileLimits", Form = XmlSchemaForm.Unqualified)]
-        public ProfileLimits? ProfileLimits { get; set; }
+        public ProfileLimits ProfileLimits { get; set; } = default!;
 
         /// <summary>
         /// 0=Success Anything Else=Error
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? ResponseCode { get; set; }
+        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
+        public int ResponseCode { get; set; } = default!;
 
         /// <summary>
         /// If the request succeeded, the message will be: INQUIRY SUCCESSFUL
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? ResponseDescription { get; set; }
+        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
+        public string ResponseDescription { get; set; } = default!;
 
 
 
@@ -43,7 +43,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireCardProfileLimitsResponse(Models.CardProfileLimitReqResUtil responseUtil, ProfileLimits profileLimits, string responseCode, string responseDescription)
+        public InquireCardProfileLimitsResponse(Models.CardProfileLimitReqResUtil responseUtil, ProfileLimits profileLimits, int responseCode, string responseDescription)
         {
             this.ResponseUtil = responseUtil;
             this.ProfileLimits = profileLimits;

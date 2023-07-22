@@ -1,28 +1,25 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "directDepositInquiry", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class DirectDepositInquiryRequestBody : IRequest  //ISoapRequestBody<DirectDepositInquiryRequest>
+    public partial class DirectDepositInquiryRequestBody : IRequest<DirectDepositInquiryRequest>
     {
         public DirectDepositInquiryRequestBody() : this(new DirectDepositInquiryRequest()) { }
-        public DirectDepositInquiryRequestBody(DirectDepositInquiryRequest request) { Request = request; }
+        public DirectDepositInquiryRequestBody(DirectDepositInquiryRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "directDepositInquiryRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public DirectDepositInquiryRequest Request { get; set; }
+        public DirectDepositInquiryRequest Content { get; set; }
     }
 
 
@@ -33,7 +30,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class DirectDepositInquiryRequest// : ISoapRequest
+    public partial class DirectDepositInquiryRequest : IRequest
     {
         /// <summary>
         /// 5-digit alphanumeric account code

@@ -1,12 +1,10 @@
 ﻿using Comdata.Models.Internals;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -19,33 +17,33 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Value assigned by Comdata.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> PageNbr { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; } = default!;
 
         /// <summary>
         /// Number of records returned in this request. If the recordCount is less than maxRows, this is the last set of profiles available.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> RecordCount { get; set; }
+        [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified)]
+        public int RecordCount { get; set; } = default!;  //int?
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement("records", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public CustomerProfiles[]? Records { get; set; }
+        [XmlElement("records", Form = XmlSchemaForm.Unqualified)]
+        public CustomerProfiles[] Records { get; set; } = Array.Empty<CustomerProfiles>();  //CustomerProfiles[]?
 
         /// <summary>
         /// 00000=Success, any other value = error
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseCode { get; set; }
+        public int ResponseCode { get; set; } = default!;  //string?
 
         /// <summary>
         /// If the request succeeded, the message will be: Success, if the request errored, the error description will display
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseDescription { get; set; }
+        public string ResponseDescription { get; set; } = default!;
 
 
 
@@ -53,9 +51,9 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public CustomerProfileListingResponse(System.Nullable<int> pageNbr, System.Nullable<int> recordCount, CustomerProfiles[] records, string responseCode, string responseDescription)
+        public CustomerProfileListingResponse(int pageNumber, int recordCount, CustomerProfiles[] records, int responseCode, string responseDescription)
         {
-            this.PageNbr = pageNbr;
+            this.PageNumber = pageNumber;
             this.RecordCount = recordCount;
             this.Records = records;
             this.ResponseCode = responseCode;

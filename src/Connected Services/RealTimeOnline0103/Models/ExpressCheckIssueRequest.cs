@@ -16,16 +16,16 @@ namespace Comdata.RealTimeOnline0103.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "expressCheckIssue", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class ExpressCheckIssueRequestBody : IRequest  //ISoapRequestBody<ExpressCheckIssueRequest>
+    public partial class ExpressCheckIssueRequestBody : IRequest<ExpressCheckIssueRequest>
     {
         public ExpressCheckIssueRequestBody() : this(new ExpressCheckIssueRequest()) { }
-        public ExpressCheckIssueRequestBody(ExpressCheckIssueRequest request) { Request = request; }
+        public ExpressCheckIssueRequestBody(ExpressCheckIssueRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "issueRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public ExpressCheckIssueRequest Request { get; set; }
+        public ExpressCheckIssueRequest Content { get; set; }
     }
 
 
@@ -38,7 +38,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class ExpressCheckIssueRequest// : ISoapRequest
+    public partial class ExpressCheckIssueRequest : IRequest
     {
         /// <summary>
         /// Value assigned by Comdata.

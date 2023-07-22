@@ -17,7 +17,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "expressCheckMaintenanceResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class ExpressCheckMaintenanceResponseBody : IResponse //ISoapResponseBody<ExpressCheckMaintenanceResponse>
+    public partial class ExpressCheckMaintenanceResponseBody : IResponse<ExpressCheckMaintenanceResponse>
     {
         public ExpressCheckMaintenanceResponseBody() : this(new ExpressCheckMaintenanceResponse()) { }
         public ExpressCheckMaintenanceResponseBody(ExpressCheckMaintenanceResponse response) { Content = response; }
@@ -40,7 +40,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class ExpressCheckMaintenanceResponse  // : ISoapResponse
+    public partial class ExpressCheckMaintenanceResponse : IResponse
     {
         /// <summary>
         /// Value assigned by Comdata.

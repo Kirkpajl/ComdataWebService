@@ -13,11 +13,11 @@ namespace Comdata.FleetCreditWS0200.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "DriverIdUpdateRequest", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
-    public partial class UpdateDriverIdRequest : IRequest
+    public partial class UpdateDriverIdRequest : IRequest<DriverIdRecord>
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "record", Form = XmlSchemaForm.Unqualified)]
-        public DriverIdRecord? Record { get; set; }
+        public DriverIdRecord Content { get; set; } = default!;
 
 
 
@@ -27,7 +27,7 @@ namespace Comdata.FleetCreditWS0200.Models
 
         public UpdateDriverIdRequest(DriverIdRecord record)
         {
-            this.Record = record;
+            this.Content = record;
         }
     }
 }

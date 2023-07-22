@@ -17,22 +17,22 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Number of records updated
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "numberChanges", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> NumberChanges { get; set; }
+        [XmlElement(ElementName = "numberChanges", Form = XmlSchemaForm.Unqualified)]
+        public int NumberChanges { get; set; }  //Nullable<int>
 
         /// <summary>
         /// 0=Success Anything Else=Error
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseCode { get; set; }
+        public int ResponseCode { get; set; }  //string?
 
         /// <summary>
         /// If the request succeeded, the message should be: OK
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseDescription { get; set; }
+        public string ResponseDescription { get; set; } = default!;
 
 
 
@@ -40,7 +40,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public AddDriverIdResponse(System.Nullable<int> numberChanges, string responseCode, string responseDescription)
+        public AddDriverIdResponse(int numberChanges, int responseCode, string responseDescription)
         {
             this.NumberChanges = numberChanges;
             this.ResponseCode = responseCode;

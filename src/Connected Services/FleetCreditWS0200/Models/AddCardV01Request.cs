@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using Comdata.FleetCreditWS0200.Enumerations;
+using Comdata.Models.Internals;
+using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
@@ -7,7 +9,7 @@ namespace Comdata.FleetCreditWS0200.Models
 {
     [DebuggerStepThrough()]
     [MessageContract(WrapperName = "AddCardRequest", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
-    public partial class AddCardV01Request
+    public partial class AddCardV01Request : IRequest
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "cardDetails", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
@@ -19,7 +21,7 @@ namespace Comdata.FleetCreditWS0200.Models
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
         [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaskCardFlag;
+        public YesNoCharFlag? MaskCardFlag;  // string?
 
 
 
@@ -27,7 +29,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public AddCardV01Request(CardRecordV01 cardDetails, MailingDetailsV01 mailingDetails, string maskCardFlag)
+        public AddCardV01Request(CardRecordV01 cardDetails, MailingDetailsV01 mailingDetails, YesNoCharFlag maskCardFlag)
         {
             CardDetails = cardDetails;
             MailingDetails = mailingDetails;

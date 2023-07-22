@@ -1,53 +1,26 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "trackCardShipmentStatus", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class TrackCardShipmentRequestBody : IRequest  //ISoapRequestBody<TrackCardShipmentRequest>
+    public partial class TrackCardShipmentRequestBody : IRequest<TrackCardShipmentRequest>
     {
         public TrackCardShipmentRequestBody() : this(new TrackCardShipmentRequest()) { }
-        public TrackCardShipmentRequestBody(TrackCardShipmentRequest request) { Request = request; }
+        public TrackCardShipmentRequestBody(TrackCardShipmentRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "trackCardShipmentRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public TrackCardShipmentRequest Request { get; set; }
+        public TrackCardShipmentRequest Content { get; set; }
     }
-
-    /*[DebuggerStepThrough()]
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [MessageContract(WrapperName = "trackCardShipmentStatus", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class TrackCardShipmentRequestBody
-    {
-        public TrackCardShipmentRequestBody() : this(new TrackCardShipmentRequest()) { }
-
-        public TrackCardShipmentRequestBody(TrackCardShipmentRequest request)
-        {
-            this.Request = request;
-        }
-
-
-
-<<<<<<< HEAD
-        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElement(ElementName = "trackCardShipmentRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-=======
-        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElementAttribute(ElementName = "trackCardShipmentRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
->>>>>>> releases/v1.0.0
-        public TrackCardShipmentRequest Request { get; set; }
-    }*/
 
 
 
@@ -55,7 +28,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class TrackCardShipmentRequest// : ISoapRequest
+    public partial class TrackCardShipmentRequest : IRequest
     {
         /// <remarks/>
         [XmlElement(ElementName = "accountCode", Form = XmlSchemaForm.Unqualified, Order = 0)]
