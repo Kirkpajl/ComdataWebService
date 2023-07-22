@@ -1,12 +1,9 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
@@ -16,7 +13,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "loadMoneyCancelResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class LoadMoneyCancelResponseBody : IResponse //ISoapResponseBody<LoadMoneyCancelResponse>
+    public partial class LoadMoneyCancelResponseBody : IResponse<LoadMoneyCancelResponse>
     {
         public LoadMoneyCancelResponseBody() : this(new LoadMoneyCancelResponse()) { }
         public LoadMoneyCancelResponseBody(LoadMoneyCancelResponse response) { Content = response; }
@@ -28,30 +25,6 @@ namespace Comdata.RealTimeOnline0103.Models
         public LoadMoneyCancelResponse Content { get; set; }
     }
 
-    /*[DebuggerStepThrough()]
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [MessageContract(WrapperName = "loadMoneyCancelResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class LoadMoneyCancelResponseBody
-    {
-        public LoadMoneyCancelResponseBody() : this(new LoadMoneyCancelResponse()) { }
-
-        public LoadMoneyCancelResponseBody(LoadMoneyCancelResponse response)
-        {
-            this.Response = response;
-        }
-
-
-
-<<<<<<< HEAD
-        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElement(ElementName = "loadMoneyCancelReturn", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-=======
-        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElementAttribute(ElementName = "loadMoneyCancelReturn", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
->>>>>>> releases/v1.0.0
-        public LoadMoneyCancelResponse Response { get; set; }
-    }*/
-
 
 
     /// <summary>
@@ -60,7 +33,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class LoadMoneyCancelResponse  // : ISoapResponse
+    public partial class LoadMoneyCancelResponse : IResponse
     {
         /// <summary>
         /// Value assigned by Comdata.

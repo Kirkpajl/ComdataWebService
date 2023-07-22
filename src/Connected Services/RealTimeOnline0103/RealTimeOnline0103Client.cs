@@ -71,7 +71,7 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
         /// <returns></returns>
-        public async Task<CardBlockUnblockResponse?> CardBlockUnblockAsync(string accountCode, string cardNumber, string customerId,
+        public async Task<bool> CardBlockUnblockAsync(string accountCode, string cardNumber, string customerId,
             string discretionaryData = "", long? trackingNumber = null, bool cardActive = true)
         {
             var request = new CardBlockUnblockRequest
@@ -88,19 +88,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.CardBlockUnblockAsync, new CardBlockUnblockRequestBody(request));
+            var response = await SendAsync(Channel.CardBlockUnblockAsync, new CardBlockUnblockRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
 
@@ -134,19 +127,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.CardInquiryAsync, new CardInquiryRequestV01Body(request));
+            var response = await SendAsync(Channel.CardInquiryAsync, new CardInquiryRequestV01Body(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -183,20 +169,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.CardInquiryV02Async, new CardInquiryRequestV02Body(request));
-                //var response = await SendAsync<CardInquiryRequestV02, CardInquiryRequestV02Body, CardInquiryResponseV02, CardInquiryResponseV02Body>(Channel.CardInquiryV02Async, request);
+            var response = await SendAsync(Channel.CardInquiryV02Async, new CardInquiryRequestV02Body(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -233,19 +211,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.CardInquiryV03Async, new CardInquiryRequestV03Body(request));
+            var response = await SendAsync(Channel.CardInquiryV03Async, new CardInquiryRequestV03Body(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
 
@@ -266,7 +237,7 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataException"></exception>
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
-        public async Task<CardMoveMaintenanceResponse> CardMoveMaintenanceAsync(string accountCode, string cardNumber, string customerId,
+        public async Task<bool> CardMoveMaintenanceAsync(string accountCode, string cardNumber, string customerId,
             string moveFromAccountCode, string moveFromCustomerId, string moveToAccountCode, string moveToCustomerId,
             string discretionaryData = "", long? trackingNumber = null)
         {
@@ -289,19 +260,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.CardMoveMaintenanceAsync, new CardMoveMaintenanceRequestBody(request));
+            var response = await SendAsync(Channel.CardMoveMaintenanceAsync, new CardMoveMaintenanceRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         /// <summary>
@@ -319,7 +283,7 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataException"></exception>
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
-        public async Task<CardTransferMaintenanceResponse> CardTransferMaintenanceAsync(string accountCode, string customerId,
+        public async Task<bool> CardTransferMaintenanceAsync(string accountCode, string customerId,
             string cardAccountCode, string cardCustomerId, string transferFromCardNumber, string transferToCardNumber,
             string discretionaryData = "", long? trackingNumber = null)
         {
@@ -340,19 +304,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.TransferMaintenanceAsync, new CardTransferMaintenanceRequestBody(request));
+            var response = await SendAsync(Channel.TransferMaintenanceAsync, new CardTransferMaintenanceRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
 
@@ -365,21 +322,14 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataException"></exception>
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
-        public async Task<CardUpdateResponseV01> CardUpdateAsync(CardUpdateRequestV01 request)
+        public async Task<bool> CardUpdateAsync(CardUpdateRequestV01 request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.CardUpdateAsync, new CardUpdateRequestV01Body(request));
+            var response = await SendAsync(Channel.CardUpdateAsync, new CardUpdateRequestV01Body(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         /// <summary>
@@ -390,21 +340,14 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataException"></exception>
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
-        public async Task<CardUpdateResponseV02> CardUpdateV02Async(CardUpdateRequestV02 request)
+        public async Task<bool> CardUpdateV02Async(CardUpdateRequestV02 request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.CardUpdateV02Async, new CardUpdateRequestV02Body(request));
+            var response = await SendAsync(Channel.CardUpdateV02Async, new CardUpdateRequestV02Body(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         /// <summary>
@@ -415,26 +358,19 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataException"></exception>
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
-        public async Task<CardUpdateResponseV03> CardUpdateV03Async(CardUpdateRequestV03 request)
+        public async Task<bool> CardUpdateV03Async(CardUpdateRequestV03 request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.CardUpdateV03Async, new CardUpdateRequestV03Body(request));
+            var response = await SendAsync(Channel.CardUpdateV03Async, new CardUpdateRequestV03Body(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
 
 
-        public async Task<TrackCardShipmentResponse> TrackCardShipmentStatusAsync(string accountCode, string customerId, string dateType, string startDate, string endDate)
+        public async Task<TrackCardShipment[]> TrackCardShipmentStatusAsync(string accountCode, string customerId, string dateType, string startDate, string endDate)
         {
             var request = new TrackCardShipmentRequest
             {
@@ -449,19 +385,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.TrackCardShipmentStatusAsync, new TrackCardShipmentRequestBody(request));
+            var response = await SendAsync(Channel.TrackCardShipmentStatusAsync, new TrackCardShipmentRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.TrackCardShipments;
         }
 
         #endregion Card Webservice Methods
@@ -475,19 +404,12 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<DirectDepositAddUpdateResponse> DirectDepositAddUpdateAsync(DirectDepositAddUpdateRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.DirectDepositAddUpdateAsync, new DirectDepositAddUpdateRequestBody(request));
+            var response = await SendAsync(Channel.DirectDepositAddUpdateAsync, new DirectDepositAddUpdateRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -518,19 +440,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.DirectDepositInquiryAsync, new DirectDepositInquiryRequestBody(request));
+            var response = await SendAsync(Channel.DirectDepositInquiryAsync, new DirectDepositInquiryRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         #endregion Direct Deposit Webservice Methods
@@ -543,21 +458,14 @@ namespace Comdata.RealTimeOnline0103
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<LimitedNetworkByCardUpdateResponse> LimitedNetworkByCardUpdateAsync(LimitedNetworkByCardUpdateRequest request)
+        public async Task<bool> LimitedNetworkByCardUpdateAsync(LimitedNetworkByCardUpdateRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.LimitedNetworkByCardUpdateAsync, new LimitedNetworkByCardUpdateRequestBody(request));
+            var response = await SendAsync(Channel.LimitedNetworkByCardUpdateAsync, new LimitedNetworkByCardUpdateRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         #endregion Limited Network Webservice Methods
@@ -572,19 +480,12 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<ExpressCheckBatchResponse> ExpressCheckBatchAsync(ExpressCheckBatchRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.ExpressCheckBatchAsync, new ExpressCheckBatchRequestBody(request));
+            var response = await SendAsync(Channel.ExpressCheckBatchAsync, new ExpressCheckBatchRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -614,19 +515,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.ExpressCheckInquiryAsync, new ExpressCheckInquiryRequestBody(request));
+            var response = await SendAsync(Channel.ExpressCheckInquiryAsync, new ExpressCheckInquiryRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -637,19 +531,12 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<ExpressCheckIssueResponse> ExpressCheckIssueAsync(ExpressCheckIssueRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.ExpressCheckIssueAsync, new ExpressCheckIssueRequestBody(request));
+            var response = await SendAsync(Channel.ExpressCheckIssueAsync, new ExpressCheckIssueRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -660,19 +547,12 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<ExpressCheckMaintenanceResponse> ExpressCheckMaintenanceAsync(ExpressCheckMaintenanceRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.ExpressCheckMaintenanceAsync, new ExpressCheckMaintenanceRequestBody(request));
+            var response = await SendAsync(Channel.ExpressCheckMaintenanceAsync, new ExpressCheckMaintenanceRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -682,19 +562,12 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<ExpressCheckRetrievalResponse> ExpressCheckRetrievalAsync(ExpressCheckRetrievalRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.ExpressCheckRetrievalAsync, new ExpressCheckRetrievalRequestBody(request));
+            var response = await SendAsync(Channel.ExpressCheckRetrievalAsync, new ExpressCheckRetrievalRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
 
@@ -706,19 +579,12 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<LoadMoneyResponse> LoadMoneyAsync(LoadMoneyRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.LoadMoneyAsync, new LoadMoneyRequestBody(request));
+            var response = await SendAsync(Channel.LoadMoneyAsync, new LoadMoneyRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -726,21 +592,14 @@ namespace Comdata.RealTimeOnline0103
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<LoadMoneyCancelResponse> LoadMoneyCancelAsync(LoadMoneyCancelRequest request)
+        public async Task<bool> LoadMoneyCancelAsync(LoadMoneyCancelRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.LoadMoneyCancelAsync, new LoadMoneyCancelRequestBody(request));
+            var response = await SendAsync(Channel.LoadMoneyCancelAsync, new LoadMoneyCancelRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         /// <summary>
@@ -750,19 +609,12 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<LoadMoneyComchekResponse> LoadMoneyComchekAsync(LoadMoneyComchekRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.LoadMoneyComchekAsync, new LoadMoneyComchekRequestBody(request));
+            var response = await SendAsync(Channel.LoadMoneyComchekAsync, new LoadMoneyComchekRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         #endregion Express Cash Webservice Methods
@@ -774,21 +626,14 @@ namespace Comdata.RealTimeOnline0103
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<LocationMaintenanceResponse> LocationMaintenanceAsync(LocationMaintenanceRequest request)
+        public async Task<bool> LocationMaintenanceAsync(LocationMaintenanceRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.LocationMaintenanceAsync, new LocationMaintenanceRequestBody(request));
+            var response = await SendAsync(Channel.LocationMaintenanceAsync, new LocationMaintenanceRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         #endregion Location Webservice Methods
@@ -806,7 +651,7 @@ namespace Comdata.RealTimeOnline0103
         /// <param name="discretionaryData">Any discretionary data that the requestor would like returned in the response record. (optional)</param>
         /// <param name="trackingNumber">Any Number (data type: long)</param>
         /// <returns></returns>
-        public async Task<PinSetResponse> PinSetAsync(string accountCode, string cardNumber, string customerId, string pin, string? discretionaryData = null, long? trackingNumber = null)
+        public async Task<bool> PinSetAsync(string accountCode, string cardNumber, string customerId, string pin, string? discretionaryData = null, long? trackingNumber = null)
         {
             var request = new PinSetRequest
             {
@@ -822,19 +667,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.PinSetAsync, new PinSetRequestBody(request));
+            var response = await SendAsync(Channel.PinSetAsync, new PinSetRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         /// <summary>
@@ -846,7 +684,7 @@ namespace Comdata.RealTimeOnline0103
         /// <param name="discretionaryData">Any discretionary data that the requestor would like returned in the response record. (optional)</param>
         /// <param name="trackingNumber">Any Number (data type: long)</param>
         /// <returns></returns>
-        public async Task<PinResetResponse> PinResetAsync(string accountCode, string cardNumber, string customerId, string? discretionaryData = null, long? trackingNumber = null)
+        public async Task<bool> PinResetAsync(string accountCode, string cardNumber, string customerId, string? discretionaryData = null, long? trackingNumber = null)
         {
             var request = new PinResetRequest
             {
@@ -861,57 +699,36 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.PinResetAsync, new PinResetRequestBody(request));
+            var response = await SendAsync(Channel.PinResetAsync, new PinResetRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         #endregion PIN Webservice Methods
 
         #region Transfer Webservice Methods
 
-        public async Task<TransferToBankResponse> TransferToBankAsync(TransferToBankRequest request)
+        public async Task<bool> TransferToBankAsync(TransferToBankRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.TransferToBankAsync, new TransferToBankRequestBody(request));
+            var response = await SendAsync(Channel.TransferToBankAsync, new TransferToBankRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         public async Task<TransferMaintenanceByCardtokenResponse> TransferMaintenanceByCardtokenAsync(TransferMaintenanceByCardtokenRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.TransferMaintenanceByCardtokenAsync, new TransferMaintenanceByCardtokenRequestBody(request));
+            var response = await SendAsync(Channel.TransferMaintenanceByCardtokenAsync, new TransferMaintenanceByCardtokenRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         #endregion Transfer Webservice Methods
@@ -925,19 +742,12 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<VirtualCardAddResponse> VirtualCardAddAsync(VirtualCardAddRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.VirtualCardAddAsync, new VirtualCardAddRequestBody(request));
+            var response = await SendAsync(Channel.VirtualCardAddAsync, new VirtualCardAddRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -947,19 +757,12 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<VirtualCardInquiryResponse> VirtualCardInquiryAsync(VirtualCardInquiryRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.VirtualCardInquiryAsync, new VirtualCardInquiryRequestBody(request));
+            var response = await SendAsync(Channel.VirtualCardInquiryAsync, new VirtualCardInquiryRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -967,21 +770,14 @@ namespace Comdata.RealTimeOnline0103
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<VirtualCardUpdateResponse> VirtualCardUpdateAsync(VirtualCardUpdateRequest request)
+        public async Task<bool> VirtualCardUpdateAsync(VirtualCardUpdateRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.VirtualCardUpdateAsync, new VirtualCardUpdateRequestBody(request));
+            var response = await SendAsync(Channel.VirtualCardUpdateAsync, new VirtualCardUpdateRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         #endregion Virtual Card Webservice Methods
@@ -995,19 +791,12 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<VirtualComchekAddResponse> VirtualComchekAddAsync(VirtualComchekAddRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.VirtualComchekAddAsync, new VirtualComchekAddRequestBody(request));
+            var response = await SendAsync(Channel.VirtualComchekAddAsync, new VirtualComchekAddRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -1033,19 +822,12 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
-            try
-            {
-                var response = await SendAsync(Channel.VirtualComchekInquiryAsync, new VirtualComchekInquiryRequestBody(request));
+            var response = await SendAsync(Channel.VirtualComchekInquiryAsync, new VirtualComchekInquiryRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content;
         }
 
         /// <summary>
@@ -1053,21 +835,14 @@ namespace Comdata.RealTimeOnline0103
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<VirtualComchekUpdateResponse> VirtualComchekUpdateAsync(VirtualComchekUpdateRequest request)
+        public async Task<bool> VirtualComchekUpdateAsync(VirtualComchekUpdateRequest request)
         {
-            try
-            {
-                var response = await SendAsync(Channel.VirtualComchekUpdateAsync, new VirtualComchekUpdateRequestBody(request));
+            var response = await SendAsync(Channel.VirtualComchekUpdateAsync, new VirtualComchekUpdateRequestBody(request));
 
-                if (response.Content.ResponseCode > 0)
-                    throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+            if (response.Content.ResponseCode > 0)
+                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
-                return response.Content;
-            }
-            catch (Exception ex)
-            {
-                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
-            }
+            return response.Content.ResponseCode == 0;
         }
 
         #endregion Virtual Comchek Webservice Methods
@@ -1246,6 +1021,10 @@ namespace Comdata.RealTimeOnline0103
             catch (FaultException ex)
             {
                 throw new ComdataOperationException($"An {ex.GetType().Name} occurred while executing the request.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ComdataException($"An {ex.GetType().Name} occurred while communicating with the Comdata web service.", ex);
             }
         }
 

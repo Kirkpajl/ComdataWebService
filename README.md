@@ -1,4 +1,4 @@
-![Comdata Logo](https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/master/comdata-logo.png "Comdata Logo")
+![Comdata Logo](https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/master/res/comdata-logo.png "Comdata Logo")
 
 # Comdata Web Service
 

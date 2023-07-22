@@ -1,19 +1,16 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "virtualCardUpdateResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class VirtualCardUpdateResponseBody : IResponse //ISoapResponseBody<VirtualCardUpdateResponse>
+    public partial class VirtualCardUpdateResponseBody : IResponse<VirtualCardUpdateResponse>
     {
         public VirtualCardUpdateResponseBody() : this(new VirtualCardUpdateResponse()) { }
         public VirtualCardUpdateResponseBody(VirtualCardUpdateResponse response) { Content = response; }
@@ -33,7 +30,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class VirtualCardUpdateResponse  // : ISoapResponse
+    public partial class VirtualCardUpdateResponse : IResponse
     {
         /// <summary>
         /// Value assigned by Comdata.

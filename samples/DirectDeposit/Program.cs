@@ -11,7 +11,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
-namespace Comdata.Tests.DirectDeposit
+namespace Comdata.Samples.DirectDeposit
 {
     class Program
     {
@@ -62,17 +62,16 @@ namespace Comdata.Tests.DirectDeposit
             var sw = new Stopwatch();
             sw.Start();
 
-            CardListingV02Response lastResult;
+            PaginatedDataSet<CardListingRecordV02> lastResult;
             do
             {
                 lastResult = await maintenanceClient.CardListingV02Async(
-                    new CardListingV02Request(
-                        new[] { new AccountCodeRecord(settings.AccountCode) },
-                        CardListingMaskCardFlag.No,
-                        CardListingStatus.Active,
-                        CardListingSortOption.CardNumber,
-                        pageSize,
-                        page));
+                    new[] { new AccountCodeRecord(settings.AccountCode) },
+                    CardListingMaskCardFlag.No,
+                    CardListingStatus.Active,
+                    CardListingSortOption.CardNumber,
+                    pageSize,
+                    page);
 
                 if (lastResult.RecordCount > 0) records.AddRange(lastResult.Records);
                 page++;

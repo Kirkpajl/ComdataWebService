@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>Comdata.Tests.DirectDeposit</RootNamespace>
+    <RootNamespace>Comdata.Samples.DirectDeposit</RootNamespace>
     <UserSecretsId>872feb8e-20f6-443b-849c-b1ed24919803</UserSecretsId>
   </PropertyGroup>
 

@@ -16,29 +16,29 @@ namespace Comdata.FleetCreditWS0200.Models
     public partial class RealTimeTransactionHistoryV04Response : IResponse
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "pageCount", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> PageCount { get; set; }
+        [XmlElement(ElementName = "pageCount", Form = XmlSchemaForm.Unqualified)]
+        public int PageCount { get; set; }  //Nullable<int>
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; }  //Nullable<int>
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> RecordCount { get; set; }
+        [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified)]
+        public int RecordCount { get; set; }  //Nullable<int>
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
         [XmlArray(ElementName = "records", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         [XmlArrayItem(Form = XmlSchemaForm.Unqualified)]
-        public RtTransactionRecordV04[]? Records { get; set; }
+        public RtTransactionRecordV04[] Records { get; set; } = Array.Empty<RtTransactionRecordV04>();
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseCode { get; set; }
+        public int ResponseCode { get; set; }  //string?
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseDescription { get; set; }
+        public string ResponseDescription { get; set; } = default!;
 
 
 
@@ -46,10 +46,10 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public RealTimeTransactionHistoryV04Response(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, RtTransactionRecordV04[] records, string responseCode, string responseDescription)
+        public RealTimeTransactionHistoryV04Response(int pageCount, int pageNumber, int recordCount, RtTransactionRecordV04[] records, int responseCode, string responseDescription)
         {
             this.PageCount = pageCount;
-            this.PageNumber = pageNbr;
+            this.PageNumber = pageNumber;
             this.RecordCount = recordCount;
             this.Records = records;
             this.ResponseCode = responseCode;

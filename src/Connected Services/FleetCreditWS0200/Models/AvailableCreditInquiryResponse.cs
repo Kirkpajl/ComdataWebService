@@ -1,4 +1,5 @@
 using Comdata.Models.Internals;
+using System;
 using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
@@ -15,15 +16,15 @@ namespace Comdata.FleetCreditWS0200.Models
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlArray(ElementName = "ArrayOfAvailableCreditInquiryRecords", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         [XmlArrayItem(Form = XmlSchemaForm.Unqualified)]
-        public AvailableCreditInquiryRecord[]? Records { get; set; }
+        public AvailableCreditInquiryRecord[] Records { get; set; } = Array.Empty<AvailableCreditInquiryRecord>();
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseCode { get; set; }
+        public int ResponseCode { get; set; } = default!;  //string?
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseDescription { get; set; }
+        public string ResponseDescription { get; set; } = default!;
 
 
 
@@ -31,7 +32,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public AvailableCreditInquiryResponse(AvailableCreditInquiryRecord[] ArrayOfAvailableCreditInquiryRecords, string responseCode, string responseDescription)
+        public AvailableCreditInquiryResponse(AvailableCreditInquiryRecord[] ArrayOfAvailableCreditInquiryRecords, int responseCode, string responseDescription)
         {
             this.Records = ArrayOfAvailableCreditInquiryRecords;
             this.ResponseCode = responseCode;

@@ -15,16 +15,16 @@ namespace Comdata.RealTimeOnline0103.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "virtualComchekAdd", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class VirtualComchekAddRequestBody : IRequest  //ISoapRequestBody<VirtualComchekAddRequest>
+    public partial class VirtualComchekAddRequestBody : IRequest<VirtualComchekAddRequest>
     {
         public VirtualComchekAddRequestBody() : this(new VirtualComchekAddRequest()) { }
-        public VirtualComchekAddRequestBody(VirtualComchekAddRequest request) { Request = request; }
+        public VirtualComchekAddRequestBody(VirtualComchekAddRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "addRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public VirtualComchekAddRequest Request { get; set; }
+        public VirtualComchekAddRequest Content { get; set; }
     }
 
 
@@ -35,7 +35,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class VirtualComchekAddRequest// : ISoapRequest
+    public partial class VirtualComchekAddRequest : IRequest
     {
         /// <summary>
         /// Value assigned by Comdata.

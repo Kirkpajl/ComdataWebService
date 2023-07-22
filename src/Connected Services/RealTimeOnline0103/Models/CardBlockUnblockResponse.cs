@@ -1,19 +1,16 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Serialization;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
-using System.CodeDom.Compiler;
+using System.Xml.Serialization;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "cardBlockUnblockResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardBlockUnblockResponseBody : IResponse  //, ISoapResponseBody<CardBlockUnblockResponse>
+    public partial class CardBlockUnblockResponseBody : IResponse<CardBlockUnblockResponse>
     {
         public CardBlockUnblockResponseBody() : this(new CardBlockUnblockResponse()) { }
         public CardBlockUnblockResponseBody(CardBlockUnblockResponse response) { Content = response; }
@@ -25,40 +22,13 @@ namespace Comdata.RealTimeOnline0103.Models
         public CardBlockUnblockResponse Content { get; set; }
     }
 
-    /*[DebuggerStepThrough()]
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [MessageContract(WrapperName = "cardBlockUnblockResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardBlockUnblockResponseBody
-    {
-        public CardBlockUnblockResponseBody()
-        {
-            this.Response = new CardBlockUnblockResponse();
-        }
-
-        public CardBlockUnblockResponseBody(CardBlockUnblockResponse response)
-        {
-            this.Response = response;
-        }
-
-
-
-<<<<<<< HEAD
-        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElement(ElementName = "cardBlockUnblockReturn", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-=======
-        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElementAttribute(ElementName = "cardBlockUnblockReturn", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
->>>>>>> releases/v1.0.0
-        public CardBlockUnblockResponse Response { get; set; }
-    }*/
-
 
 
     /// <remarks/>
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlTypeAttribute(Namespace = "http://cows0103.comdata.com")]
-    public partial class CardBlockUnblockResponse  // : ISoapResponse
+    public partial class CardBlockUnblockResponse : IResponse
     {
         /// <summary>
         /// Value assigned by Comdata.

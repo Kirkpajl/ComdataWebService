@@ -1,13 +1,10 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Comdata.RealTimeOnline0103.Enumerations;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using Comdata.RealTimeOnline0103.Enumerations;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
@@ -17,41 +14,17 @@ namespace Comdata.RealTimeOnline0103.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "loadMoneyComchek", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class LoadMoneyComchekRequestBody : IRequest  //ISoapRequestBody<LoadMoneyComchekRequest>
+    public partial class LoadMoneyComchekRequestBody : IRequest<LoadMoneyComchekRequest>
     {
         public LoadMoneyComchekRequestBody() : this(new LoadMoneyComchekRequest()) { }
-        public LoadMoneyComchekRequestBody(LoadMoneyComchekRequest request) { Request = request; }
+        public LoadMoneyComchekRequestBody(LoadMoneyComchekRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "loadComchekRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public LoadMoneyComchekRequest Request { get; set; }
+        public LoadMoneyComchekRequest Content { get; set; }
     }
-
-    /*[DebuggerStepThrough()]
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [MessageContract(WrapperName = "loadMoneyComchek", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class LoadMoneyComchekRequestBody
-    {
-        public LoadMoneyComchekRequestBody() : this(new LoadMoneyComchekRequest()) { }
-
-        public LoadMoneyComchekRequestBody(LoadMoneyComchekRequest request)
-        {
-            this.Request = request;
-        }
-
-
-
-<<<<<<< HEAD
-        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElement(ElementName = "loadComchekRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-=======
-        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElementAttribute(ElementName = "loadComchekRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
->>>>>>> releases/v1.0.0
-        public LoadMoneyComchekRequest Request { get; set; }
-    }*/
 
 
 
@@ -61,7 +34,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class LoadMoneyComchekRequest// : ISoapRequest
+    public partial class LoadMoneyComchekRequest : IRequest
     {
         /// <summary>
         /// Value assigned by Comdata.

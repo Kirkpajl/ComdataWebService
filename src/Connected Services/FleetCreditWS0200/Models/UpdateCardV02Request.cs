@@ -1,13 +1,11 @@
 ﻿using Comdata.FleetCreditWS0200.Enumerations;
 using Comdata.Models.Internals;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -43,7 +41,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaskCardFlag;
+        public YesNoNullCharFlag? MaskCardFlag;  //string?
 
 
 
@@ -51,7 +49,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public UpdateCardV02Request(System.Nullable<CardIdentifierType> cardIdentifierType, string cardIdentifier, CardRecordV01 cardDetails, MailingDetailsV02 mailingDetails, string maskCardFlag)
+        public UpdateCardV02Request(System.Nullable<CardIdentifierType> cardIdentifierType, string cardIdentifier, CardRecordV01 cardDetails, MailingDetailsV02 mailingDetails, YesNoNullCharFlag maskCardFlag)
         {
             this.CardIdentifierType = cardIdentifierType;
             this.CardIdentifier = cardIdentifier;

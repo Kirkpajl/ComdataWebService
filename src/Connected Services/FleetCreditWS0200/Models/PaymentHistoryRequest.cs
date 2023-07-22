@@ -16,8 +16,8 @@ namespace Comdata.FleetCreditWS0200.Models
     public partial class PaymentHistoryRequest : IRequest
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "accountCode", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? AccountCode { get; set; }
+        [XmlElement(ElementName = "accountCode", Form = XmlSchemaForm.Unqualified)]
+        public string AccountCode { get; set; } = default!;  //string?
 
 
 

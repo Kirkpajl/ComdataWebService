@@ -23,15 +23,15 @@ namespace Comdata.FleetCreditWS0200.Models
         /// 0=Update Complete Anything Else=Error
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? ResponseCode { get; set; }
+        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
+        public int ResponseCode { get; set; } = default!;  //string?
 
         /// <summary>
         /// Response description
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? ResponseDescription { get; set; }
+        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
+        public string ResponseDescription { get; set; } = default!;  //string?
 
 
 
@@ -39,7 +39,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public UpdateCardProfileLimitsResponse(Models.CardProfileLimitReqResUtil responseUtil, string responseCode, string responseDescription)
+        public UpdateCardProfileLimitsResponse(Models.CardProfileLimitReqResUtil responseUtil, int responseCode, string responseDescription)
         {
             this.ResponseUtil = responseUtil;
             this.ResponseCode = responseCode;

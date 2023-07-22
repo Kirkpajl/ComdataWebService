@@ -19,22 +19,22 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Numeric vehicle ID of 6 digits; the field permits 16 digits
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "vehicleId", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? VehicleId { get; set; }
-
-        /// <summary>
-        /// Customer ID assigned by Comdata. (4-digit Customer IDs will include a leading zero.)
-        /// </summary>
-        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "custId", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? CustId { get; set; }
+        [XmlElement(ElementName = "vehicleId", Form = XmlSchemaForm.Unqualified)]
+        public string VehicleId { get; set; } = default!;
 
         /// <summary>
         /// Value assigned by Comdata
         /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
+        [XmlElement(ElementName = "acctNbr", Form = XmlSchemaForm.Unqualified)]
+        public string AccountNumber { get; set; } = default!;
+
+        /// <summary>
+        /// Customer ID assigned by Comdata. (4-digit Customer IDs will include a leading zero.)
+        /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "acctNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? AcctNbr { get; set; }
+        [XmlElement(ElementName = "custId", Form = XmlSchemaForm.Unqualified)]
+        public string CustomerId { get; set; } = default!;
 
 
 
@@ -42,11 +42,11 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public DeleteVehicleIdRequest(string vehicleId, string custId, string acctNbr)
+        public DeleteVehicleIdRequest(string vehicleId, string accountNumber, string customerId)
         {
             this.VehicleId = vehicleId;
-            this.CustId = custId;
-            this.AcctNbr = acctNbr;
+            this.AccountNumber = accountNumber;
+            this.CustomerId = customerId;
         }
     }
 }

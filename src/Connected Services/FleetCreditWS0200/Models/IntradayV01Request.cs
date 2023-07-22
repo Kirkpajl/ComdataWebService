@@ -1,15 +1,11 @@
-﻿using Comdata.Models.Internals;
+﻿using Comdata.FleetCreditWS0200.Enumerations;
+using Comdata.Models.Internals;
 using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using System.Security.Cryptography;
-using System.Text;
-using System.Transactions;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -22,8 +18,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Number of rows to display per page; values between 1 and 10,000; the default is 10,000
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaxRows { get; set; }
+        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified)]
+        public int MaxRows { get; set; } = 10000;  //string?
 
         /// <summary>
         /// YYYY-MM-DD
@@ -40,8 +36,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Masked card numbers appear as follows: 123456XXXXXX1234
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaskCardFlag { get; set; }
+        [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified)]
+        public YesNoCharFlag MaskCardFlag { get; set; } = YesNoCharFlag.No;
 
         /// <summary>
         /// Searches can return up to 10,000 records per page (or maxRows).
@@ -49,8 +45,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// number greater than 1 to see these additional pages.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; } = 1;  //string?
 
         /// <summary>
         /// PD = Product Details level data will be provided.
@@ -58,8 +54,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         /// <remarks>*Note: Product Details is a future feature that is not fully available yet.</remarks>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
-        [XmlElement(ElementName = "detailType", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? DetailType { get; set; }
+        [XmlElement(ElementName = "detailType", Form = XmlSchemaForm.Unqualified)]
+        public IntradayDetailType DetailType { get; set; } = IntradayDetailType.Regular;  //string?
 
         /// <summary>
         /// HH:MM:SS
@@ -77,14 +73,17 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public IntradayV01Request(string maxRows, string startDate, string maskCardFlag, string pageNbr, string detailType, string startTime)
+        public IntradayV01Request(DateTime? start, IntradayDetailType detailType = IntradayDetailType.Regular, YesNoCharFlag maskCardFlag = YesNoCharFlag.No, int maxRows = 10000, int pageNumber = 1)
+            : this(start?.ToString("yyyy-MM-dd"), start?.ToString("HH:mm:ss"), detailType, maskCardFlag, maxRows, pageNumber) { }
+
+        public IntradayV01Request(string? startDate, string? startTime, IntradayDetailType detailType, YesNoCharFlag maskCardFlag, int maxRows = 10000, int pageNumber = 1)
         {
-            this.MaxRows = maxRows;
             this.StartDate = startDate;
-            this.MaskCardFlag = maskCardFlag;
-            this.PageNumber = pageNbr;
-            this.DetailType = detailType;
             this.StartTime = startTime;
+            this.DetailType = detailType;
+            this.MaskCardFlag = maskCardFlag;
+            this.MaxRows = maxRows;
+            this.PageNumber = pageNumber;
         }
     }
 }

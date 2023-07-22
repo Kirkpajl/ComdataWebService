@@ -1,30 +1,28 @@
-﻿using Comdata.RealTimeOnline0103.Enumerations;
-using Comdata.Models.Internals;
+﻿using Comdata.Models.Internals;
+using Comdata.RealTimeOnline0103.Enumerations;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Serialization;
-using System.Globalization;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
+using System.Globalization;
 using System.ServiceModel;
 using System.Xml.Schema;
-using System.CodeDom.Compiler;
+using System.Xml.Serialization;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "loadMoney", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class LoadMoneyRequestBody : IRequest  //ISoapRequestBody<LoadMoneyRequest>
+    public partial class LoadMoneyRequestBody : IRequest<LoadMoneyRequest>
     {
         public LoadMoneyRequestBody() : this(new LoadMoneyRequest()) { }
-        public LoadMoneyRequestBody(LoadMoneyRequest request) { Request = request; }
+        public LoadMoneyRequestBody(LoadMoneyRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "loadRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public LoadMoneyRequest Request { get; set; }
+        public LoadMoneyRequest Content { get; set; }
     }
 
 
@@ -35,7 +33,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class LoadMoneyRequest// : ISoapRequest
+    public partial class LoadMoneyRequest : IRequest
     {
         //[XmlElement(ElementName = "availableDateTime", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 0)]
         //public Nullable<System.DateTime> AvailableDateTime { get; set; }

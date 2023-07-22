@@ -1,4 +1,4 @@
-﻿namespace Comdata.Tests.DirectDeposit
+﻿namespace Comdata.Samples.DirectDeposit
 {
     internal class ComdataSettings
     {

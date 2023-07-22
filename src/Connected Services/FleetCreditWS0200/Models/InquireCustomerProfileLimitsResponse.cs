@@ -17,19 +17,19 @@ namespace Comdata.FleetCreditWS0200.Models
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "responseUtil", Form = XmlSchemaForm.Unqualified)]
-        public CustomerProfileLimitReqRespUtil? ResponseUtil { get; set; }
+        public CustomerProfileLimitReqRespUtil ResponseUtil { get; set; } = default!;  //CustomerProfileLimitReqRespUtil?
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "profileLimits", Form = XmlSchemaForm.Unqualified)]
-        public ProfileLimits? ProfileLimits { get; set; }
+        public ProfileLimits ProfileLimits { get; set; } = default!;  //ProfileLimits?
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? ResponseCode { get; set; }
+        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
+        public int ResponseCode { get; set; }  //string?
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? ResponseDescription { get; set; }
+        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
+        public string ResponseDescription { get; set; } = default!;
 
 
 
@@ -37,7 +37,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireCustomerProfileLimitsResponse(CustomerProfileLimitReqRespUtil responseUtil, ProfileLimits profileLimits, string responseCode, string responseDescription)
+        public InquireCustomerProfileLimitsResponse(CustomerProfileLimitReqRespUtil responseUtil, ProfileLimits profileLimits, int responseCode, string responseDescription)
         {
             this.ResponseUtil = responseUtil;
             this.ProfileLimits = profileLimits;

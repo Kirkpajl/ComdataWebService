@@ -1,14 +1,9 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Security.Principal;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -18,16 +13,9 @@ namespace Comdata.FleetCreditWS0200.Models
     public partial class CustIdListingRequest : IRequest
     {
         /// <summary>
-        /// Number of rows to display per page; values between 1 and 10,000; the default is 10,000
-        /// </summary>
-        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaxRows { get; set; }
-
-        /// <summary>
         /// 1 or more 5-digit alphanumeric account codes.  *Omit if you are pulling the list by customer IDs
         /// </summary>
-        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlArray(Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         [XmlArrayItem("accountCodes", Form = XmlSchemaForm.Unqualified)]
         public string[]? AccountCodes { get; set; }
@@ -35,10 +23,17 @@ namespace Comdata.FleetCreditWS0200.Models
         /// <summary>
         /// 1 or more 4- or 5-digit Customer IDs.  *Omit if you are pulling the list by account code
         /// </summary>
-        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlArray(ElementName = "customerIds", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         [XmlArrayItem("customerId", Form = XmlSchemaForm.Unqualified)]
         public string[]? CustomerIds { get; set; }
+
+        /// <summary>
+        /// Number of rows to display per page; values between 1 and 10,000; the default is 10,000
+        /// </summary>
+        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
+        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified)]
+        public int MaxRows { get; set; }
 
         /// <summary>
         /// Searches can return up to 10,000 records per page (or maxRows).
@@ -47,7 +42,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
-        public string? PageNbr { get; set; }
+        public int PageNumber { get; set; } = 1;
 
 
 
@@ -55,12 +50,12 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public CustIdListingRequest(string maxRows, string[] accountCodes, string[] customerIds, string pageNbr)
+        public CustIdListingRequest(string[] accountCodes, string[] customerIds, int maxRows, int pageNumber)
         {
-            this.MaxRows = maxRows;
             this.AccountCodes = accountCodes;
             this.CustomerIds = customerIds;
-            this.PageNbr = pageNbr;
+            this.MaxRows = maxRows;
+            this.PageNumber = pageNumber;
         }
     }
 }

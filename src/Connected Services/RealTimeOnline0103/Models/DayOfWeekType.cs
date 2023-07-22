@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
+﻿using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
@@ -26,7 +23,7 @@ namespace Comdata.RealTimeOnline0103.Models
 
 
 
-        public XmlSchema? GetSchema() => null;
+        public readonly XmlSchema? GetSchema() => null;
 
         public void ReadXml(XmlReader reader)
         {
@@ -55,7 +52,7 @@ namespace Comdata.RealTimeOnline0103.Models
             }
         }
 
-        public void WriteXml(XmlWriter writer)
+        public readonly void WriteXml(XmlWriter writer)
         {
             char[] bits = new[]
             {

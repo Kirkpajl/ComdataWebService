@@ -48,29 +48,29 @@ namespace Comdata.FleetCreditWS0200.Models
         /// C, E, c, or e (Card Number or Employee Number); indicates the number type used for empNumCardNumValue
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
-        [XmlElement(ElementName = "empNumCardNumFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<EmpNumCardNumFlag> EmpNumCardNumFlag { get; set; }
+        [XmlElement(ElementName = "empNumCardNumFlag", Form = XmlSchemaForm.Unqualified)]
+        public EmpNumCardNumFlag EmpNumCardNumFlag { get; set; }
 
         /// <summary>
         /// Employee number or card number to search
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
-        [XmlElement(ElementName = "empNumCardNumValue", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? EmpNumCardNumValue { get; set; }
+        [XmlElement(ElementName = "empNumCardNumValue", Form = XmlSchemaForm.Unqualified)]
+        public string EmpNumCardNumValue { get; set; } = default!;
 
         /// <summary>
         /// YYYY MM DD (Year Month Date)
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 6)]
-        [XmlElement(ElementName = "cardExpirationDate", Form = XmlSchemaForm.Unqualified, DataType = "date", IsNullable = true)]
-        public Nullable<System.DateTime> CardExpirationDate { get; set; }
+        [XmlElement(ElementName = "cardExpirationDate", Form = XmlSchemaForm.Unqualified, DataType = "date")]
+        public DateTime CardExpirationDate { get; set; } = default!;
 
         /// <summary>
         /// Y (yes) or N (no); yes masks the full card number
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 7)]
         [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaskCardFlag { get; set; }
+        public YesNoCharFlag? MaskCardFlag { get; set; }  //string?
 
 
 
@@ -78,7 +78,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireCardSecurityCodeRequest(string accountCode, string customerId, string discretionaryData, string trackingNumber, System.Nullable<EmpNumCardNumFlag> empNumCardNumFlag, string empNumCardNumValue, System.Nullable<System.DateTime> cardExpirationDate, string maskCardFlag)
+        public InquireCardSecurityCodeRequest(string accountCode, string customerId, string discretionaryData, string trackingNumber, EmpNumCardNumFlag empNumCardNumFlag, string empNumCardNumValue, DateTime cardExpirationDate, YesNoCharFlag? maskCardFlag)
         {
             this.AccountCode = accountCode;
             this.CustomerId = customerId;

@@ -1,30 +1,27 @@
 ﻿using Comdata.Models.Internals;
+using Comdata.RealTimeOnline0103.Enumerations;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using System.Runtime.ConstrainedExecution;
-using Comdata.RealTimeOnline0103.Enumerations;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "virtualCardUpdate", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class VirtualCardUpdateRequestBody : IRequest  //ISoapRequestBody<VirtualCardUpdateRequest>
+    public partial class VirtualCardUpdateRequestBody : IRequest<VirtualCardUpdateRequest>
     {
         public VirtualCardUpdateRequestBody() : this(new VirtualCardUpdateRequest()) { }
-        public VirtualCardUpdateRequestBody(VirtualCardUpdateRequest request) { Request = request; }
+        public VirtualCardUpdateRequestBody(VirtualCardUpdateRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "updateRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public VirtualCardUpdateRequest Request { get; set; }
+        public VirtualCardUpdateRequest Content { get; set; }
     }
 
 
@@ -35,7 +32,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class VirtualCardUpdateRequest// : ISoapRequest
+    public partial class VirtualCardUpdateRequest : IRequest
     {
         /// <summary>
         /// Value assigned by Comdata.

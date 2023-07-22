@@ -1,19 +1,16 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "transferMaintenanceResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardTransferMaintenanceResponseBody : IResponse //ISoapResponseBody<CardTransferMaintenanceResponse>
+    public partial class CardTransferMaintenanceResponseBody : IResponse<CardTransferMaintenanceResponse>
     {
         public CardTransferMaintenanceResponseBody() : this(new CardTransferMaintenanceResponse()) { }
         public CardTransferMaintenanceResponseBody(CardTransferMaintenanceResponse response) { Content = response; }
@@ -25,37 +22,13 @@ namespace Comdata.RealTimeOnline0103.Models
         public CardTransferMaintenanceResponse Content { get; set; }
     }
 
-    /*[DebuggerStepThrough()]
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [MessageContract(WrapperName = "transferMaintenanceResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class TransferMaintenanceResponseBody
-    {
-        public TransferMaintenanceResponseBody() : this(new TransferMaintenanceResponse()) { }
-
-        public TransferMaintenanceResponseBody(TransferMaintenanceResponse response)
-        {
-            this.Response = response;
-        }
-
-
-
-<<<<<<< HEAD
-        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElement(ElementName = "transferMaintenanceResponse", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-=======
-        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElementAttribute(ElementName = "transferMaintenanceResponse", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
->>>>>>> releases/v1.0.0
-        public TransferMaintenanceResponse Response { get; set; }
-    }*/
-
 
 
     /// <remarks/>
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class CardTransferMaintenanceResponse  // : ISoapResponse
+    public partial class CardTransferMaintenanceResponse : IResponse
     {
         /// <summary>
         /// 5-digit alphanumeric account code
