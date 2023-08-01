@@ -50,7 +50,7 @@ namespace Comdata.Samples.DirectDeposit
         private static async Task<CardListingRecordV02[]> GetActiveCardsAsync(ComdataSettings settings)
         {
             // Initialize the Maintenance WebService client
-            var maintenanceClient = new FleetCreditWS0200Client("https://w8cert.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200");
+            var maintenanceClient = new FleetCreditWS0200Client(ComdataEndpointType.Production);
             maintenanceClient.SetServiceCredentials(settings.WebserviceUserName, settings.WebservicePassword);
             maintenanceClient.SetNetworkCredentials(settings.NetworkUserName, settings.NetworkPassword);
 
@@ -95,7 +95,7 @@ namespace Comdata.Samples.DirectDeposit
         private static async Task CheckDirectDepositStatusAsync(ComdataSettings settings, CardListingRecordV02[] cards)
         {
             // Initialize the client using the Comdata test service
-            var client = new RealTimeOnline0103Client("https://w8cert.iconnectdata.com/cows/services/RealTimeOnline0103");
+            var client = new RealTimeOnline0103Client(ComdataEndpointType.Production);
             client.SetServiceCredentials(settings.WebserviceUserName, settings.WebservicePassword);
             client.SetNetworkCredentials(settings.NetworkUserName, settings.NetworkPassword);
             client.SetSecurityCard(settings.SecurityCardNumber);

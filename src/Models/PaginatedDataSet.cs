@@ -9,8 +9,8 @@ namespace Comdata.FleetCreditWS0200.Models
             Records = records ?? Array.Empty<TRecord>();
             RecordCount = recordCount ?? 0;
 
-            PageNumber = pageNumber ?? 0;
-            PageCount = pageCount ?? 0;
+            PageNumber = pageNumber ?? 1;
+            PageCount = pageCount ?? 1;
         }
 
 

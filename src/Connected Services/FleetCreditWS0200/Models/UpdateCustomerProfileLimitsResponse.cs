@@ -24,14 +24,14 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public int ResponseCode { get; set; } = default!;  //string?
+        public int ResponseCode { get; set; }
 
         /// <summary>
         /// If the request succeeded, the response message should be: UPDATE SUCCESSFUL
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string ResponseDescription { get; set; } = default!;
+        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
+        public string ResponseDescription { get; set; } = string.Empty;
 
 
 

@@ -46,14 +46,14 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public int ResponseCode { get; set; }  //string?
+        public int ResponseCode { get; set; }
 
         /// <summary>
         /// If the request succeeded, the message should be: OK
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string ResponseDescription { get; set; } = default!;
+        public string ResponseDescription { get; set; } = string.Empty;
 
 
 
@@ -61,7 +61,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireDriverIdResponse(int pageCount, int pageNbr, int recordCount, DriverIdSearchRecord[] records, int responseCode, string responseDescription)
+        public InquireDriverIdResponse(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, DriverIdSearchRecord[] records, int responseCode, string responseDescription)
         {
             this.PageCount = pageCount;
             this.PageNumber = pageNbr;

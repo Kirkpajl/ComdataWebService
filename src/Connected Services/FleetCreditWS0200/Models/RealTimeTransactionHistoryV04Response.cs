@@ -34,11 +34,11 @@ namespace Comdata.FleetCreditWS0200.Models
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public int ResponseCode { get; set; }  //string?
+        public int ResponseCode { get; set; }
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string ResponseDescription { get; set; } = default!;
+        public string ResponseDescription { get; set; } = string.Empty;
 
 
 

@@ -26,8 +26,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Current page number displayed
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
-        public int PageNumber { get; set; }  //Nullable<int>
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public Nullable<int> PageNumber { get; set; }
 
         /// <summary>
         /// Number of records on the page; up to 10,000 records per page

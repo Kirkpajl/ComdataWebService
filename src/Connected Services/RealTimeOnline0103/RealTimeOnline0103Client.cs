@@ -1,6 +1,6 @@
-﻿using Comdata.FleetCreditWS0200.Enumerations;
-using Comdata.FleetCreditWS0200.Exceptions;
+﻿using Comdata.Exceptions;
 using Comdata.Models.Internals;
+using Comdata.RealTimeOnline0103.Enumerations;
 using Comdata.RealTimeOnline0103.Models;
 using System;
 using System.Diagnostics;
@@ -13,7 +13,7 @@ namespace Comdata.RealTimeOnline0103
     [DebuggerStepThrough()]
     public partial class RealTimeOnline0103Client : ClientBase<IRealTimeOnline0103>
     {
-        private string _securityCardNumber = string.Empty;
+        private string? _securityCardNumber;
 
 
 
@@ -21,29 +21,29 @@ namespace Comdata.RealTimeOnline0103
 
         public RealTimeOnline0103Client() : base(GetDefaultBinding(), GetDefaultEndpointAddress())
         {
-            Endpoint.Name = EndpointConfiguration.RealTimeOnline0103.ToString();
+            Endpoint.Name = ComdataEndpointType.Production.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
         public RealTimeOnline0103Client(string remoteAddress) : base(GetDefaultBinding(), GetEndpointAddress(remoteAddress))
         {
-            Endpoint.Name = EndpointConfiguration.RealTimeOnline0103.ToString();
+            Endpoint.Name = ComdataEndpointType.Production.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public RealTimeOnline0103Client(EndpointConfiguration endpointConfiguration) : base(GetBindingForEndpoint(endpointConfiguration), GetEndpointAddress(endpointConfiguration))
+        public RealTimeOnline0103Client(ComdataEndpointType endpointConfiguration) : base(GetDefaultBinding(), GetEndpointAddress(endpointConfiguration))
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public RealTimeOnline0103Client(EndpointConfiguration endpointConfiguration, string remoteAddress) : base(GetBindingForEndpoint(endpointConfiguration), new EndpointAddress(remoteAddress))
+        public RealTimeOnline0103Client(ComdataEndpointType endpointConfiguration, string remoteAddress) : base(GetDefaultBinding(), new EndpointAddress(remoteAddress))
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public RealTimeOnline0103Client(EndpointConfiguration endpointConfiguration, EndpointAddress remoteAddress) : base(GetBindingForEndpoint(endpointConfiguration), remoteAddress)
+        public RealTimeOnline0103Client(ComdataEndpointType endpointConfiguration, EndpointAddress remoteAddress) : base(GetDefaultBinding(), remoteAddress)
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
@@ -74,6 +74,10 @@ namespace Comdata.RealTimeOnline0103
         public async Task<bool> CardBlockUnblockAsync(string accountCode, string cardNumber, string customerId,
             string discretionaryData = "", long? trackingNumber = null, bool cardActive = true)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new CardBlockUnblockRequest
             {
                 AccountCode = accountCode,
@@ -88,11 +92,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.CardBlockUnblockAsync, new CardBlockUnblockRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -114,6 +121,10 @@ namespace Comdata.RealTimeOnline0103
         public async Task<CardInquiryResponseV01> CardInquiryAsync(string accountCode, string cardNumber, string customerId,
             string discretionaryData = "", long? trackingNumber = null)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new CardInquiryRequestV01
             {
                 AccountCode = accountCode,
@@ -127,11 +138,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.CardInquiryAsync, new CardInquiryRequestV01Body(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -151,9 +165,13 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataException"></exception>
         /// <exception cref="ComdataBusinessException"></exception>
         /// <exception cref="ComdataOperationException"></exception>
-        public async Task<CardInquiryResponseV02> CardInquiryV02Async(string accountCode, string cardIdentifier, CardIdentifierType cardIdentifierType, string customerId,
+        public async Task<CardInquiryResponseV02> CardInquiryV02Async(string accountCode, string cardIdentifier, CardIdentifierType? cardIdentifierType, string customerId,
             string discretionaryData = "", long? trackingNumber = null, bool maskCard = false)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new CardInquiryRequestV02
             {
                 AccountCode = accountCode,
@@ -169,11 +187,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.CardInquiryV02Async, new CardInquiryRequestV02Body(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -196,6 +217,10 @@ namespace Comdata.RealTimeOnline0103
         public async Task<CardInquiryResponseV03> CardInquiryV03Async(string accountCode, string cardIdentifier, CardIdentifierType cardIdentifierType, string customerId,
             string discretionaryData = "", long? trackingNumber = null, bool maskCard = false)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new CardInquiryRequestV03
             {
                 AccountCode = accountCode,
@@ -211,11 +236,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.CardInquiryV03Async, new CardInquiryRequestV03Body(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -241,6 +269,10 @@ namespace Comdata.RealTimeOnline0103
             string moveFromAccountCode, string moveFromCustomerId, string moveToAccountCode, string moveToCustomerId,
             string discretionaryData = "", long? trackingNumber = null)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new CardMoveMaintenanceRequest
             {
                 AccountCode = accountCode,
@@ -260,11 +292,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.CardMoveMaintenanceAsync, new CardMoveMaintenanceRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -287,6 +322,10 @@ namespace Comdata.RealTimeOnline0103
             string cardAccountCode, string cardCustomerId, string transferFromCardNumber, string transferToCardNumber,
             string discretionaryData = "", long? trackingNumber = null)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new CardTransferMaintenanceRequest
             {
                 AccountCode = accountCode,
@@ -304,11 +343,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.TransferMaintenanceAsync, new CardTransferMaintenanceRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -324,11 +366,17 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<bool> CardUpdateAsync(CardUpdateRequestV01 request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.CardUpdateAsync, new CardUpdateRequestV01Body(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -342,11 +390,17 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<bool> CardUpdateV02Async(CardUpdateRequestV02 request)
         {
+            // Ensure that the required credentials have been provided
+            ValidateCredentials();
+
+            // Send the Request
             var response = await SendAsync(Channel.CardUpdateV02Async, new CardUpdateRequestV02Body(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -360,11 +414,17 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<bool> CardUpdateV03Async(CardUpdateRequestV03 request)
         {
+            // Ensure that the required credentials have been provided
+            ValidateCredentials();
+
+            // Send the Request
             var response = await SendAsync(Channel.CardUpdateV03Async, new CardUpdateRequestV03Body(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -372,6 +432,10 @@ namespace Comdata.RealTimeOnline0103
 
         public async Task<TrackCardShipment[]> TrackCardShipmentStatusAsync(string accountCode, string customerId, string dateType, string startDate, string endDate)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new TrackCardShipmentRequest
             {
                 AccountCode = accountCode,
@@ -385,11 +449,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.TrackCardShipmentStatusAsync, new TrackCardShipmentRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
-                throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
+                throw new ComdataOperationException(response.Content.ResponseCode, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.TrackCardShipments;
         }
 
@@ -404,11 +471,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<DirectDepositAddUpdateResponse> DirectDepositAddUpdateAsync(DirectDepositAddUpdateRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.DirectDepositAddUpdateAsync, new DirectDepositAddUpdateRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -425,6 +498,10 @@ namespace Comdata.RealTimeOnline0103
         public async Task<DirectDepositInquiryResponse> DirectDepositInquiryAsync(string accountCode, string customerId, string employeeCustomerId, string employeeNumber,
             string discretionaryData = "", long? trackingNumber = null)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new DirectDepositInquiryRequest
             {
                 AccountCode = accountCode,
@@ -440,11 +517,13 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.DirectDepositInquiryAsync, new DirectDepositInquiryRequestBody(request));
 
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -460,11 +539,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<bool> LimitedNetworkByCardUpdateAsync(LimitedNetworkByCardUpdateRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.LimitedNetworkByCardUpdateAsync, new LimitedNetworkByCardUpdateRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -480,11 +565,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<ExpressCheckBatchResponse> ExpressCheckBatchAsync(ExpressCheckBatchRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.ExpressCheckBatchAsync, new ExpressCheckBatchRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -500,6 +591,10 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<ExpressCheckInquiryResponse> ExpressCheckInquiryAsync(string accountCode, string customerId, string pin, string sequenceNumber, string discretionaryData = "", long? trackingNumber = null)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new ExpressCheckInquiryRequest
             {
                 AccountCode = accountCode,
@@ -515,11 +610,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.ExpressCheckInquiryAsync, new ExpressCheckInquiryRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -531,11 +629,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<ExpressCheckIssueResponse> ExpressCheckIssueAsync(ExpressCheckIssueRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.ExpressCheckIssueAsync, new ExpressCheckIssueRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -547,11 +651,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<ExpressCheckMaintenanceResponse> ExpressCheckMaintenanceAsync(ExpressCheckMaintenanceRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.ExpressCheckMaintenanceAsync, new ExpressCheckMaintenanceRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -562,11 +672,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<ExpressCheckRetrievalResponse> ExpressCheckRetrievalAsync(ExpressCheckRetrievalRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.ExpressCheckRetrievalAsync, new ExpressCheckRetrievalRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -579,11 +695,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<LoadMoneyResponse> LoadMoneyAsync(LoadMoneyRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.LoadMoneyAsync, new LoadMoneyRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -594,11 +716,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<bool> LoadMoneyCancelAsync(LoadMoneyCancelRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.LoadMoneyCancelAsync, new LoadMoneyCancelRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -609,11 +737,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<LoadMoneyComchekResponse> LoadMoneyComchekAsync(LoadMoneyComchekRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.LoadMoneyComchekAsync, new LoadMoneyComchekRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -628,11 +762,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<bool> LocationMaintenanceAsync(LocationMaintenanceRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.LocationMaintenanceAsync, new LocationMaintenanceRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -653,6 +793,10 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<bool> PinSetAsync(string accountCode, string cardNumber, string customerId, string pin, string? discretionaryData = null, long? trackingNumber = null)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new PinSetRequest
             {
                 AccountCode = accountCode,
@@ -667,11 +811,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.PinSetAsync, new PinSetRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -686,6 +833,10 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<bool> PinResetAsync(string accountCode, string cardNumber, string customerId, string? discretionaryData = null, long? trackingNumber = null)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new PinResetRequest
             {
                 AccountCode = accountCode,
@@ -699,11 +850,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.PinResetAsync, new PinResetRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -713,21 +867,33 @@ namespace Comdata.RealTimeOnline0103
 
         public async Task<bool> TransferToBankAsync(TransferToBankRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.TransferToBankAsync, new TransferToBankRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
         public async Task<TransferMaintenanceByCardtokenResponse> TransferMaintenanceByCardtokenAsync(TransferMaintenanceByCardtokenRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.TransferMaintenanceByCardtokenAsync, new TransferMaintenanceByCardtokenRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -742,11 +908,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<VirtualCardAddResponse> VirtualCardAddAsync(VirtualCardAddRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.VirtualCardAddAsync, new VirtualCardAddRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -757,11 +929,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<VirtualCardInquiryResponse> VirtualCardInquiryAsync(VirtualCardInquiryRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.VirtualCardInquiryAsync, new VirtualCardInquiryRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -772,11 +950,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<bool> VirtualCardUpdateAsync(VirtualCardUpdateRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.VirtualCardUpdateAsync, new VirtualCardUpdateRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -791,11 +975,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<VirtualComchekAddResponse> VirtualComchekAddAsync(VirtualComchekAddRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Send the request
             var response = await SendAsync(Channel.VirtualComchekAddAsync, new VirtualComchekAddRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -810,6 +1000,10 @@ namespace Comdata.RealTimeOnline0103
         public async Task<VirtualComchekInquiryResponse> VirtualComchekInquiryAsync(string accountCode, string customerId, string cardNumber,
             string discretionaryData = "")
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new VirtualComchekInquiryRequest
             {
                 AccountCode = accountCode,
@@ -822,11 +1016,14 @@ namespace Comdata.RealTimeOnline0103
                 SecurityInfo = _securityCardNumber
             };
 
+            // Send the request
             var response = await SendAsync(Channel.VirtualComchekInquiryAsync, new VirtualComchekInquiryRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content;
         }
 
@@ -837,11 +1034,17 @@ namespace Comdata.RealTimeOnline0103
         /// <returns></returns>
         public async Task<bool> VirtualComchekUpdateAsync(VirtualComchekUpdateRequest request)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var response = await SendAsync(Channel.VirtualComchekUpdateAsync, new VirtualComchekUpdateRequestBody(request));
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode ?? -1, response.Content.ResponseMessage ?? string.Empty);
 
+            // Return the result of the operation
             return response.Content.ResponseCode == 0;
         }
 
@@ -851,84 +1054,42 @@ namespace Comdata.RealTimeOnline0103
 
         #region Endpoint Helper Methods
 
-        private static Binding GetDefaultBinding() => GetBindingForEndpoint(EndpointConfiguration.RealTimeOnline0103);
-
-        private static Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
+        private static Binding GetDefaultBinding()
         {
-            if (endpointConfiguration == EndpointConfiguration.RealTimeOnline0103)
+            var securityElement = SecurityBindingElement.CreateUserNameOverTransportBindingElement();
+            securityElement.IncludeTimestamp = false;
+            securityElement.MessageSecurityVersion = MessageSecurityVersion.WSSecurity10WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10;
+
+            var encodingElement = new TextMessageEncodingBindingElement
             {
-                var securityElement = SecurityBindingElement.CreateUserNameOverTransportBindingElement();
-                securityElement.IncludeTimestamp = false;
-                securityElement.MessageSecurityVersion = MessageSecurityVersion.WSSecurity10WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10;
+                MessageVersion = MessageVersion.Soap11
+            };
 
-                var encodingElement = new TextMessageEncodingBindingElement
-                {
-                    MessageVersion = MessageVersion.Soap11
-                };
+            var transportElement = new HttpsTransportBindingElement
+            {
+                MaxBufferSize = int.MaxValue,
+                MaxReceivedMessageSize = int.MaxValue,
+                AllowCookies = true
+            };
 
-                var transportElement = new HttpsTransportBindingElement
-                {
-                    MaxBufferSize = int.MaxValue,
-                    //ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max,
-                    MaxReceivedMessageSize = int.MaxValue,
-                    AllowCookies = true
-                };
-
-                var customBinding = new CustomBinding();
-                customBinding.Elements.Add(securityElement);
-                customBinding.Elements.Add(encodingElement);
-                customBinding.Elements.Add(transportElement);
-
-                //var customBinding = new CustomBinding
-                //{
-                //    Elements =
-                //    {
-                //        securityElement,
-                //        new TextMessageEncodingBindingElement
-                //        {
-                //            MessageVersion =  MessageVersion.Soap11
-                //        },
-                //        new HttpsTransportBindingElement
-                //        {
-                //            MaxBufferSize = int.MaxValue,
-                //            //ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max,
-                //            MaxReceivedMessageSize = int.MaxValue,
-                //            AllowCookies = true,
-                //        }
-                //    }
-                //};
-
-                return customBinding;
-
-                /*
-                System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
-                result.MaxBufferSize = int.MaxValue;
-                result.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
-                result.MaxReceivedMessageSize = int.MaxValue;
-                result.AllowCookies = true;
-                result.Security.Mode = System.ServiceModel.BasicHttpSecurityMode.Transport;
-                return result;
-                */
-            }
-
-            throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
+            return new CustomBinding(securityElement, encodingElement, transportElement);
         }
 
 
 
-        private static EndpointAddress GetDefaultEndpointAddress() => GetEndpointAddress(EndpointConfiguration.RealTimeOnline0103);
+        private static EndpointAddress GetDefaultEndpointAddress() => GetEndpointAddress(ComdataEndpointType.Production);
 
-        private static EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
+        private static EndpointAddress GetEndpointAddress(ComdataEndpointType endpointConfiguration)
         {
-            if (endpointConfiguration == EndpointConfiguration.RealTimeOnline0103)
+            return endpointConfiguration switch
             {
-                return new EndpointAddress("https://w6.iconnectdata.com/cows/services/RealTimeOnline0103");
-            }
-
-            throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
+                ComdataEndpointType.Test => new EndpointAddress("https://w8cert.iconnectdata.com/cows/services/RealTimeOnline0103"),
+                ComdataEndpointType.Production => new EndpointAddress("https://w6.iconnectdata.com/cows/services/RealTimeOnline0103"),
+                _ => throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration)),
+            };
         }
 
-        private static EndpointAddress GetEndpointAddress(string uriAddress) => new EndpointAddress(new Uri(uriAddress));
+        private static EndpointAddress GetEndpointAddress(string uriAddress) => new EndpointAddress(uriAddress);  //new EndpointAddress(new Uri(uriAddress));
 
 
 
@@ -990,6 +1151,27 @@ namespace Comdata.RealTimeOnline0103
         public void SetSecurityCard(string securityCardNumber)
         {
             _securityCardNumber = securityCardNumber;
+        }
+
+
+
+        /// <summary>
+        /// Ensures that all credentials have been provided.
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        private void ValidateCredentials()
+        {
+            // Service Credentials
+            if (string.IsNullOrWhiteSpace(ClientCredentials.UserName.UserName) || string.IsNullOrWhiteSpace(ClientCredentials.UserName.Password))
+                throw new ArgumentException("The 'Service Credentials' are incomplete.");
+
+            // Network Credentials
+            if (string.IsNullOrWhiteSpace(ClientCredentials.Windows.ClientCredential.UserName) || string.IsNullOrWhiteSpace(ClientCredentials.Windows.ClientCredential.Password))
+                throw new ArgumentException("The 'Network Credentials' are incomplete.");
+
+            // Security Card
+            if (string.IsNullOrWhiteSpace(_securityCardNumber))
+                throw new ArgumentException("No 'Security Card Number' has been provided.");
         }
 
         #endregion Authentication Helper Methods
