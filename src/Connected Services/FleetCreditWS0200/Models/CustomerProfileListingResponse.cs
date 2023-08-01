@@ -24,12 +24,12 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Number of records returned in this request. If the recordCount is less than maxRows, this is the last set of profiles available.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> RecordCount { get; set; }
+        [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified)]
+        public int RecordCount { get; set; } = default!;  //int?
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement("records", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public CustomerProfiles[]? Records { get; set; }
+        [XmlElement("records", Form = XmlSchemaForm.Unqualified)]
+        public CustomerProfiles[] Records { get; set; } = Array.Empty<CustomerProfiles>();  //CustomerProfiles[]?
 
         /// <summary>
         /// 00000=Success, any other value = error
@@ -51,9 +51,9 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public CustomerProfileListingResponse(System.Nullable<int> pageNbr, System.Nullable<int> recordCount, CustomerProfiles[] records, int responseCode, string responseDescription)
+        public CustomerProfileListingResponse(int pageNumber, int recordCount, CustomerProfiles[] records, int responseCode, string responseDescription)
         {
-            this.PageNumber = pageNbr;
+            this.PageNumber = pageNumber;
             this.RecordCount = recordCount;
             this.Records = records;
             this.ResponseCode = responseCode;

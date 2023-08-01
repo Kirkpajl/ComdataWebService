@@ -16,15 +16,15 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Value assigned by Comdata (4-digit Customer IDs will include a leading zero.)
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "customerId", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? CustomerId { get; set; }
+        [XmlElement(ElementName = "customerId", Form = XmlSchemaForm.Unqualified)]
+        public string CustomerId { get; set; } = default!;
 
         /// <summary>
         /// The number of profiles the user wants returned per request.Default is 50, max is 999.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? MaxRows { get; set; }
+        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified)]
+        public int MaxRows { get; set; } //= 50;  //string?
 
         /// <summary>
         /// The pageNbr indicates which set of profiles the user
@@ -33,8 +33,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// the pageNbr value should be 2.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; } = 1;  //string?
 
 
 
@@ -42,7 +42,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public CustomerProfileListingRequest(string customerId, int maxRows, int pageNumber)
+        public CustomerProfileListingRequest(string customerId, int maxRows = 50, int pageNumber = 1)
         {
             this.CustomerId = customerId;
             this.MaxRows = maxRows;

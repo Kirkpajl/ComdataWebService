@@ -1,29 +1,27 @@
 ﻿using Comdata.Models.Internals;
+using Comdata.RealTimeOnline0103.Enumerations;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using Comdata.RealTimeOnline0103.Enumerations;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "cardUpdate", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardUpdateRequestV01Body : IRequest  //ISoapRequestBody<CardUpdateRequestV01>
+    public partial class CardUpdateRequestV01Body : IRequest<CardUpdateRequestV01>
     {
         public CardUpdateRequestV01Body() : this(new CardUpdateRequestV01()) { }
-        public CardUpdateRequestV01Body(CardUpdateRequestV01 request) { Request = request; }
+        public CardUpdateRequestV01Body(CardUpdateRequestV01 request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "updateRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public CardUpdateRequestV01 Request { get; set; }
+        public CardUpdateRequestV01 Content { get; set; }
     }
 
 

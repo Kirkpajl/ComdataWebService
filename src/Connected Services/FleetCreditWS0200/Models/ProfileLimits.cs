@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Comdata.FleetCreditWS0200.Enumerations;
+using System;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
-using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -18,14 +16,14 @@ namespace Comdata.FleetCreditWS0200.Models
         /// <summary>
         /// O=open, C=close
         /// </summary>
-        [XmlElement(ElementName = "openCloseFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 0)]
-        public string? OpenCloseFlag { get; set; }
+        [XmlElement(ElementName = "openCloseFlag", Form = XmlSchemaForm.Unqualified, Order = 0)]
+        public OpenCloseCharFlag OpenCloseFlag { get; set; }  //string?
 
         /// <summary>
         /// Y = Yes, N or blank = No
         /// </summary>
         [XmlElement(ElementName = "productAvailableFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 1)]
-        public string? ProductAvailableFlag { get; set; }
+        public YesNoCharFlag? ProductAvailableFlag { get; set; }  //string?
 
         /// <summary>
         /// Spending limit per transaction
@@ -78,8 +76,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// <summary>
         /// M = Monthly W = Weekly T = Never Reset, no blanks
         /// </summary>
-        [XmlElement(ElementName = "cycleType", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 10)]
-        public string? CycleType { get; set; }
+        [XmlElement(ElementName = "cycleType", Form = XmlSchemaForm.Unqualified, Order = 10)]
+        public CycleType CycleType { get; set; }  // string?
 
         /// <summary>
         /// Values M=01-31, W = 01000000 (Tuesday Reset), T = None

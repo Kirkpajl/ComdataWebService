@@ -1,12 +1,9 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
@@ -16,16 +13,16 @@ namespace Comdata.RealTimeOnline0103.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "cardMoveMaintenance", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardMoveMaintenanceRequestBody : IRequest  //ISoapRequestBody<CardMoveMaintenanceRequest>
+    public partial class CardMoveMaintenanceRequestBody : IRequest<CardMoveMaintenanceRequest>
     {
         public CardMoveMaintenanceRequestBody() : this(new CardMoveMaintenanceRequest()) { }
-        public CardMoveMaintenanceRequestBody(CardMoveMaintenanceRequest request) { Request = request; }
+        public CardMoveMaintenanceRequestBody(CardMoveMaintenanceRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "cardMoveMaintenanceRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public CardMoveMaintenanceRequest Request { get; set; }
+        public CardMoveMaintenanceRequest Content { get; set; }
     }
 
 
@@ -36,7 +33,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class CardMoveMaintenanceRequest// : ISoapRequest
+    public partial class CardMoveMaintenanceRequest : IRequest
     {
         /// <summary>
         /// 5-digit Alphanumeric account code

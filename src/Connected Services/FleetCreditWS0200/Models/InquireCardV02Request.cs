@@ -48,8 +48,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// C, E, T, c, e, t (Card Number, Employee Number, Card Token will be used in the cardIdentifier field)
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
-        [XmlElement(ElementName = "cardIdentifierType", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<CardIdentifierType> CardIdentifierType;
+        [XmlElement(ElementName = "cardIdentifierType", Form = XmlSchemaForm.Unqualified)]
+        public CardIdentifierType CardIdentifierType;
 
         /// <summary>
         /// Employee number, card number, or card token used as a search criterion based on the cardIdentifierType element
@@ -71,7 +71,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireCardV02Request(string accountCode, string customerId, string discretionaryData, string trackingNumber, System.Nullable<CardIdentifierType> cardIdentifierType, string cardIdentifier, YesNoNullCharFlag maskCardFlag)
+        public InquireCardV02Request(string accountCode, string customerId, string discretionaryData, string trackingNumber, CardIdentifierType cardIdentifierType, string cardIdentifier, YesNoNullCharFlag? maskCardFlag)
         {
             this.AccountCode = accountCode;
             this.CustomerId = customerId;

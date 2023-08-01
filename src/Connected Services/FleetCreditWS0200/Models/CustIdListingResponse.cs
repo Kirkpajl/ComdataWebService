@@ -19,6 +19,8 @@ namespace Comdata.FleetCreditWS0200.Models
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "pageCount", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public Nullable<int> PageCount { get; set; }
+        [XmlElement(ElementName = "pageCount", Form = XmlSchemaForm.Unqualified)]
+        public int PageCount { get; set; }  //Nullable<int>
 
         /// <summary>
         /// Current page number displayed
@@ -26,6 +28,8 @@ namespace Comdata.FleetCreditWS0200.Models
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public Nullable<int> PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; }  //Nullable<int>
 
         /// <summary>
         /// Number of records on the page; up to 10,000 records per page
@@ -33,25 +37,27 @@ namespace Comdata.FleetCreditWS0200.Models
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
         [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public Nullable<int> RecordCount { get; set; }
+        [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified)]
+        public int RecordCount { get; set; }  //Nullable<int>
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [XmlArray(ElementName = "records", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        [XmlArray(ElementName = "records", Form = XmlSchemaForm.Unqualified)]
         [XmlArrayItem(Form = XmlSchemaForm.Unqualified)]
-        public CustIdListingRecord[]? Records { get; set; }
+        public CustIdListingRecord[] Records { get; set; } = Array.Empty<CustIdListingRecord>();
 
         /// <summary>
         /// Response code 0 indicates a successful request; all other response codes indicate errors
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public int ResponseCode { get; set; }
+        public int ResponseCode { get; set; }  //string?
 
         /// <summary>
         /// Description of response code
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string ResponseDescription { get; set; } = string.Empty;
+        public string ResponseDescription { get; set; } = default!;  //string?
 
 
 
@@ -59,7 +65,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public CustIdListingResponse(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, CustIdListingRecord[] records, int responseCode, string responseDescription)
+        public CustIdListingResponse(int pageCount, int pageNbr, int recordCount, CustIdListingRecord[] records, int responseCode, string responseDescription)
         {
             this.PageCount = pageCount;
             this.PageNumber = pageNbr;

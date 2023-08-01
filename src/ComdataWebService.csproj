@@ -28,8 +28,8 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <RepositoryUrl>https://github.com/Kirkpajl/ComdataWebService</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Kirkpajl/ComdataWebService</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/main/res/credit-card-128x128.png</PackageIconUrl>
-    <PackageIcon>credit-card-128x128.png</PackageIcon>
+    <PackageIconUrl>https://raw.githubusercontent.com/Kirkpajl/ComdataWebService/main/res/comdata-icon.png</PackageIconUrl>
+    <PackageIcon>comdata-icon.png</PackageIcon>
     <PackageTags>Comdata, Comcheck, Fleet Payment</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>

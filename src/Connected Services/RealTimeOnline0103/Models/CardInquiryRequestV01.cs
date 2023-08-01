@@ -1,12 +1,9 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Schema;
-using System.Xml.Serialization;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
-using System.CodeDom.Compiler;
+using System.Xml.Schema;
+using System.Xml.Serialization;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
@@ -34,7 +31,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class CardInquiryRequestV01// : ISoapRequest
+    public partial class CardInquiryRequestV01 : IRequest
     {
         /// <summary>
         /// Value assigned by Comdata.

@@ -32,8 +32,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Number of rows to display per page; values between 1 and 10,000; the default is 10,000
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? MaxRows { get; set; }
+        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified)]
+        public int MaxRows { get; set; }
 
         /// <summary>
         /// Searches can return up to 10,000 records per page (or maxRows).
@@ -41,8 +41,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// page number greater than 1 to see the additional pages.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; } = 1;
 
 
 
@@ -52,9 +52,9 @@ namespace Comdata.FleetCreditWS0200.Models
 
         public CustIdListingRequest(string[] accountCodes, string[] customerIds, int maxRows, int pageNumber)
         {
-            this.MaxRows = maxRows;
             this.AccountCodes = accountCodes;
             this.CustomerIds = customerIds;
+            this.MaxRows = maxRows;
             this.PageNumber = pageNumber;
         }
     }

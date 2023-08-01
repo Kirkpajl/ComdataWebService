@@ -17,11 +17,11 @@ namespace Comdata.FleetCreditWS0200.Models
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "requestUtil", Form = XmlSchemaForm.Unqualified)]
-        public CustomerProfileLimitReqRespUtil? RequestUtil { get; set; }
+        public CustomerProfileLimitReqRespUtil RequestUtil { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "profileLimits", Form = XmlSchemaForm.Unqualified)]
-        public ProfileLimits? ProfileLimits { get; set; }
+        public ProfileLimits ProfileLimits { get; set; } = default!;
 
 
 

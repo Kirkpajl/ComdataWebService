@@ -19,8 +19,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Total number of pages returned for this search
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "pageCount", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> PageCount { get; set; }
+        [XmlElement(ElementName = "pageCount", Form = XmlSchemaForm.Unqualified)]
+        public int PageCount { get; set; }  //Nullable<int>
 
         /// <summary>
         /// Current page number displayed
@@ -33,13 +33,13 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Number of records on the page; up to 10,000 records per page
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> RecordCount { get; set; }
+        [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified)]
+        public int RecordCount { get; set; }  //Nullable<int>
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [XmlArray(ElementName = "records", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        [XmlArray(ElementName = "records", Form = XmlSchemaForm.Unqualified)]
         [XmlArrayItem("card", Form = XmlSchemaForm.Unqualified)]
-        public CardListingRecordV01[]? Records { get; set; }
+        public CardListingRecordV01[] Records { get; set; } = Array.Empty<CardListingRecordV01>();  //CardListingRecordV01[]?
 
 
 
@@ -47,10 +47,10 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public CardListingV01Response(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, CardListingRecordV01[] records)
+        public CardListingV01Response(int pageCount, int pageNumber, int recordCount, CardListingRecordV01[] records)
         {
             this.PageCount = pageCount;
-            this.PageNumber = pageNbr;
+            this.PageNumber = pageNumber;
             this.RecordCount = recordCount;
             this.Records = records;
         }

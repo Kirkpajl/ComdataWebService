@@ -1,13 +1,11 @@
 ﻿using Comdata.FleetCreditWS0200.Enumerations;
 using Comdata.Models.Internals;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {

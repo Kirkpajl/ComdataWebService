@@ -2,18 +2,22 @@
 
 namespace Comdata.FleetCreditWS0200.Enumerations
 {
-    public enum IntradayDetailType  // (blank)=Regular; Y=Yes
+    [XmlType(Namespace = "http://fleetCredit02.comdata.com/domain/")]
+    public enum IntradayDetailType
     {
-        /// <summary>
-        /// Only regular  MasterCard Intraday fields will be returned.
-        /// </summary>
-        [XmlEnum(Name = " ")]
-        Regular,
-
         /// <summary>
         /// Product Details level data will be provided.
         /// </summary>
+        /// <remarks>
+        /// Product Details is a future feature that is not fully available yet.
+        /// </remarks>
         [XmlEnum(Name = "PD")]
-        ProductDetails
+        ProductDetails,
+
+        /// <summary>
+        /// Only regular MasterCard Intraday fields will be returned.
+        /// </summary>
+        [XmlEnum(Name = "")]
+        Regular
     }
 }

@@ -16,7 +16,6 @@ namespace Comdata.FleetCreditWS0200.Models
     [MessageContract(WrapperName = "CardListingRequestV02", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
     public partial class CardListingV02Request : IRequest
     {
-
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlArray(ElementName = "acctCustidList", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         [XmlArrayItem("acctCustidElement", Form = XmlSchemaForm.Unqualified)]

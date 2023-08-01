@@ -1,54 +1,28 @@
 ﻿using Comdata.Models.Internals;
+using Comdata.RealTimeOnline0103.Enumerations;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using Comdata.RealTimeOnline0103.Enumerations;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "cardUpdateV02", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardUpdateRequestV02Body : IRequest  //ISoapRequestBody<CardUpdateRequestV02>
+    public partial class CardUpdateRequestV02Body : IRequest<CardUpdateRequestV02>
     {
         public CardUpdateRequestV02Body() : this(new CardUpdateRequestV02()) { }
-        public CardUpdateRequestV02Body(CardUpdateRequestV02 request) { Request = request; }
+        public CardUpdateRequestV02Body(CardUpdateRequestV02 request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "updateRequestV02", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public CardUpdateRequestV02 Request { get; set; }
+        public CardUpdateRequestV02 Content { get; set; }
     }
-
-    /*[DebuggerStepThrough()]
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [MessageContract(WrapperName = "cardUpdateV02", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardUpdateRequestV02Body
-    {
-        public CardUpdateRequestBodyV02() : this(new CardUpdateRequestV02()) { }
-
-        public CardUpdateRequestBodyV02(CardUpdateRequestV02 request)
-        {
-            this.Request = request;
-        }
-
-
-
-<<<<<<< HEAD
-        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElement(ElementName = "updateRequestV02", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-=======
-        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElementAttribute(ElementName = "updateRequestV02", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
->>>>>>> releases/v1.0.0
-        public CardUpdateRequestV02 Request { get; set; }
-    }*/
 
 
 
@@ -56,7 +30,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class CardUpdateRequestV02// : ISoapRequest
+    public partial class CardUpdateRequestV02 : IRequest
     {
         /// <summary>
         /// Value assigned by Comdata.

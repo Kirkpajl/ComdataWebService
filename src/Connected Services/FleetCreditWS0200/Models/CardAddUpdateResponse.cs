@@ -48,7 +48,7 @@ namespace Comdata.FleetCreditWS0200.Models
         public string? EmployeeNumber { get; set; }
 
         /// <summary>
-        /// 0=Success Anything Else=Error
+        /// 0=Success; Anything Else=Error
         /// </summary>
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified, Order = 6)]
         public int ResponseCode { get; set; }

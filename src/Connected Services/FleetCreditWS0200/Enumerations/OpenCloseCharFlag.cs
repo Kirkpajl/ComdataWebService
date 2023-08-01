@@ -2,17 +2,18 @@
 
 namespace Comdata.FleetCreditWS0200.Enumerations
 {
-    public enum YesNoNullCharFlag  // Space/null=No; Y=Yes
+    public enum OpenCloseCharFlag  // O=Open; C=Close
     {
         /// <summary>
-        /// No
+        /// Open
         /// </summary>
-        No,
+        [XmlEnum(Name = "O")]
+        Open,
 
         /// <summary>
-        /// Yes
+        /// Close
         /// </summary>
-        [XmlEnum(Name = "Y")]
-        Yes
+        [XmlEnum(Name = "C")]
+        Close
     }
 }

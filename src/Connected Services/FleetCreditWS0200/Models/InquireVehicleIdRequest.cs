@@ -1,12 +1,9 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -17,11 +14,13 @@ namespace Comdata.FleetCreditWS0200.Models
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "criteria", Form = XmlSchemaForm.Unqualified)]
-        public VehicleIdRecord? Criteria { get; set; }
+        public VehicleIdRecord Criteria { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
         public int? PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; }  //string?
 
 
 

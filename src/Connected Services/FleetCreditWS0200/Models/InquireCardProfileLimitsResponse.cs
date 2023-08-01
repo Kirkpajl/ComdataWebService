@@ -14,7 +14,7 @@ namespace Comdata.FleetCreditWS0200.Models
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "responseUtil", Form = XmlSchemaForm.Unqualified)]
-        public CardProfileLimitReqResUtil? ResponseUtil { get; set; }
+        public CardProfileLimitReqResUtil ResponseUtil { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "profileLimits", Form = XmlSchemaForm.Unqualified)]
@@ -31,8 +31,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// If the request succeeded, the message will be: INQUIRY SUCCESSFUL
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? ResponseDescription { get; set; }
+        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
+        public string ResponseDescription { get; set; } = default!;
 
 
 

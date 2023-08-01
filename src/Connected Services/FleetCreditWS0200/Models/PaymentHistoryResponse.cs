@@ -24,7 +24,7 @@ namespace Comdata.FleetCreditWS0200.Models
         public string ResponseDescription { get; set; } = string.Empty;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlArray(ElementName = "records", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        [XmlArray(ElementName = "records", Form = XmlSchemaForm.Unqualified)]
         [XmlArrayItem(Form = XmlSchemaForm.Unqualified)]
         public PaymentHistoryRecord[] Records { get; set; } = Array.Empty<PaymentHistoryRecord>();
 

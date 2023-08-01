@@ -19,8 +19,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Number of records updated
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "numberChanges", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> NumberChanges { get; set; }
+        [XmlElement(ElementName = "numberChanges", Form = XmlSchemaForm.Unqualified)]
+        public int NumberChanges { get; set; }  //Nullable<int>
 
         /// <summary>
         /// 0=Success Anything Else=Error
@@ -42,7 +42,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public DeleteDriverIdResponse(System.Nullable<int> numberChanges, int responseCode, string responseDescription)
+        public DeleteDriverIdResponse(int numberChanges, int responseCode, string responseDescription)
         {
             this.NumberChanges = numberChanges;
             this.ResponseCode = responseCode;

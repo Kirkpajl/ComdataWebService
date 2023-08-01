@@ -17,11 +17,11 @@ namespace Comdata.FleetCreditWS0200.Models
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "criteria", Form = XmlSchemaForm.Unqualified)]
-        public RtTransactionCriteriaV03? Criteria { get; set; }
+        public RtTransactionCriteriaV03 Criteria { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; }  //string?
 
 
 

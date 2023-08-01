@@ -1,20 +1,18 @@
-﻿using Comdata.RealTimeOnline0103.Enumerations;
-using Comdata.Models.Internals;
+﻿using Comdata.Models.Internals;
+using Comdata.RealTimeOnline0103.Enumerations;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Schema;
-using System.Xml.Serialization;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
-using System.CodeDom.Compiler;
+using System.Xml.Schema;
+using System.Xml.Serialization;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "cardInquiryResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardInquiryResponseV01Body : IResponse  //, ISoapResponseBody<CardInquiryResponseV01>
+    public partial class CardInquiryResponseV01Body : IResponse<CardInquiryResponseV01>
     {
         public CardInquiryResponseV01Body() : this(new CardInquiryResponseV01()) { }
         public CardInquiryResponseV01Body(CardInquiryResponseV01 response) { Content = response; }
@@ -26,39 +24,13 @@ namespace Comdata.RealTimeOnline0103.Models
         public CardInquiryResponseV01 Content { get; set; }
     }
 
-    /*[DebuggerStepThrough()]
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [MessageContract(WrapperName = "cardInquiryResponse", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class CardInquiryResponseBody
-    {
-        public CardInquiryResponseBody()
-        {
-            this.Response = new CardInquiryResponse();
-        }
-
-        public CardInquiryResponseBody(CardInquiryResponse response)
-        {
-            this.Response = response;
-        }
-
-
-
-<<<<<<< HEAD
-        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
-=======
-        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
->>>>>>> releases/v1.0.0
-        [XmlElement(ElementName = "cardInquiryReturn", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public CardInquiryResponse Response { get; set; }
-    }*/
-
 
 
     /// <remarks/>
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class CardInquiryResponseV01  // : ISoapResponse
+    public partial class CardInquiryResponseV01 : IResponse
     {
         /// <summary>
         /// Value assigned by Comdata.

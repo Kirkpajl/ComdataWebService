@@ -1,54 +1,28 @@
 ﻿using Comdata.Models.Internals;
+using Comdata.RealTimeOnline0103.Enumerations;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using Comdata.RealTimeOnline0103.Enumerations;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "locationMaintenance", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class LocationMaintenanceRequestBody : IRequest  //ISoapRequestBody<LocationMaintenanceRequest>
+    public partial class LocationMaintenanceRequestBody : IRequest<LocationMaintenanceRequest>
     {
         public LocationMaintenanceRequestBody() : this(new LocationMaintenanceRequest()) { }
-        public LocationMaintenanceRequestBody(LocationMaintenanceRequest request) { Request = request; }
+        public LocationMaintenanceRequestBody(LocationMaintenanceRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "locationMaintenanceRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public LocationMaintenanceRequest Request { get; set; }
+        public LocationMaintenanceRequest Content { get; set; }
     }
-
-    /*[DebuggerStepThrough()]
-    [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [MessageContract(WrapperName = "locationMaintenance", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class LocationMaintenanceRequestBody
-    {
-        public LocationMaintenanceRequestBody() : this(new LocationMaintenanceRequest()) { }
-
-        public LocationMaintenanceRequestBody(LocationMaintenanceRequest request)
-        {
-            this.Request = request;
-        }
-
-
-
-<<<<<<< HEAD
-        [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElement(ElementName = "locationMaintenanceRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-=======
-        [MessageBodyMemberAttribute(Namespace = "http://cows0103.comdata.com", Order = 0)]
-        [XmlElementAttribute(ElementName = "locationMaintenanceRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
->>>>>>> releases/v1.0.0
-        public LocationMaintenanceRequest Request { get; set; }
-    }*/
 
 
 
@@ -56,7 +30,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class LocationMaintenanceRequest// : ISoapRequest
+    public partial class LocationMaintenanceRequest : IRequest
     {
         /// <summary>
         /// 5-digit alphanumeric account code

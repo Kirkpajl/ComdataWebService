@@ -1,14 +1,9 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using System.Reflection.Emit;
-using System.ServiceModel.Channels;
 
 namespace Comdata.RealTimeOnline0103.Models
 {
@@ -20,16 +15,16 @@ namespace Comdata.RealTimeOnline0103.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "expressCheckBatch", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class ExpressCheckBatchRequestBody : IRequest  //ISoapRequestBody<ExpressCheckBatchRequest>
+    public partial class ExpressCheckBatchRequestBody : IRequest<ExpressCheckBatchRequest>
     {
         public ExpressCheckBatchRequestBody() : this(new ExpressCheckBatchRequest()) { }
-        public ExpressCheckBatchRequestBody(ExpressCheckBatchRequest request) { Request = request; }
+        public ExpressCheckBatchRequestBody(ExpressCheckBatchRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "batchRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public ExpressCheckBatchRequest Request { get; set; }
+        public ExpressCheckBatchRequest Content { get; set; }
     }
 
 
@@ -42,7 +37,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class ExpressCheckBatchRequest// : ISoapRequest
+    public partial class ExpressCheckBatchRequest : IRequest
     {
         /// <summary>
         /// Value assigned by Comdata.

@@ -17,7 +17,7 @@ namespace Comdata.FleetCreditWS0200.Models
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "criteria", Form = XmlSchemaForm.Unqualified)]
-        public DriverIdRecord? Criteria { get; set; }
+        public DriverIdRecord Criteria { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]

@@ -15,7 +15,6 @@ namespace Comdata.FleetCreditWS0200.Models
     [MessageContract(WrapperName = "UpdateCardResponse", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
     public partial class UpdateCardV01Response : IResponse<CardAddUpdateResponse>
     {
-
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "response", Form = XmlSchemaForm.Unqualified)]
         public CardAddUpdateResponse Content { get; set; } = new CardAddUpdateResponse();

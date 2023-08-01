@@ -13,11 +13,11 @@ namespace Comdata.FleetCreditWS0200.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "CustomerProfileLimitUpdateResponse", WrapperNamespace = "http://fleetCredit02.comdata.com/maintenance/", IsWrapped = true)]
-    public partial class UpdateCustomerProfileLimitsResponse : IResponse
+    public partial class UpdateCustomerProfileLimitsResponse : IResponse<CustomerProfileLimitReqRespUtil>
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "responseUtil", Form = XmlSchemaForm.Unqualified)]
-        public CustomerProfileLimitReqRespUtil? ResponseUtil { get; set; }
+        public CustomerProfileLimitReqRespUtil Content { get; set; } = default!;
 
         /// <summary>
         /// 0=Success Anything Else=Error
@@ -41,7 +41,7 @@ namespace Comdata.FleetCreditWS0200.Models
 
         public UpdateCustomerProfileLimitsResponse(CustomerProfileLimitReqRespUtil responseUtil, int responseCode, string responseDescription)
         {
-            this.ResponseUtil = responseUtil;
+            this.Content = responseUtil;
             this.ResponseCode = responseCode;
             this.ResponseDescription = responseDescription;
         }

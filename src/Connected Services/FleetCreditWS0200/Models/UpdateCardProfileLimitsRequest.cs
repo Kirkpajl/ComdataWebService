@@ -21,12 +21,12 @@ namespace Comdata.FleetCreditWS0200.Models
         public CardProfileLimitReqResUtil? RequestUtil { get; set; }
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "empNumCardNumFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<EmpNumCardNumFlag> EmpNumCardNumFlag { get; set; }
+        [XmlElement(ElementName = "empNumCardNumFlag", Form = XmlSchemaForm.Unqualified)]
+        public EmpNumCardNumFlag EmpNumCardNumFlag { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
         [XmlElement(ElementName = "empNumCardNumValue", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? EmpNumCardNumValue { get; set; }
+        public string EmpNumCardNumValue { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
         [XmlElement(ElementName = "profileLimits", Form = XmlSchemaForm.Unqualified)]
@@ -38,7 +38,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public UpdateCardProfileLimitsRequest(Models.CardProfileLimitReqResUtil requestUtil, System.Nullable<EmpNumCardNumFlag> empNumCardNumFlag, string empNumCardNumValue, ProfileLimits profileLimits)
+        public UpdateCardProfileLimitsRequest(CardProfileLimitReqResUtil requestUtil, EmpNumCardNumFlag empNumCardNumFlag, string empNumCardNumValue, ProfileLimits profileLimits)
         {
             this.RequestUtil = requestUtil;
             this.EmpNumCardNumFlag = empNumCardNumFlag;

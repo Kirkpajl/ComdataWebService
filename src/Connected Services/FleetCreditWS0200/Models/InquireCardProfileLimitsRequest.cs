@@ -1,13 +1,10 @@
 ﻿using Comdata.FleetCreditWS0200.Enumerations;
 using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -24,15 +21,15 @@ namespace Comdata.FleetCreditWS0200.Models
         /// C, E, c, or e (Card Number or Employee Number): this specifies the type of number used in empNumCardNumValue
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "empNumCardNumFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<EmpNumCardNumFlag> EmpNumCardNumFlag { get; set; }
+        [XmlElement(ElementName = "empNumCardNumFlag", Form = XmlSchemaForm.Unqualified)]
+        public EmpNumCardNumFlag EmpNumCardNumFlag { get; set; } = default!;
 
         /// <summary>
         /// Employee number or card number used to search
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "empNumCardNumValue", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? EmpNumCardNumValue { get; set; }
+        [XmlElement(ElementName = "empNumCardNumValue", Form = XmlSchemaForm.Unqualified)]
+        public string EmpNumCardNumValue { get; set; } = default!;
 
 
 
@@ -40,7 +37,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireCardProfileLimitsRequest(Models.CardProfileLimitReqResUtil cardProfileLimitRequestUtil, System.Nullable<EmpNumCardNumFlag> empNumCardNumFlag, string empNumCardNumValue)
+        public InquireCardProfileLimitsRequest(CardProfileLimitReqResUtil cardProfileLimitRequestUtil, EmpNumCardNumFlag empNumCardNumFlag, string empNumCardNumValue)
         {
             this.CardProfileLimitRequestUtil = cardProfileLimitRequestUtil;
             this.EmpNumCardNumFlag = empNumCardNumFlag;

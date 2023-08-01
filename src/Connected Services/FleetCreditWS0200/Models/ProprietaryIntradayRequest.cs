@@ -20,8 +20,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Number of rows to display per page; values between 1 and 10,000; the default is 10,000.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? MaxRows { get; set; }
+        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified)]
+        public int MaxRows { get; set; } = 10000;  //string?
 
         /// <summary>
         /// Optional field which allows the reselection of transactions older than the most recent retrieval.
@@ -35,15 +35,15 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Y (yes) or N (no); the default is N.  Masked card numbers appear as follows: 123456XXXXXX1234
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public YesNoCharFlag? MaskCardFlag { get; set; }
+        [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified)]
+        public YesNoCharFlag MaskCardFlag { get; set; } = YesNoCharFlag.No;  //string?
 
         /// <summary>
         /// Searches can return up to 10,000 records per page (or maxRows).  Searches greater than maxRows are divided into pages.  Enter a page number greater than 1 to see these additional pages.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; }  //string?
 
         /// <summary>
         /// HH:MM:SS

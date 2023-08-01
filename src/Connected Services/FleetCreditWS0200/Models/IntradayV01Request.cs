@@ -1,16 +1,11 @@
-﻿using Comdata.Models.Internals;
+﻿using Comdata.FleetCreditWS0200.Enumerations;
+using Comdata.Models.Internals;
 using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using System.Security.Cryptography;
-using System.Text;
-using System.Transactions;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
-using Comdata.FleetCreditWS0200.Enumerations;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -23,8 +18,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Number of rows to display per page; values between 1 and 10,000; the default is 10,000
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? MaxRows { get; set; }
+        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified)]
+        public int MaxRows { get; set; } = 10000;  //string?
 
         /// <summary>
         /// YYYY-MM-DD
@@ -50,8 +45,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// number greater than 1 to see these additional pages.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; } = 1;  //string?
 
         /// <summary>
         /// PD = Product Details level data will be provided.
@@ -59,8 +54,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         /// <remarks>*Note: Product Details is a future feature that is not fully available yet.</remarks>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
-        [XmlElement(ElementName = "detailType", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public IntradayDetailType? DetailType { get; set; }
+        [XmlElement(ElementName = "detailType", Form = XmlSchemaForm.Unqualified)]
+        public IntradayDetailType DetailType { get; set; } = IntradayDetailType.Regular;  //string?
 
         /// <summary>
         /// HH:MM:SS

@@ -1,5 +1,5 @@
-﻿using Comdata.Models.Internals;
-using Comdata.RealTimeOnline0103.Enumerations;
+﻿using Comdata.FleetCreditWS0200.Enumerations;
+using Comdata.Models.Internals;
 using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
@@ -23,10 +23,13 @@ namespace Comdata.RealTimeOnline0103.Models
         public CardInquiryRequestV03 Content { get; set; }
     }
 
+
+
+    /// <remarks/>
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class CardInquiryRequestV03// : ISoapRequest
+    public partial class CardInquiryRequestV03 : IRequest
     {
         /// <remarks/>
         [XmlElement(ElementName = "accountCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 0)]

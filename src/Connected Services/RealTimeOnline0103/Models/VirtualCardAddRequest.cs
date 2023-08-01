@@ -14,16 +14,16 @@ namespace Comdata.RealTimeOnline0103.Models
     [DebuggerStepThrough()]
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [MessageContract(WrapperName = "virtualCardAdd", WrapperNamespace = "http://cows0103.comdata.com", IsWrapped = true)]
-    public partial class VirtualCardAddRequestBody : IRequest  //ISoapRequestBody<VirtualCardAddRequest>
+    public partial class VirtualCardAddRequestBody : IRequest<VirtualCardAddRequest>
     {
         public VirtualCardAddRequestBody() : this(new VirtualCardAddRequest()) { }
-        public VirtualCardAddRequestBody(VirtualCardAddRequest request) { Request = request; }
+        public VirtualCardAddRequestBody(VirtualCardAddRequest request) { Content = request; }
 
 
 
         [MessageBodyMember(Namespace = "http://cows0103.comdata.com", Order = 0)]
         [XmlElement(ElementName = "addRequest", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public VirtualCardAddRequest Request { get; set; }
+        public VirtualCardAddRequest Content { get; set; }
     }
 
 
@@ -34,7 +34,7 @@ namespace Comdata.RealTimeOnline0103.Models
     [GeneratedCode("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [DebuggerStepThrough()]
     [XmlType(Namespace = "http://cows0103.comdata.com")]
-    public partial class VirtualCardAddRequest// : ISoapRequest
+    public partial class VirtualCardAddRequest : IRequest
     {
         /// <summary>
         /// Value assigned by Comdata.
