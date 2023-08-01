@@ -390,11 +390,10 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<bool> CardUpdateV02Async(CardUpdateRequestV02 request)
         {
-            // Ensures that all credentials have been provided.
+            // Ensure that the required credentials have been provided
             ValidateCredentials();
 
-            // Compile the request
-            // Send the request
+            // Send the Request
             var response = await SendAsync(Channel.CardUpdateV02Async, new CardUpdateRequestV02Body(request));
 
             // Inject any error messages into an exception
@@ -415,11 +414,10 @@ namespace Comdata.RealTimeOnline0103
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<bool> CardUpdateV03Async(CardUpdateRequestV03 request)
         {
-            // Ensures that all credentials have been provided.
+            // Ensure that the required credentials have been provided
             ValidateCredentials();
 
-            // Compile the request
-            // Send the request
+            // Send the Request
             var response = await SendAsync(Channel.CardUpdateV03Async, new CardUpdateRequestV03Body(request));
 
             // Inject any error messages into an exception
