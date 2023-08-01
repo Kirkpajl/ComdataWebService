@@ -57,7 +57,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public OneTimePurchaseOverrideRequest(string accountCode, string customerId, System.Nullable<CardIdentifierType> cardIdentifierType, string cardIdentifier, System.Nullable<decimal> oneTimePurchaseAmount)
+        public OneTimePurchaseOverrideRequest(string accountCode, string customerId, string cardIdentifier, CardIdentifierType cardIdentifierType, decimal oneTimePurchaseAmount)
         {
             this.AccountCode = accountCode;
             this.CustomerId = customerId;

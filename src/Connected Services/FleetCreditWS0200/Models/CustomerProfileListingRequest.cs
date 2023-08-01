@@ -1,12 +1,9 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -27,7 +24,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaxRows { get; set; }
+        public int? MaxRows { get; set; }
 
         /// <summary>
         /// The pageNbr indicates which set of profiles the user
@@ -37,7 +34,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? PageNbr { get; set; }
+        public int? PageNumber { get; set; }
 
 
 
@@ -45,11 +42,11 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public CustomerProfileListingRequest(string customerId, string maxRows, string pageNbr)
+        public CustomerProfileListingRequest(string customerId, int maxRows, int pageNumber)
         {
             this.CustomerId = customerId;
             this.MaxRows = maxRows;
-            this.PageNbr = pageNbr;
+            this.PageNumber = pageNumber;
         }
     }
 }

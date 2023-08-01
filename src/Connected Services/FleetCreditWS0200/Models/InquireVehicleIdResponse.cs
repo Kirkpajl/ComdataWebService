@@ -27,7 +27,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> PageNbr { get; set; }
+        public Nullable<int> PageNumber { get; set; }
 
         /// <summary>
         /// Number of records (<= 50) in the current page
@@ -46,14 +46,14 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseCode { get; set; }
+        public int ResponseCode { get; set; }
 
         /// <summary>
         /// If the request succeeded, the message should be: OK
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseDescription { get; set; }
+        public string ResponseDescription { get; set; } = string.Empty;
 
 
 
@@ -61,10 +61,10 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireVehicleIdResponse(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, VehicleIdSearchRecord[] records, string responseCode, string responseDescription)
+        public InquireVehicleIdResponse(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, VehicleIdSearchRecord[] records, int responseCode, string responseDescription)
         {
             this.PageCount = pageCount;
-            this.PageNbr = pageNbr;
+            this.PageNumber = pageNbr;
             this.RecordCount = recordCount;
             this.Records = records;
             this.ResponseCode = responseCode;

@@ -15,6 +15,19 @@ namespace Comdata.FleetCreditWS0200.Models
     [XmlType(Namespace = "http://fleetCredit02.comdata.com/maintenance/")]
     public partial class CustomerProfileLimitReqRespUtil
     {
+        public CustomerProfileLimitReqRespUtil() { }
+        public CustomerProfileLimitReqRespUtil(string accountCode, string customerId, string discretionaryData, string trackingNumber, string profileID, int productCode)
+        {
+            AccountCode = accountCode;
+            CustomerId = customerId;
+            DiscretionaryData = discretionaryData;
+            TrackingNumber  = trackingNumber;
+            ProfileID = profileID;
+            ProductCode = productCode;
+        }
+
+
+
         /// <summary>
         /// Value assigned by Comdata
         /// </summary>

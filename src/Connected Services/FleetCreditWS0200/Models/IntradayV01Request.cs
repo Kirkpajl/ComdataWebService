@@ -10,6 +10,7 @@ using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using System.CodeDom.Compiler;
+using Comdata.FleetCreditWS0200.Enumerations;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -23,7 +24,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaxRows { get; set; }
+        public int? MaxRows { get; set; }
 
         /// <summary>
         /// YYYY-MM-DD
@@ -41,7 +42,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
         [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaskCardFlag { get; set; }
+        public YesNoCharFlag? MaskCardFlag { get; set; }
 
         /// <summary>
         /// Searches can return up to 10,000 records per page (or maxRows).
@@ -50,7 +51,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? PageNumber { get; set; }
+        public int? PageNumber { get; set; }
 
         /// <summary>
         /// PD = Product Details level data will be provided.
@@ -59,7 +60,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// <remarks>*Note: Product Details is a future feature that is not fully available yet.</remarks>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "detailType", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? DetailType { get; set; }
+        public IntradayDetailType? DetailType { get; set; }
 
         /// <summary>
         /// HH:MM:SS
@@ -77,14 +78,14 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public IntradayV01Request(string maxRows, string startDate, string maskCardFlag, string pageNbr, string detailType, string startTime)
+        public IntradayV01Request(DateTime? start, IntradayDetailType detailType, YesNoCharFlag maskCardFlag, int maxRows, int pageNumber)
         {
-            this.MaxRows = maxRows;
-            this.StartDate = startDate;
-            this.MaskCardFlag = maskCardFlag;
-            this.PageNumber = pageNbr;
+            this.StartDate = start?.ToString("yyyy-MM-dd");
+            this.StartTime = start?.ToString("HH:mm:ss");
             this.DetailType = detailType;
-            this.StartTime = startTime;
+            this.MaxRows = maxRows;
+            this.MaskCardFlag = maskCardFlag;
+            this.PageNumber = pageNumber;
         }
     }
 }

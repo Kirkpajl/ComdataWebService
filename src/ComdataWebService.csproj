@@ -8,21 +8,21 @@
 
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="\" />
-    <None Include="..\res\credit-card-128x128.png" Pack="true" PackagePath="\" />
+    <None Include="..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\res\comdata-icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Duplex" Version="4.10.2" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.10.2" />
-    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.2" />
-    <PackageReference Include="System.ServiceModel.Security" Version="4.10.2" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.6.*" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.6.*" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.6.*" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.6.*" />
   </ItemGroup>
 
   <PropertyGroup>
     <PackageId>ComdataWebService</PackageId>
     <Title>ComdataWebService</Title>
     <Description>This library allows for strongly-typed communication with the Comdata SOAP XML web service.</Description>
-    <PackageVersion>1.0.2</PackageVersion>
     <Authors>Joshua L. Kirkpatrick</Authors>
     <Company>Tekdox Technical Services</Company>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -32,6 +32,9 @@
     <PackageIcon>credit-card-128x128.png</PackageIcon>
     <PackageTags>Comdata, Comcheck, Fleet Payment</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>1.0.4</Version>
+    <PackageVersion>1.0.4</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -63,7 +63,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 6)]
         [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaskCardFlag;
+        public YesNoNullCharFlag? MaskCardFlag;
 
 
 
@@ -71,7 +71,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireCardV02Request(string accountCode, string customerId, string discretionaryData, string trackingNumber, System.Nullable<CardIdentifierType> cardIdentifierType, string cardIdentifier, string maskCardFlag)
+        public InquireCardV02Request(string accountCode, string customerId, string discretionaryData, string trackingNumber, System.Nullable<CardIdentifierType> cardIdentifierType, string cardIdentifier, YesNoNullCharFlag maskCardFlag)
         {
             this.AccountCode = accountCode;
             this.CustomerId = customerId;

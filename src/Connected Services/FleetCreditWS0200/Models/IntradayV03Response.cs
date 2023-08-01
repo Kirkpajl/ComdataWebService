@@ -46,14 +46,14 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseCode { get; set; }
+        public int ResponseCode { get; set; }
 
         /// <summary>
         /// Description of the response code
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseDescription { get; set; }
+        public string ResponseDescription { get; set; } = string.Empty;
 
 
 
@@ -61,7 +61,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public IntradayV03Response(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, IDTransactionRecordV01[] records, string responseCode, string responseDescription)
+        public IntradayV03Response(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, IDTransactionRecordV01[] records, int responseCode, string responseDescription)
         {
             this.PageCount = pageCount;
             this.PageNumber = pageNbr;

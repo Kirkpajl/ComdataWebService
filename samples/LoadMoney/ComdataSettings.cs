@@ -1,4 +1,4 @@
-﻿namespace Comdata.Tests.LoadMoney
+﻿namespace Comdata.Samples.LoadMoney
 {
     internal class ComdataSettings
     {

@@ -1,12 +1,9 @@
 ﻿using Comdata.Models.Internals;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.CodeDom.Compiler;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -21,14 +18,14 @@ namespace Comdata.FleetCreditWS0200.Models
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "profileLimits", Form = XmlSchemaForm.Unqualified)]
-        public ProfileLimits? ProfileLimits { get; set; }
+        public ProfileLimits ProfileLimits { get; set; } = new ProfileLimits();
 
         /// <summary>
         /// 0=Success Anything Else=Error
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? ResponseCode { get; set; }
+        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
+        public int ResponseCode { get; set; }
 
         /// <summary>
         /// If the request succeeded, the message will be: INQUIRY SUCCESSFUL
@@ -43,7 +40,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireCardProfileLimitsResponse(Models.CardProfileLimitReqResUtil responseUtil, ProfileLimits profileLimits, string responseCode, string responseDescription)
+        public InquireCardProfileLimitsResponse(Models.CardProfileLimitReqResUtil responseUtil, ProfileLimits profileLimits, int responseCode, string responseDescription)
         {
             this.ResponseUtil = responseUtil;
             this.ProfileLimits = profileLimits;

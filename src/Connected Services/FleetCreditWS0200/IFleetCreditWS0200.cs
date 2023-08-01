@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Comdata.Exceptions;
 using Comdata.FleetCreditWS0200.Models;
-using Comdata.FleetCreditWS0200.Exceptions;
 
 namespace Comdata.FleetCreditWS0200
 {
-    
+
     [System.ServiceModel.ServiceContract(Namespace = "http://fleetCredit02.comdata.com/maintenance/", ConfigurationName = "Comdata.FleetCreditWS0200.FleetCreditWS0200")]
     public interface IFleetCreditWS0200
     {

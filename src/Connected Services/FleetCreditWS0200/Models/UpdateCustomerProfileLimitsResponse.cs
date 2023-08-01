@@ -23,15 +23,15 @@ namespace Comdata.FleetCreditWS0200.Models
         /// 0=Success Anything Else=Error
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? ResponseCode { get; set; }
+        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
+        public int ResponseCode { get; set; }
 
         /// <summary>
         /// If the request succeeded, the response message should be: UPDATE SUCCESSFUL
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? ResponseDescription { get; set; }
+        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
+        public string ResponseDescription { get; set; } = string.Empty;
 
 
 
@@ -39,7 +39,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public UpdateCustomerProfileLimitsResponse(CustomerProfileLimitReqRespUtil responseUtil, string responseCode, string responseDescription)
+        public UpdateCustomerProfileLimitsResponse(CustomerProfileLimitReqRespUtil responseUtil, int responseCode, string responseDescription)
         {
             this.ResponseUtil = responseUtil;
             this.ResponseCode = responseCode;

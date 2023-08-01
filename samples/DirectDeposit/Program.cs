@@ -3,7 +3,6 @@ using Comdata.FleetCreditWS0200.Enumerations;
 using Comdata.FleetCreditWS0200.Models;
 using Comdata.RealTimeOnline0103;
 using Comdata.RealTimeOnline0103.Enumerations;
-using Comdata.RealTimeOnline0103.Models;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
-namespace Comdata.Tests.LoadMoney
+namespace Comdata.Samples.DirectDeposit
 {
     class Program
     {
@@ -31,11 +30,12 @@ namespace Comdata.Tests.LoadMoney
             // Get all active cards from the Comdata test service
             var activeCards = await GetActiveCardsAsync(settings);
 
-            // Generate a LoadMoney request for each Card
-            await LoadMoneyAsync(settings, activeCards);
+            // Determine whether each Comdata card can have funds direct-deposited via the Comdata web service
+            await CheckDirectDepositStatusAsync(settings, activeCards);
             Console.WriteLine();
 
             // Pause before exiting
+            Console.WriteLine();
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }
@@ -50,7 +50,7 @@ namespace Comdata.Tests.LoadMoney
         private static async Task<CardListingRecordV02[]> GetActiveCardsAsync(ComdataSettings settings)
         {
             // Initialize the Maintenance WebService client
-            var maintenanceClient = new FleetCreditWS0200Client("https://w8cert.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200");
+            var maintenanceClient = new FleetCreditWS0200Client(ComdataEndpointType.Production);
             maintenanceClient.SetServiceCredentials(settings.WebserviceUserName, settings.WebservicePassword);
             maintenanceClient.SetNetworkCredentials(settings.NetworkUserName, settings.NetworkPassword);
 
@@ -62,17 +62,16 @@ namespace Comdata.Tests.LoadMoney
             var sw = new Stopwatch();
             sw.Start();
 
-            CardListingV02Response lastResult;
+            PaginatedDataSet<CardListingRecordV02> lastResult;
             do
             {
                 lastResult = await maintenanceClient.CardListingV02Async(
-                    new CardListingV02Request(
-                        new[] { new AccountCodeRecord(settings.AccountCode) },
-                        CardListingMaskCardFlag.No,
-                        CardListingStatus.Active,
-                        CardListingSortOption.CardNumber,
-                        pageSize,
-                        page));
+                    new[] { new AccountCodeRecord(settings.AccountCode) },
+                    CardListingMaskCardFlag.No,
+                    CardListingStatus.Active,
+                    CardListingSortOption.CardNumber,
+                    pageSize,
+                    page);
 
                 if (lastResult.RecordCount > 0) records.AddRange(lastResult.Records);
                 page++;
@@ -88,15 +87,15 @@ namespace Comdata.Tests.LoadMoney
         }
 
         /// <summary>
-        /// Generate a LoadMoney request for each Card.
+        /// Determine whether each Comdata card can have funds direct-deposited via the Comdata web service.
         /// </summary>
         /// <param name="settings"></param>
         /// <param name="cards"></param>
         /// <returns></returns>
-        private static async Task LoadMoneyAsync(ComdataSettings settings, CardListingRecordV02[] cards)
+        private static async Task CheckDirectDepositStatusAsync(ComdataSettings settings, CardListingRecordV02[] cards)
         {
             // Initialize the client using the Comdata test service
-            var client = new RealTimeOnline0103Client("https://w8cert.iconnectdata.com/cows/services/RealTimeOnline0103");
+            var client = new RealTimeOnline0103Client(ComdataEndpointType.Production);
             client.SetServiceCredentials(settings.WebserviceUserName, settings.WebservicePassword);
             client.SetNetworkCredentials(settings.NetworkUserName, settings.NetworkPassword);
             client.SetSecurityCard(settings.SecurityCardNumber);
@@ -105,7 +104,7 @@ namespace Comdata.Tests.LoadMoney
             var soapInspector = new SoapInspectorBehavior();
             client.Endpoint.EndpointBehaviors.Add(soapInspector);
 
-            // Generate a LoadMoney request for each Card
+            // Iterate through the card collection
             Random random = new();
             var sw = new Stopwatch();
 
@@ -116,34 +115,17 @@ namespace Comdata.Tests.LoadMoney
                     // Use stopwatch to time the operation
                     sw.Restart();
 
-                    // Send the LoadMoney request to Comdata
-                    var loadMoneyResult = await client.LoadMoneyAsync(new LoadMoneyRequest
-                    {
-                        // Network Credentials
-                        SignOnName = settings.NetworkUserName,
-                        Password = settings.NetworkPassword,
-                        SecurityInfo = settings.SecurityCardNumber,
+                    // Determine whether to DirectDeposit
+                    var directDepositResult = await client.DirectDepositInquiryAsync(settings.AccountCode, card.CustomerId, card.CustomerId, card.EmployeeId, "PPDPAYROLL", 0);
 
-                        // Company account
-                        AccountCode = settings.AccountCode,
-                        CustomerId = card.CustomerId,
-
-                        // Transaction details
-                        CardNumber = card.CardNumber,
-                        LoadAmount = random.NextDouble() * 10,
-                        DirectDeposit = false,
-                        AddSubtractFlag = LoadMoneyAddSubtractFlag.Add,
-                        PlusLessFlag = LoadMoneyRequestPlusLessFlag.PlusFees,
-                        AvailableDateTime = DateTime.UtcNow.AddHours(-1),
-
-                        DiscretionaryData = "PPDPAYROLL",
-                        TrackingNumber = Convert.ToInt64(DateTime.Now.TimeOfDay.TotalSeconds)
-                    });
+                    bool directDeposit = directDepositResult.ResponseCode == 0
+                        && directDepositResult.BankAccounts != null
+                        && directDepositResult.BankAccounts.Any(a => a.CheckingAccountFlag == DirectDepositInquiryCheckingAccountFlag.CheckingAccount);
 
                     // Output the results
-                    string processingResults = loadMoneyResult.ResponseCode > 0
-                        ? $"*{loadMoneyResult.ResponseCode}:  {loadMoneyResult.ResponseMessage}"
-                        : $"FUNDS LOADED.  NEW BALANCE:  {loadMoneyResult.CardBalance:c}";
+                    string processingResults = directDepositResult.ResponseCode > 0
+                        ? $"*{directDepositResult.ResponseCode}:  {directDepositResult.ResponseMessage}"
+                        : $"{directDepositResult.BankAccounts?.Length ?? 0:N0} accounts -- DirectDeposit: {directDeposit}";
 
                     sw.Stop();
                     ConsoleWriteTimestampLine($"CARD #{card.CardNumber} -- {processingResults} -- Runtime:  {sw.Elapsed.TotalSeconds:N0}s");

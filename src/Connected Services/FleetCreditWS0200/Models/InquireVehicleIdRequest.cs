@@ -21,7 +21,7 @@ namespace Comdata.FleetCreditWS0200.Models
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? PageNbr { get; set; }
+        public int? PageNumber { get; set; }
 
 
 
@@ -29,10 +29,10 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireVehicleIdRequest(VehicleIdRecord criteria, string pageNbr)
+        public InquireVehicleIdRequest(VehicleIdRecord criteria, int pageNumber)
         {
             this.Criteria = criteria;
-            this.PageNbr = pageNbr;
+            this.PageNumber = pageNumber;
         }
     }
 }

@@ -50,13 +50,13 @@ namespace Comdata.FleetCreditWS0200.Models
         /// <summary>
         /// 0=Success Anything Else=Error
         /// </summary>
-        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 6)]
-        public string? ResponseCode { get; set; }
+        [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified, Order = 6)]
+        public int ResponseCode { get; set; }
 
         /// <summary>
         /// If the request succeeded, the message should be: CARD ADDED
         /// </summary>
-        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 7)]
-        public string? ResponseDescription { get; set; }
+        [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified, Order = 7)]
+        public string ResponseDescription { get; set; } = string.Empty;
     }
 }

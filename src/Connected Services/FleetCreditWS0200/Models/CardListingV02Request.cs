@@ -36,11 +36,11 @@ namespace Comdata.FleetCreditWS0200.Models
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? MaxRows { get; set; }  //string?
+        public int? MaxRows { get; set; }
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
         [XmlElement(ElementName = "pageNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? PageNumber { get; set; }  //string?
+        public int? PageNumber { get; set; }
 
 
 

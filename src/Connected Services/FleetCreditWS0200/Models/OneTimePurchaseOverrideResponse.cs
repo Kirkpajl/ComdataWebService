@@ -20,14 +20,14 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseCode { get; set; }
+        public int ResponseCode { get; set; }
 
         /// <summary>
         /// Response Description
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string? ResponseDescription { get; set; }
+        public string ResponseDescription { get; set; } = string.Empty;
 
 
 
@@ -35,7 +35,7 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public OneTimePurchaseOverrideResponse(string responseCode, string responseDescription)
+        public OneTimePurchaseOverrideResponse(int responseCode, string responseDescription)
         {
             this.ResponseCode = responseCode;
             this.ResponseDescription = responseDescription;

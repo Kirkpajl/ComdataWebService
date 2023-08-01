@@ -59,15 +59,15 @@ namespace Comdata.RealTimeOnline0103.Models
     {
         /// <remarks/>
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified, Order = 0)]
-        public int? ResponseCode { get; set; }  //public string? ResponseCode { get; set; }
+        public int ResponseCode { get; set; }
 
         /// <remarks/>
         [XmlElement(ElementName = "responseMessage", Form = XmlSchemaForm.Unqualified, Order = 1)]
-        public string? ResponseMessage { get; set; }
+        public string ResponseMessage { get; set; } = string.Empty;
 
         /// <remarks/>
-        [XmlArray(ElementName = "arrayOfTrackCardShipment", Form = XmlSchemaForm.Unqualified, IsNullable = true, Order = 2)]
+        [XmlArray(ElementName = "arrayOfTrackCardShipment", Form = XmlSchemaForm.Unqualified, Order = 2)]
         [XmlArrayItem("trackCardShipment", Form = XmlSchemaForm.Unqualified)]
-        public TrackCardShipment[]? ArrayOfTrackCardShipment { get; set; }
+        public TrackCardShipment[] TrackCardShipments { get; set; } = Array.Empty<TrackCardShipment>();
     }
 }

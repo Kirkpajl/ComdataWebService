@@ -20,8 +20,8 @@ namespace Comdata.FleetCreditWS0200.Models
         public DriverIdRecord? Criteria { get; set; }
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? PageNumber { get; set; }
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; }
 
 
 
@@ -29,10 +29,10 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireDriverIdRequest(DriverIdRecord criteria, string pageNbr)
+        public InquireDriverIdRequest(DriverIdRecord criteria, int pageNumber)
         {
             this.Criteria = criteria;
-            this.PageNumber = pageNbr;
+            this.PageNumber = pageNumber;
         }
     }
 }

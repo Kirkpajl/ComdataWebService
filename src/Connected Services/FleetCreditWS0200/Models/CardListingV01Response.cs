@@ -27,7 +27,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public Nullable<int> PageNbr { get; set; }
+        public Nullable<int> PageNumber { get; set; }
 
         /// <summary>
         /// Number of records on the page; up to 10,000 records per page
@@ -50,7 +50,7 @@ namespace Comdata.FleetCreditWS0200.Models
         public CardListingV01Response(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, CardListingRecordV01[] records)
         {
             this.PageCount = pageCount;
-            this.PageNbr = pageNbr;
+            this.PageNumber = pageNbr;
             this.RecordCount = recordCount;
             this.Records = records;
         }

@@ -7,6 +7,7 @@ using System.ServiceModel;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using System.CodeDom.Compiler;
+using Comdata.FleetCreditWS0200.Enumerations;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -20,7 +21,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaxRows { get; set; }
+        public int? MaxRows { get; set; }
 
         /// <summary>
         /// Optional field which allows the reselection of transactions older than the most recent retrieval.
@@ -35,14 +36,14 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
         [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? MaskCardFlag { get; set; }
+        public YesNoCharFlag? MaskCardFlag { get; set; }
 
         /// <summary>
         /// Searches can return up to 10,000 records per page (or maxRows).  Searches greater than maxRows are divided into pages.  Enter a page number greater than 1 to see these additional pages.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public string? PageNumber { get; set; }
+        public int? PageNumber { get; set; }
 
         /// <summary>
         /// HH:MM:SS
@@ -60,13 +61,13 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public ProprietaryIntradayRequest(string maxRows, string startDate, string maskCardFlag, string pageNbr, string startTime)
+        public ProprietaryIntradayRequest(DateTime? start, YesNoCharFlag maskCardFlag, int maxRows, int pageNumber)
         {
+            this.StartDate = start?.ToString("yyyy-MM-dd");
+            this.StartTime = start?.ToString("HH:mm:ss");
             this.MaxRows = maxRows;
-            this.StartDate = startDate;
             this.MaskCardFlag = maskCardFlag;
-            this.PageNumber = pageNbr;
-            this.StartTime = startTime;
+            this.PageNumber = pageNumber;
         }
     }
 }
