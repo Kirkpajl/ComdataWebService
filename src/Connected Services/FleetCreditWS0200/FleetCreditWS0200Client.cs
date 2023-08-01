@@ -1,7 +1,5 @@
 ﻿using Comdata.FleetCreditWS0200.Enumerations;
-using Comdata.FleetCreditWS0200.Exceptions;
 using Comdata.Exceptions;
-using Comdata.FleetCreditWS0200.Enumerations;
 using Comdata.FleetCreditWS0200.Models;
 using Comdata.Models.Internals;
 using System;
@@ -688,7 +686,7 @@ namespace Comdata.FleetCreditWS0200
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
             // Return the result of the operation
-            return response.NumberChanges ?? 0;
+            return response.NumberChanges;
         }
 
         /// <summary>
@@ -714,7 +712,7 @@ namespace Comdata.FleetCreditWS0200
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
             // Return the result of the operation
-            return response.NumberChanges ?? 0;
+            return response.NumberChanges;
         }
 
         /// <summary>
@@ -742,7 +740,7 @@ namespace Comdata.FleetCreditWS0200
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
             // Return the result of the operation
-            return response.NumberChanges ?? 0;
+            return response.NumberChanges;
         }
 
         #endregion Driver Id Webservice Methods
@@ -1176,7 +1174,7 @@ namespace Comdata.FleetCreditWS0200
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
             // Return the result of the operation
-            return response.NumberChanges ?? 0;
+            return response.NumberChanges;
         }
 
         /// <summary>
@@ -1202,7 +1200,7 @@ namespace Comdata.FleetCreditWS0200
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
             // Return the result of the operation
-            return response.NumberChanges ?? 0;
+            return response.NumberChanges;
         }
 
         /// <summary>
@@ -1230,7 +1228,7 @@ namespace Comdata.FleetCreditWS0200
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
             // Return the result of the operation
-            return response.NumberChanges ?? 0;
+            return response.NumberChanges;
         }
 
         #endregion Vehicle Id Webservice Methods

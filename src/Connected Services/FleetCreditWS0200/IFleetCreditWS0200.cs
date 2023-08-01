@@ -1,5 +1,7 @@
 ﻿using Comdata.Exceptions;
 using Comdata.FleetCreditWS0200.Models;
+using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace Comdata.FleetCreditWS0200
 {

@@ -49,15 +49,15 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Number of rows to display per page; values between 1 and 10,000; the default is 10,000
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
-        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? MaxRows { get; set; }  //string?
+        [XmlElement(ElementName = "maxRows", Form = XmlSchemaForm.Unqualified)]
+        public int MaxRows { get; set; } = 10000;
 
         /// <summary>
         /// Number of the page to display
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 5)]
-        [XmlElement(ElementName = "pageNumber", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public int? PageNumber { get; set; }  //string?
+        [XmlElement(ElementName = "pageNumber", Form = XmlSchemaForm.Unqualified)]
+        public int PageNumber { get; set; } = 1;
 
 
 

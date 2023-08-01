@@ -61,10 +61,10 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireDriverIdResponse(System.Nullable<int> pageCount, System.Nullable<int> pageNbr, System.Nullable<int> recordCount, DriverIdSearchRecord[] records, int responseCode, string responseDescription)
+        public InquireDriverIdResponse(int pageCount, int pageNumber, int recordCount, DriverIdSearchRecord[] records, int responseCode, string responseDescription)
         {
             this.PageCount = pageCount;
-            this.PageNumber = pageNbr;
+            this.PageNumber = pageNumber;
             this.RecordCount = recordCount;
             this.Records = records;
             this.ResponseCode = responseCode;

@@ -76,8 +76,9 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireCardSecurityCodeRequest(string accountCode, string customerId, string discretionaryData, string trackingNumber, System.Nullable<EmpNumCardNumFlag> empNumCardNumFlag, string empNumCardNumValue,
-            System.Nullable<System.DateTime> cardExpirationDate, YesNoCharFlag maskCardFlag)
+        public InquireCardSecurityCodeRequest(string accountCode, string customerId, string discretionaryData, string trackingNumber,
+            EmpNumCardNumFlag empNumCardNumFlag, string empNumCardNumValue,
+            DateTime cardExpirationDate, YesNoCharFlag maskCardFlag)
         {
             this.AccountCode = accountCode;
             this.CustomerId = customerId;
