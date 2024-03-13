@@ -3,27 +3,25 @@ using Comdata.FleetCreditWS0200.Exceptions;
 using Comdata.FleetCreditWS0200.Models;
 using Comdata.Models.Internals;
 using System;
-using System.Diagnostics;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading.Tasks;
 
 namespace Comdata.FleetCreditWS0200
 {
-    //[DebuggerStepThrough()]
-    public partial class FleetCreditWS0200Client : ClientBase<IFleetCreditWS0200>//, IFleetCreditWS0200
+    public partial class FleetCreditWS0200Client : ClientBase<IFleetCreditWS0200>
     {
         #region Constructors
 
         public FleetCreditWS0200Client() : base(GetDefaultBinding(), GetDefaultEndpointAddress())
         {
-            Endpoint.Name = EndpointConfiguration.FleetCreditWS0200.ToString();
+            Endpoint.Name = EndpointConfiguration.Production.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
         public FleetCreditWS0200Client(string remoteAddress) : base(GetDefaultBinding(), GetEndpointAddress(remoteAddress))
         {
-            Endpoint.Name = EndpointConfiguration.FleetCreditWS0200.ToString();
+            Endpoint.Name = EndpointConfiguration.Production.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
@@ -285,7 +283,7 @@ namespace Comdata.FleetCreditWS0200
         /// <param name="pageNumber">Number of the page to display</param>
         /// <returns></returns>
         /// <exception cref="ComdataException"></exception>
-        public async Task<PaginatedDataSet<CardListingRecordV02>> CardListingV02Async(AccountCodeRecord[] accountCodes, CardListingMaskCardFlag? maskCardFlag, 
+        public async Task<PaginatedDataSet<CardListingRecordV02>> CardListingV02Async(AccountCodeRecord[] accountCodes, CardListingMaskCardFlag? maskCardFlag,
             CardListingStatus? status, CardListingSortOption? sortOption, int maxRows = 10000, int pageNumber = 1)
         {
             var request = new CardListingV02Request(accountCodes, maskCardFlag, status, sortOption, maxRows, pageNumber);
@@ -1030,11 +1028,21 @@ namespace Comdata.FleetCreditWS0200
 
         #region Endpoint Helper Methods
 
-        private static Binding GetDefaultBinding() => GetBindingForEndpoint(EndpointConfiguration.FleetCreditWS0200);
+        /// <summary>
+        /// Returns the <see cref="CustomBinding"/> for the Production endpoint.
+        /// </summary>
+        /// <returns></returns>
+        private static Binding GetDefaultBinding() => GetBindingForEndpoint(EndpointConfiguration.Production);
 
+        /// <summary>
+        /// Returns the <see cref="CustomBinding"/> for the specified endpoint.
+        /// </summary>
+        /// <param name="endpointConfiguration"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         private static Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
-            if (endpointConfiguration == EndpointConfiguration.FleetCreditWS0200)
+            if (endpointConfiguration == EndpointConfiguration.Certification || endpointConfiguration == EndpointConfiguration.Production)
             {
                 var securityElement = SecurityBindingElement.CreateUserNameOverTransportBindingElement();
                 securityElement.IncludeTimestamp = false;
@@ -1066,18 +1074,36 @@ namespace Comdata.FleetCreditWS0200
 
 
 
-        private static EndpointAddress GetDefaultEndpointAddress() => GetEndpointAddress(EndpointConfiguration.FleetCreditWS0200);
+        /// <summary>
+        /// Returns an <see cref="EndpointAddress"/> for the Production endpoint.
+        /// </summary>
+        /// <returns></returns>
+        private static EndpointAddress GetDefaultEndpointAddress() => GetEndpointAddress(EndpointConfiguration.Production);
 
-        private static EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
+        /// <summary>
+        /// Returns an <see cref="EndpointAddress"/> for the specified endpoint.
+        /// </summary>
+        /// <param name="endpointConfiguration"></param>
+        /// <remarks>
+        /// <list type="bullet">
+        /// <item>TEST - https://w8cert.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200</item>
+        /// <item>PROD - https://w6.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200</item>
+        /// </list>
+        /// </remarks>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        private static EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) => endpointConfiguration switch
         {
-            if ((endpointConfiguration == EndpointConfiguration.FleetCreditWS0200))
-            {
-                return new EndpointAddress("https://w8cert.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200");
-            }
+            EndpointConfiguration.Certification => new EndpointAddress("https://w8cert.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200"),
+            EndpointConfiguration.Production => new EndpointAddress("https://w6.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200"),
+            _ => throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration)),
+        };
 
-            throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
-        }
-
+        /// <summary>
+        /// Returns an <see cref="EndpointAddress"/> corresponding to the provided URI.
+        /// </summary>
+        /// <param name="uriAddress"></param>
+        /// <returns></returns>
         private static EndpointAddress GetEndpointAddress(string uriAddress) => new EndpointAddress(new Uri(uriAddress));
 
 
@@ -1092,6 +1118,20 @@ namespace Comdata.FleetCreditWS0200
         #endregion Endpoint Helper Methods
 
         #region Authentication Helper Methods
+
+        /// <summary>
+        /// Update the cached Comdata user credentials
+        /// </summary>
+        /// <param name="serviceUserName"></param>
+        /// <param name="servicePassword"></param>
+        /// <param name="networkUserName"></param>
+        /// <param name="networkPassword"></param>
+        /// <param name="securityCardNumber"></param>
+        public void SetCredentials(string serviceUserName, string servicePassword, string networkUserName, string networkPassword)
+        {
+            SetServiceCredentials(serviceUserName, servicePassword);
+            SetNetworkCredentials(networkUserName, networkPassword);
+        }
 
         /// <summary>
         /// Set the WSSE UserName Token credentials

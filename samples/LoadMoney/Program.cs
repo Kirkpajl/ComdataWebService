@@ -21,7 +21,8 @@ namespace Comdata.Samples.LoadMoney
             // Configure the window
             if (OperatingSystem.IsWindows())
             {
-                Console.WindowWidth = Console.LargestWindowWidth - 10;
+                Console.WindowWidth = Math.Min(150, Console.LargestWindowWidth - 10);
+                Console.WindowHeight = 25;
             }
 
             // Retrieve the Comdata credentials from the App Secrets store
@@ -50,7 +51,7 @@ namespace Comdata.Samples.LoadMoney
         private static async Task<CardListingRecordV02[]> GetActiveCardsAsync(ComdataSettings settings)
         {
             // Initialize the Maintenance WebService client
-            var maintenanceClient = new FleetCreditWS0200Client("https://w8cert.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200");
+            var maintenanceClient = new FleetCreditWS0200Client(EndpointConfiguration.Certification);
             maintenanceClient.SetServiceCredentials(settings.WebserviceUserName, settings.WebservicePassword);
             maintenanceClient.SetNetworkCredentials(settings.NetworkUserName, settings.NetworkPassword);
 
@@ -95,7 +96,7 @@ namespace Comdata.Samples.LoadMoney
         private static async Task LoadMoneyAsync(ComdataSettings settings, CardListingRecordV02[] cards)
         {
             // Initialize the client using the Comdata test service
-            var client = new RealTimeOnline0103Client("https://w8cert.iconnectdata.com/cows/services/RealTimeOnline0103");
+            var client = new RealTimeOnline0103Client(EndpointConfiguration.Certification);
             client.SetServiceCredentials(settings.WebserviceUserName, settings.WebservicePassword);
             client.SetNetworkCredentials(settings.NetworkUserName, settings.NetworkPassword);
             client.SetSecurityCard(settings.SecurityCardNumber);
@@ -160,6 +161,11 @@ namespace Comdata.Samples.LoadMoney
                 catch (CommunicationException commProblem)
                 {
                     ConsoleWriteErrorLine($"CARD #{card.CardNumber} -- There was a communication problem.", commProblem);
+                    ConsoleWriteXml(soapInspector);
+                }
+                catch (ComdataOperationException operationProblem)
+                {
+                    ConsoleWriteErrorLine($"CARD #{card.CardNumber} -- {operationProblem.ResponseCode}: {operationProblem.Message}.", operationProblem);
                     ConsoleWriteXml(soapInspector);
                 }
                 catch (Exception ex)

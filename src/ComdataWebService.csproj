@@ -22,7 +22,6 @@
     <PackageId>ComdataWebService</PackageId>
     <Title>ComdataWebService</Title>
     <Description>This library allows for strongly-typed communication with the Comdata SOAP XML web service.</Description>
-    <PackageVersion>1.0.3</PackageVersion>
     <Authors>Joshua L. Kirkpatrick</Authors>
     <Company>Tekdox Technical Services</Company>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -32,6 +31,9 @@
     <PackageIcon>comdata-icon.png</PackageIcon>
     <PackageTags>Comdata, Comcheck, Fleet Payment</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>1.0.5</Version>
+    <PackageVersion>1.0.5</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

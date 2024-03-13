@@ -3,14 +3,12 @@ using Comdata.FleetCreditWS0200.Exceptions;
 using Comdata.Models.Internals;
 using Comdata.RealTimeOnline0103.Models;
 using System;
-using System.Diagnostics;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading.Tasks;
 
 namespace Comdata.RealTimeOnline0103
 {
-    [DebuggerStepThrough()]
     public partial class RealTimeOnline0103Client : ClientBase<IRealTimeOnline0103>
     {
         private string _securityCardNumber = string.Empty;
@@ -21,13 +19,13 @@ namespace Comdata.RealTimeOnline0103
 
         public RealTimeOnline0103Client() : base(GetDefaultBinding(), GetDefaultEndpointAddress())
         {
-            Endpoint.Name = EndpointConfiguration.RealTimeOnline0103.ToString();
+            Endpoint.Name = EndpointConfiguration.Production.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
         public RealTimeOnline0103Client(string remoteAddress) : base(GetDefaultBinding(), GetEndpointAddress(remoteAddress))
         {
-            Endpoint.Name = EndpointConfiguration.RealTimeOnline0103.ToString();
+            Endpoint.Name = EndpointConfiguration.Production.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
@@ -851,64 +849,45 @@ namespace Comdata.RealTimeOnline0103
 
         #region Endpoint Helper Methods
 
-        private static Binding GetDefaultBinding() => GetBindingForEndpoint(EndpointConfiguration.RealTimeOnline0103);
+        /// <summary>
+        /// Returns the <see cref="CustomBinding"/> for the Production endpoint.
+        /// </summary>
+        /// <returns></returns>
+        private static Binding GetDefaultBinding() => GetBindingForEndpoint(EndpointConfiguration.Production);
 
+        /// <summary>
+        /// Returns the <see cref="CustomBinding"/> for the specified endpoint.
+        /// </summary>
+        /// <param name="endpointConfiguration"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         private static Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
-            if (endpointConfiguration == EndpointConfiguration.RealTimeOnline0103)
+            if (endpointConfiguration == EndpointConfiguration.Certification || endpointConfiguration == EndpointConfiguration.Production)
             {
                 var securityElement = SecurityBindingElement.CreateUserNameOverTransportBindingElement();
                 securityElement.IncludeTimestamp = false;
                 securityElement.MessageSecurityVersion = MessageSecurityVersion.WSSecurity10WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10;
 
-                var encodingElement = new TextMessageEncodingBindingElement
+                var customBinding = new CustomBinding
                 {
-                    MessageVersion = MessageVersion.Soap11
+                    Elements =
+                    {
+                        securityElement,
+                        new TextMessageEncodingBindingElement
+                        {
+                            MessageVersion =  MessageVersion.Soap11
+                        },
+                        new HttpsTransportBindingElement
+                        {
+                            MaxBufferSize = int.MaxValue,
+                            MaxReceivedMessageSize = int.MaxValue,
+                            AllowCookies = true,
+                        }
+                    }
                 };
-
-                var transportElement = new HttpsTransportBindingElement
-                {
-                    MaxBufferSize = int.MaxValue,
-                    //ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max,
-                    MaxReceivedMessageSize = int.MaxValue,
-                    AllowCookies = true
-                };
-
-                var customBinding = new CustomBinding();
-                customBinding.Elements.Add(securityElement);
-                customBinding.Elements.Add(encodingElement);
-                customBinding.Elements.Add(transportElement);
-
-                //var customBinding = new CustomBinding
-                //{
-                //    Elements =
-                //    {
-                //        securityElement,
-                //        new TextMessageEncodingBindingElement
-                //        {
-                //            MessageVersion =  MessageVersion.Soap11
-                //        },
-                //        new HttpsTransportBindingElement
-                //        {
-                //            MaxBufferSize = int.MaxValue,
-                //            //ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max,
-                //            MaxReceivedMessageSize = int.MaxValue,
-                //            AllowCookies = true,
-                //        }
-                //    }
-                //};
 
                 return customBinding;
-
-                /*
-                System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
-                result.MaxBufferSize = int.MaxValue;
-                result.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
-                result.MaxReceivedMessageSize = int.MaxValue;
-                result.AllowCookies = true;
-                result.Security.Mode = System.ServiceModel.BasicHttpSecurityMode.Transport;
-                return result;
-                */
             }
 
             throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
@@ -916,18 +895,36 @@ namespace Comdata.RealTimeOnline0103
 
 
 
-        private static EndpointAddress GetDefaultEndpointAddress() => GetEndpointAddress(EndpointConfiguration.RealTimeOnline0103);
+        /// <summary>
+        /// Returns an <see cref="EndpointAddress"/> for the Production endpoint.
+        /// </summary>
+        /// <returns></returns>
+        private static EndpointAddress GetDefaultEndpointAddress() => GetEndpointAddress(EndpointConfiguration.Production);
 
-        private static EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
+        /// <summary>
+        /// Returns an <see cref="EndpointAddress"/> for the specified endpoint.
+        /// </summary>
+        /// <param name="endpointConfiguration"></param>
+        /// <remarks>
+        /// <list type="bullet">
+        /// <item>TEST - https://w8cert.iconnectdata.com/cows/services/RealTimeOnline0103</item>
+        /// <item>PROD - https://w6.iconnectdata.com/cows/services/RealTimeOnline0103</item>
+        /// </list>
+        /// </remarks>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        private static EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) => endpointConfiguration switch
         {
-            if (endpointConfiguration == EndpointConfiguration.RealTimeOnline0103)
-            {
-                return new EndpointAddress("https://w6.iconnectdata.com/cows/services/RealTimeOnline0103");
-            }
+            EndpointConfiguration.Certification => new EndpointAddress("https://w8cert.iconnectdata.com/cows/services/RealTimeOnline0103"),
+            EndpointConfiguration.Production => new EndpointAddress("https://w6.iconnectdata.com/cows/services/RealTimeOnline0103"),
+            _ => throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration)),
+        };
 
-            throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
-        }
-
+        /// <summary>
+        /// Returns an <see cref="EndpointAddress"/> corresponding to the provided URI.
+        /// </summary>
+        /// <param name="uriAddress"></param>
+        /// <returns></returns>
         private static EndpointAddress GetEndpointAddress(string uriAddress) => new EndpointAddress(new Uri(uriAddress));
 
 
