@@ -41,7 +41,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public YesNoNullCharFlag? MaskCardFlag;  //string?
+        public YesNoNullCharFlag? MaskCardFlag;
 
 
 

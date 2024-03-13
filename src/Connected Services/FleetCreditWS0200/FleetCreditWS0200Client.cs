@@ -1,5 +1,5 @@
-﻿using Comdata.FleetCreditWS0200.Enumerations;
-using Comdata.FleetCreditWS0200.Exceptions;
+﻿using Comdata.Exceptions;
+using Comdata.FleetCreditWS0200.Enumerations;
 using Comdata.FleetCreditWS0200.Models;
 using Comdata.Models.Internals;
 using System;
@@ -25,19 +25,19 @@ namespace Comdata.FleetCreditWS0200
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public FleetCreditWS0200Client(EndpointConfiguration endpointConfiguration) : base(GetBindingForEndpoint(endpointConfiguration), GetEndpointAddress(endpointConfiguration))
+        public FleetCreditWS0200Client(EndpointConfiguration endpointConfiguration) : base(GetDefaultBinding(), GetEndpointAddress(endpointConfiguration))
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public FleetCreditWS0200Client(EndpointConfiguration endpointConfiguration, string remoteAddress) : base(GetBindingForEndpoint(endpointConfiguration), new EndpointAddress(remoteAddress))
+        public FleetCreditWS0200Client(EndpointConfiguration endpointConfiguration, string remoteAddress) : base(GetDefaultBinding(), new EndpointAddress(remoteAddress))
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public FleetCreditWS0200Client(EndpointConfiguration endpointConfiguration, EndpointAddress remoteAddress) : base(GetBindingForEndpoint(endpointConfiguration), remoteAddress)
+        public FleetCreditWS0200Client(EndpointConfiguration endpointConfiguration, EndpointAddress remoteAddress) : base(GetDefaultBinding(), remoteAddress)
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
@@ -69,16 +69,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataException"></exception>
         public async Task<CardAddUpdateResponse> AddCardV01Async(CardRecordV01 cardDetails, MailingDetailsV01 mailingDetails, YesNoCharFlag maskCardFlag)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new AddCardV01Request(cardDetails, mailingDetails, maskCardFlag);
 
+            // Send the request
             var response = await SendAsync(Channel.AddCardV01Async, request);
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode, response.Content.ResponseDescription);
 
+            // Return the result of the operation
             return response.Content;
         }
-        //public Task<AddCardV01Response> AddCardV01Async(AddCardV01Request request) => Channel.AddCardV01Async(request);
 
         /// <summary>
         /// The Add Card V02 request is used to order a card via a web service.
@@ -98,16 +104,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataException"></exception>
         public async Task<CardAddUpdateResponse> AddCardV02Async(CardRecordV02 cardDetails, MailingDetailsV01 mailingDetails, YesNoCharFlag maskCardFlag)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new AddCardV02Request(cardDetails, mailingDetails, maskCardFlag);
 
+            // Send the request
             var response = await SendAsync(Channel.AddCardV02Async, request);
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode, response.Content.ResponseDescription);
 
+            // Return the result of the operation
             return response.Content;
         }
-        //public Task<AddCardV02Response> AddCardV02Async(AddCardV02Request request) => Channel.AddCardV02Async(request);
 
         /// <summary>
         /// The Add Card V03 request is used to order a card via a web service while combining the following features:
@@ -144,11 +156,15 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataException"></exception>
         public Task<AddCardV03Response> AddCardV03Async(CardRecordV03 cardDetails, MailingDetailsV02 mailingDetails, ProfileLimits profileLimits, bool maskCard, bool securityCode)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new AddCardV03Request(cardDetails, mailingDetails, profileLimits, maskCard, securityCode);
 
+            // Return the result of the operation
             return SendAsync(Channel.AddCardV03Async, request);
         }
-        //public Task<AddCardV03Response> AddCardV03Async(AddCardV03Request request) => Channel.AddCardV03Async(request);
 
 
 
@@ -166,11 +182,15 @@ namespace Comdata.FleetCreditWS0200
         [Obsolete("This operation has been deprecated and will be removed at some point in the future. Please use the latest version of this function.")]
         public Task<InquireCardV01Response> InquireCardV01Async(string accountCode, string customerId, string discretionaryData, string trackingNumber, EmpNumCardNumFlag? empNumCardNumFlag, string empNumCardNumValue, YesNoNullCharFlag maskCardFlag)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new InquireCardV01Request(accountCode, customerId, discretionaryData, trackingNumber, empNumCardNumFlag, empNumCardNumValue, maskCardFlag);
 
+            // Return the result of the operation
             return SendAsync(Channel.InquireCardV01Async, request);
         }
-        //public Task<InquireCardV01Response> InquireCardV01Async(InquireCardV01Request request) => Channel.InquireCardV01Async(request);
 
         /// <summary>
         /// The Card Inquiry 2 function is used to request the current attributes of a card.
@@ -184,13 +204,17 @@ namespace Comdata.FleetCreditWS0200
         /// <param name="maskCardFlag">Y(yes) returns a masked card number. Space or null returns the full card number as long as the account-level access allows.</param>
         /// <returns></returns>
         /// <exception cref="ComdataException"></exception>
-        public Task<InquireCardV02Response> InquireCardV02Async(string accountCode, string customerId, string discretionaryData, string trackingNumber, CardIdentifierType cardIdentifierType, string cardIdentifier, YesNoNullCharFlag? maskCardFlag)
+        public Task<InquireCardV02Response> InquireCardV02Async(string accountCode, string customerId, string discretionaryData, string trackingNumber, CardIdentifierType cardIdentifierType, string cardIdentifier, YesNoNullCharFlag maskCardFlag)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new InquireCardV02Request(accountCode, customerId, discretionaryData, trackingNumber, cardIdentifierType, cardIdentifier, maskCardFlag);
 
+            // Return the result of the operation
             return SendAsync(Channel.InquireCardV02Async, request);
         }
-        //public Task<InquireCardV02Response> InquireCardV02Async(InquireCardV02Request request) => Channel.InquireCardV02Async(request);
 
 
 
@@ -207,16 +231,22 @@ namespace Comdata.FleetCreditWS0200
         [Obsolete("This operation has been deprecated and will be removed at some point in the future. Please use the latest version of this function.")]
         public async Task<CardAddUpdateResponse> UpdateCardV01Async(EmpNumCardNumFlag? empNumCardNumFlag, string empNumCardNumValue, CardRecordV01 cardDetails, MailingDetailsV01 mailingDetails, YesNoCharFlag maskCardFlag)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new UpdateCardV01Request(empNumCardNumFlag, empNumCardNumValue, cardDetails, mailingDetails, maskCardFlag);
 
+            // Send the request
             var response = await SendAsync(Channel.UpdateCardV01Async, request);
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode, response.Content.ResponseDescription);
 
+            // Return the result of the operation
             return response.Content;
         }
-        //public Task<UpdateCardV01Response> UpdateCardV01Async(UpdateCardV01Request request) => Channel.UpdateCardV01Async(request);
 
         /// <summary>
         /// The Card Update function is used to make updates to a customer's card.  This is the web service's request with the most options, and it is likely to be the most used.
@@ -230,16 +260,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataException"></exception>
         public async Task<CardAddUpdateResponse> UpdateCardV02Async(CardIdentifierType? cardIdentifierType, string cardIdentifier, CardRecordV01 cardDetails, MailingDetailsV02 mailingDetails, YesNoNullCharFlag maskCardFlag)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new UpdateCardV02Request(cardIdentifierType, cardIdentifier, cardDetails, mailingDetails, maskCardFlag);
 
+            // Send the request
             var response = await SendAsync(Channel.UpdateCardV02Async, request);
 
+            // Inject any error messages into an exception
             if (response.Content.ResponseCode > 0)
                 throw new ComdataOperationException(response.Content.ResponseCode, response.Content.ResponseDescription);
 
+            // Return the result of the operation
             return response.Content;
         }
-        //public Task<UpdateCardV02Response> UpdateCardV02Async(UpdateCardV02Request request) => Channel.UpdateCardV02Async(request);
 
 
 
@@ -258,13 +294,18 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataException"></exception>
         public async Task<PaginatedDataSet<CardListingRecordV01>> CardListingV01Async(AccountCodeRecord[] accountCodes, CardListingMaskCardFlag? maskCardFlag, CardListingStatus? status, CardListingSortOption? sortOption, int maxRows, int pageNumber)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new CardListingV01Request(accountCodes, maskCardFlag, status, sortOption, maxRows, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.CardListingV01Async, request);
 
+            // Return the result of the operation
             return new PaginatedDataSet<CardListingRecordV01>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<CardListingV01Response> CardListingV01Async(CardListingV01Request request) => Channel.CardListingV01Async(request);
 
         /// <summary>
         /// The Card Listing V02 request pulls a record of cards (and limits) for one or more account codes and/or customer
@@ -286,13 +327,18 @@ namespace Comdata.FleetCreditWS0200
         public async Task<PaginatedDataSet<CardListingRecordV02>> CardListingV02Async(AccountCodeRecord[] accountCodes, CardListingMaskCardFlag? maskCardFlag,
             CardListingStatus? status, CardListingSortOption? sortOption, int maxRows = 10000, int pageNumber = 1)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new CardListingV02Request(accountCodes, maskCardFlag, status, sortOption, maxRows, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.CardListingV02Async, request);
 
+            // Return the result of the operation
             return new PaginatedDataSet<CardListingRecordV02>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<CardListingV02Response> CardListingV02Async(CardListingV02Request request) => Channel.CardListingV02Async(request);
 
 
 
@@ -307,16 +353,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataException"></exception>
         public async Task<bool> RecycleCardLimitsAsync(string accountCode, string customerId, CardIdentifierType cardIdentifierType, string cardIdentifier)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new RecycleCardLimitsRequest(accountCode, customerId, cardIdentifierType, cardIdentifier);
 
+            // Send the request
             var response = await SendAsync(Channel.RecycleCardLimitsAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription ?? string.Empty);
 
+            // Return the result of the operation
             return response.ResponseCode == 0;
         }
-        //public Task<RecycleCardLimitsResponse> RecycleCardLimitsAsync(RecycleCardLimitsRequest request) => Channel.RecycleCardLimitsAsync(request);
 
 
 
@@ -333,13 +385,18 @@ namespace Comdata.FleetCreditWS0200
         /// <param name="maskCardFlag"></param>
         /// <returns></returns>
         /// <exception cref="ComdataException"></exception>
-        public Task<InquireCardSecurityCodeResponse> InquireCardSecurityCodeAsync(string accountCode, string customerId, string discretionaryData, string trackingNumber, EmpNumCardNumFlag empNumCardNumFlag, string empNumCardNumValue, DateTime cardExpirationDate, YesNoCharFlag? maskCardFlag)
+        public Task<InquireCardSecurityCodeResponse> InquireCardSecurityCodeAsync(string accountCode, string customerId, string discretionaryData, string trackingNumber, EmpNumCardNumFlag empNumCardNumFlag,
+            string empNumCardNumValue, DateTime cardExpirationDate, YesNoCharFlag maskCardFlag = YesNoCharFlag.No)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new InquireCardSecurityCodeRequest(accountCode, customerId, discretionaryData, trackingNumber, empNumCardNumFlag, empNumCardNumValue, cardExpirationDate, maskCardFlag);
 
+            // Send the request
             return SendAsync(Channel.InquireCardSecurityCodeAsync, request);
         }
-        //public Task<InquireCardSecurityCodeResponse> InquireCardSecurityCodeAsync(InquireCardSecurityCodeRequest request) => Channel.InquireCardSecurityCodeAsync(request);
 
         /// <summary>
         /// The Card Profile Limit Inquiry request is used to view card-level transaction limits, including information on
@@ -353,16 +410,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataException"></exception>
         public async Task<ProfileLimits> InquireCardProfileLimitsAsync(CardProfileLimitReqResUtil cardProfileLimitRequestUtil, EmpNumCardNumFlag empNumCardNumFlag, string empNumCardNumValue)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new InquireCardProfileLimitsRequest(cardProfileLimitRequestUtil, empNumCardNumFlag, empNumCardNumValue);
 
+            // Send the request
             var response = await SendAsync(Channel.InquireCardProfileLimitsAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription ?? string.Empty);
 
+            // Return the result of the operation
             return response.ProfileLimits;
         }
-        //public Task<InquireCardProfileLimitsResponse> InquireCardProfileLimitsAsync(InquireCardProfileLimitsRequest request) => Channel.InquireCardProfileLimitsAsync(request);
 
         /// The Update Card Profile Limit request is used to Updates can be made
         /// to the limits set on overall, daily, and cycle transactions in terms of dollars/number of transactions/and/or
@@ -375,16 +438,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataException"></exception>
         public async Task<bool> UpdateCardProfileLimitsAsync(CardProfileLimitReqResUtil requestUtil, EmpNumCardNumFlag empNumCardNumFlag, string empNumCardNumValue, ProfileLimits profileLimits)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new UpdateCardProfileLimitsRequest(requestUtil, empNumCardNumFlag, empNumCardNumValue, profileLimits);
 
+            // Send the request
             var response = await SendAsync(Channel.UpdateCardProfileLimitsAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription ?? string.Empty);
 
+            // Return the result of the operation
             return response.ResponseCode == 0;
         }
-        //public Task<UpdateCardProfileLimitsResponse> UpdateCardProfileLimitsAsync(UpdateCardProfileLimitsRequest request) => Channel.UpdateCardProfileLimitsAsync(request);
 
         #endregion Card Webservice Methods
 
@@ -399,16 +468,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataException"></exception>
         public async Task<AvailableCreditInquiryRecord[]> AvailableCreditInquiryAsync(string[] accountCodes, bool activeAccountsOnly = false)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new AvailableCreditInquiryRequest(accountCodes, activeAccountsOnly);
 
+            // Send the request
             var response = await SendAsync(Channel.AvailableCreditInquiryAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.Records;
         }
-        //public Task<AvailableCreditInquiryResponse> AvailableCreditInquiryAsync(AvailableCreditInquiryRequest request) => Channel.AvailableCreditInquiryAsync(request);
 
         #endregion Credit Inquiry Webservice Methods
 
@@ -421,16 +496,22 @@ namespace Comdata.FleetCreditWS0200
         /// <returns></returns>
         public async Task<PaginatedDataSet<CustomerProfiles>> CustomerProfileListingAsync(string customerId, int maxRows = 50, int pageNumber = 1)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new CustomerProfileListingRequest(customerId, maxRows, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.CustomerProfileListingAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<CustomerProfiles>(response.Records, response.RecordCount, response.PageNumber, 0 /*response.PageCount*/);
         }
-        //public Task<CustomerProfileListingResponse> CustomerProfileListingAsync(CustomerProfileListingRequest request) => Channel.CustomerProfileListingAsync(request);
 
         /// <summary>
         /// The Customer Profile Limit Inquiry request is used to view customer-level spending limits, including daily
@@ -446,16 +527,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<ProfileLimits> InquireCustomerProfileLimitsAsync(string accountCode, string customerId, string discretionaryData, string trackingNumber, string profileID, int productCode)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new InquireCustomerProfileLimitsRequest(new CustomerProfileLimitReqRespUtil(accountCode, customerId, discretionaryData, trackingNumber, profileID, productCode));
 
+            // Send the request
             var response = await SendAsync(Channel.InquireCustomerProfileLimitsAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.ProfileLimits;
         }
-        //public Task<InquireCustomerProfileLimitsResponse> InquireCustomerProfileLimitsAsync(InquireCustomerProfileLimitsRequest request) => Channel.InquireCustomerProfileLimitsAsync(request);
 
 
 
@@ -486,16 +573,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<bool> UpdateCustomerProfileLimitsAsync(CustomerProfileLimitReqRespUtil requestUtil, ProfileLimits profileLimits)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new UpdateCustomerProfileLimitsRequest(requestUtil, profileLimits);
 
+            // Send the request
             var response = await SendAsync(Channel.UpdateCustomerProfileLimitsAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.ResponseCode == 0;
         }
-        //public Task<UpdateCustomerProfileLimitsResponse> UpdateCustomerProfileLimitsAsync(UpdateCustomerProfileLimitsRequest request) => Channel.UpdateCustomerProfileLimitsAsync(request);
 
 
 
@@ -519,16 +612,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<CustIdListingRecord>> CustIdListingAsync(string[] accountCodes, string[] customerIds, int maxRows = 10000, int pageNumber = 1)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new CustIdListingRequest(accountCodes, customerIds, maxRows, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.CustIdListingAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<CustIdListingRecord>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<CustIdListingResponse> CustIdListingAsync(CustIdListingRequest request) => Channel.CustIdListingAsync(request);
 
         #endregion Customer Webservice Methods
 
@@ -545,16 +644,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<DriverIdSearchRecord>> InquireDriverIdAsync(DriverIdRecord criteria, int pageNumber = 1)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new InquireDriverIdRequest(criteria, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.InquireDriverIdAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<DriverIdSearchRecord>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<InquireDriverIdResponse> InquireDriverIdAsync(InquireDriverIdRequest request) => Channel.InquireDriverIdAsync(request);
 
         /// <summary>
         /// The Add Driver ID request is used to add a new driver to a driver pool. This request mirrors the Add Driver ID
@@ -565,16 +670,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<int> AddDriverIdAsync(DriverIdRecord record)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new AddDriverIdRequest(record);
 
+            // Send the request
             var response = await SendAsync(Channel.AddDriverIdAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.NumberChanges;
         }
-        //public Task<AddDriverIdResponse> AddDriverIdAsync(AddDriverIdRequest request) => Channel.AddDriverIdAsync(request);
 
         /// <summary>
         /// The Update Driver ID request is used to change driver information for a Driver ID. This request mirrors the
@@ -585,16 +696,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<int> UpdateDriverIdAsync(DriverIdRecord record)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new UpdateDriverIdRequest(record);
 
+            // Send the request
             var response = await SendAsync(Channel.UpdateDriverIdAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.NumberChanges;
         }
-        //public Task<UpdateDriverIdResponse> UpdateDriverIdAsync(UpdateDriverIdRequest request) => Channel.UpdateDriverIdAsync(request);
 
         /// <summary>
         /// The Delete Driver ID request is used to remove a driver ID from a driver pool. This request mirrors the Delete
@@ -607,16 +724,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<int> DeleteDriverIdAsync(string driverId, string accountNumber, string customerId)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new DeleteDriverIdRequest(driverId, accountNumber, customerId);
 
+            // Send the request
             var response = await SendAsync(Channel.DeleteDriverIdAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.NumberChanges;
         }
-        //public Task<DeleteDriverIdResponse> DeleteDriverIdAsync(DeleteDriverIdRequest request) => Channel.DeleteDriverIdAsync(request);
 
         #endregion Driver Id Webservice Methods
 
@@ -653,16 +776,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<IDTransactionRecordV01>> IntradayV01Async(DateTime? start, IntradayDetailType detailType = IntradayDetailType.Regular, YesNoCharFlag maskCardFlag = YesNoCharFlag.No, int maxRows = 10000, int pageNumber = 1)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new IntradayV01Request(start, detailType, maskCardFlag, maxRows, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.IntradayV01Async, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<IDTransactionRecordV01>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<IntradayV01Response> IntradayV01Async(IntradayV01Request request) => Channel.IntradayV01Async(request);
 
         /// <summary>
         /// The MasterCard Intraday request allows customers to retrieve new MasterCard transactions that have occurred
@@ -695,16 +824,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<IDTransactionRecordV02>> IntradayV02Async(DateTime? start, IntradayDetailType detailType = IntradayDetailType.Regular, YesNoCharFlag maskCardFlag = YesNoCharFlag.No, int maxRows = 10000, int pageNumber = 1)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new IntradayV02Request(start, detailType, maskCardFlag, maxRows, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.IntradayV02Async, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<IDTransactionRecordV02>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<IntradayV02Response> IntradayV02Async(IntradayV02Request request) => Channel.IntradayV02Async(request);
 
         /// <summary>
         /// The MasterCard Intraday request allows customers to retrieve new MasterCard transactions that have occurred
@@ -737,16 +872,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<IDTransactionRecordV01>> IntradayV03Async(DateTime? start, IntradayDetailType detailType = IntradayDetailType.Regular, YesNoCharFlag maskCardFlag = YesNoCharFlag.No, int maxRows = 10000, int pageNumber = 1)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new IntradayV03Request(start, detailType, maskCardFlag, maxRows, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.IntradayV03Async, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<IDTransactionRecordV01>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<IntradayV03Response> IntradayV03Async(IntradayV03Request request) => Channel.IntradayV03Async(request);
 
         /// <summary>
         /// <para>
@@ -769,16 +910,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<PIDTransactionRecord>> ProprietaryIntradayAsync(DateTime? start, YesNoCharFlag maskCardFlag = YesNoCharFlag.No, int maxRows = 10000, int pageNumber = 1)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new ProprietaryIntradayRequest(start, maskCardFlag, maxRows, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.ProprietaryIntradayAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<PIDTransactionRecord>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<ProprietaryIntradayResponse> ProprietaryIntradayAsync(ProprietaryIntradayRequest request) => Channel.ProprietaryIntradayAsync(request);
 
         #endregion Intraday Webservice Methods
 
@@ -791,16 +938,22 @@ namespace Comdata.FleetCreditWS0200
         /// <returns></returns>
         public async Task<bool> OneTimePurchaseOverrideAsync(string accountCode, string customerId, string cardIdentifier, CardIdentifierType cardIdentifierType, decimal oneTimePurchaseAmount)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new OneTimePurchaseOverrideRequest(accountCode, customerId, cardIdentifier, cardIdentifierType, oneTimePurchaseAmount);
 
+            // Send the request
             var response = await SendAsync(Channel.OneTimePurchaseOverrideAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.ResponseCode == 0;
         }
-        //public Task<OneTimePurchaseOverrideResponse> OneTimePurchaseOverrideAsync(OneTimePurchaseOverrideRequest request) => Channel.OneTimePurchaseOverrideAsync(request);
 
         /// <summary>
         /// The Real Time Transaction History request pulls a real-time record of all payments under the user's 
@@ -811,16 +964,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaymentHistoryRecord[]> PaymentHistoryAsync(string accountCode)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new PaymentHistoryRequest(accountCode);
 
+            // Send the request
             var response = await SendAsync(Channel.PaymentHistoryAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.Records;
         }
-        //public Task<PaymentHistoryResponse> PaymentHistoryAsync(PaymentHistoryRequest request) => Channel.PaymentHistoryAsync(request);
 
         #endregion Payment Webservice Methods
 
@@ -842,16 +1001,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<RtTransactionRecordV01>> RealTimeTransactionHistoryV01Async(RtTransactionCriteriaV01 criteria, int pageNumber)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new RealTimeTransactionHistoryV01Request(criteria, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.RealTimeTransactionHistoryV01Async, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<RtTransactionRecordV01>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<RealTimeTransactionHistoryV01Response> RealTimeTransactionHistoryV01Async(RealTimeTransactionHistoryV01Request request) => Channel.RealTimeTransactionHistoryV01Async(request);
 
         /// <summary>
         /// The Real Time Transaction History 2 request pulls a real-time record of all card transactions under the user's
@@ -869,16 +1034,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<RtTransactionRecordV02>> RealTimeTransactionHistoryV02Async(RtTransactionCriteriaV02 criteria, int pageNumber)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new RealTimeTransactionHistoryV02Request(criteria, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.RealTimeTransactionHistoryV02Async, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<RtTransactionRecordV02>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<RealTimeTransactionHistoryV02Response> RealTimeTransactionHistoryV02Async(RealTimeTransactionHistoryV02Request request) => Channel.RealTimeTransactionHistoryV02Async(request);
 
         /// <summary>
         /// The Real Time Transaction History 3 request pulls a real-time record of all card transactions under the user's
@@ -896,16 +1067,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<RtTransactionRecordV03>> RealTimeTransactionHistoryV03Async(RtTransactionCriteriaV03 criteria, int pageNumber)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new RealTimeTransactionHistoryV03Request(criteria, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.RealTimeTransactionHistoryV03Async, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<RtTransactionRecordV03>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<RealTimeTransactionHistoryV03Response> RealTimeTransactionHistoryV03Async(RealTimeTransactionHistoryV03Request request) => Channel.RealTimeTransactionHistoryV03Async(request);
 
         /// <summary>
         /// The Real Time Transaction History 2 request pulls a real-time record of all card transactions under the user's
@@ -923,16 +1100,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<RtTransactionRecordV04>> RealTimeTransactionHistoryV04Async(RtTransactionCriteriaV04 criteria, int pageNumber)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new RealTimeTransactionHistoryV04Request(criteria, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.RealTimeTransactionHistoryV04Async, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<RtTransactionRecordV04>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<RealTimeTransactionHistoryV04Response> RealTimeTransactionHistoryV04Async(RealTimeTransactionHistoryV04Request request) => Channel.RealTimeTransactionHistoryV04Async(request);
 
         #endregion Transaction History Webservice Methods
 
@@ -949,16 +1132,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<PaginatedDataSet<VehicleIdSearchRecord>> InquireVehicleIdAsync(VehicleIdRecord criteria, int pageNumber = 1)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new InquireVehicleIdRequest(criteria, pageNumber);
 
+            // Send the request
             var response = await SendAsync(Channel.InquireVehicleIdAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return new PaginatedDataSet<VehicleIdSearchRecord>(response.Records, response.RecordCount, response.PageNumber, response.PageCount);
         }
-        //public Task<InquireVehicleIdResponse> InquireVehicleIdAsync(InquireVehicleIdRequest request) => Channel.InquireVehicleIdAsync(request);
 
         /// <summary>
         /// The Add Vehicle ID request is used to add a new unit to a vehicle pool. This request mirrors the Add Vehicle ID
@@ -969,16 +1158,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<int> AddVehicleIdAsync(VehicleIdRecord criteria)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new AddVehicleIdRequest(criteria);
 
+            // Send the request
             var response = await SendAsync(Channel.AddVehicleIdAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.NumberChanges;
         }
-        //public Task<AddVehicleIdResponse> AddVehicleIdAsync(AddVehicleIdRequest request) => Channel.AddVehicleIdAsync(request);
 
         /// <summary>
         /// The Update Vehicle ID request is used to change information for a pooled vehicle (unit). This request mirrors the
@@ -989,16 +1184,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<int> UpdateVehicleIdAsync(VehicleIdRecord criteria)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new UpdateVehicleIdRequest(criteria);
 
+            // Send the request
             var response = await SendAsync(Channel.UpdateVehicleIdAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.NumberChanges;
         }
-        //public Task<UpdateVehicleIdResponse> UpdateVehicleIdAsync(UpdateVehicleIdRequest request) => Channel.UpdateVehicleIdAsync(request);
 
         /// <summary>
         /// The Delete Vehicle ID request is used to remove a vehicle (unit) ID from a vehicle pool. This request mirrors the
@@ -1011,16 +1212,22 @@ namespace Comdata.FleetCreditWS0200
         /// <exception cref="ComdataOperationException"></exception>
         public async Task<int> DeleteVehicleIdAsync(string vehicleId, string accountNumber, string customerId)
         {
+            // Ensures that all credentials have been provided.
+            ValidateCredentials();
+
+            // Compile the request
             var request = new DeleteVehicleIdRequest(vehicleId, accountNumber, customerId);
 
+            // Send the request
             var response = await SendAsync(Channel.DeleteVehicleIdAsync, request);
 
+            // Inject any error messages into an exception
             if (response.ResponseCode > 0)
                 throw new ComdataOperationException(response.ResponseCode, response.ResponseDescription);
 
+            // Return the result of the operation
             return response.NumberChanges;
         }
-        //public Task<DeleteVehicleIdResponse> DeleteVehicleIdAsync(DeleteVehicleIdRequest request) => Channel.DeleteVehicleIdAsync(request);
 
         #endregion Vehicle Id Webservice Methods
 
@@ -1048,25 +1255,19 @@ namespace Comdata.FleetCreditWS0200
                 securityElement.IncludeTimestamp = false;
                 securityElement.MessageSecurityVersion = MessageSecurityVersion.WSSecurity10WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10;
 
-                var customBinding = new CustomBinding
+                var encodingElement = new TextMessageEncodingBindingElement
                 {
-                    Elements =
-                    {
-                        securityElement,
-                        new TextMessageEncodingBindingElement
-                        {
-                            MessageVersion =  MessageVersion.Soap11
-                        },
-                        new HttpsTransportBindingElement
-                        {
-                            MaxBufferSize = int.MaxValue,
-                            MaxReceivedMessageSize = int.MaxValue,
-                            AllowCookies = true,
-                        }
-                    }
+                    MessageVersion = MessageVersion.Soap11
                 };
 
-                return customBinding;
+                var transportElement = new HttpsTransportBindingElement
+                {
+                    MaxBufferSize = int.MaxValue,
+                    MaxReceivedMessageSize = int.MaxValue,
+                    AllowCookies = true
+                };
+
+                return new CustomBinding(securityElement, encodingElement, transportElement);
             }
 
             throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
@@ -1157,15 +1358,32 @@ namespace Comdata.FleetCreditWS0200
             ClientCredentials.Windows.ClientCredential.Password = password;
         }
 
+
+
+        /// <summary>
+        /// Ensures that all credentials have been provided.
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        private void ValidateCredentials()
+        {
+            // Service Credentials
+            if (string.IsNullOrWhiteSpace(ClientCredentials.UserName.UserName) || string.IsNullOrWhiteSpace(ClientCredentials.UserName.Password))
+                throw new ArgumentException("The 'Service Credentials' are incomplete.");
+
+            // Network Credentials
+            if (string.IsNullOrWhiteSpace(ClientCredentials.Windows.ClientCredential.UserName) || string.IsNullOrWhiteSpace(ClientCredentials.Windows.ClientCredential.Password))
+                throw new ArgumentException("The 'Network Credentials' are incomplete.");
+        }
+
         #endregion Authentication Helper Methods
 
         #region Factory Helper Methods
 
         public virtual Task OpenAsync()
-            => Task.Factory.FromAsync(((ICommunicationObject)(this)).BeginOpen(null, null), new Action<IAsyncResult>(((ICommunicationObject)(this)).EndOpen));
+            => Task.Factory.FromAsync(((ICommunicationObject)this).BeginOpen(null, null), new Action<IAsyncResult>(((ICommunicationObject)this).EndOpen));
 
         public virtual Task CloseAsync()
-            => Task.Factory.FromAsync(((ICommunicationObject)(this)).BeginClose(null, null), new Action<IAsyncResult>(((ICommunicationObject)(this)).EndClose));
+            => Task.Factory.FromAsync(((ICommunicationObject)this).BeginClose(null, null), new Action<IAsyncResult>(((ICommunicationObject)this).EndClose));
 
         #endregion Factory Helper Methods
 

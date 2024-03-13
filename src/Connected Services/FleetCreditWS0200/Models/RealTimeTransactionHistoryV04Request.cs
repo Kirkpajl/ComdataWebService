@@ -20,8 +20,8 @@ namespace Comdata.FleetCreditWS0200.Models
         public RtTransactionCriteriaV04 Criteria { get; set; } = default!;
 
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
-        public int PageNumber { get; set; }  //string?
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public int? PageNumber { get; set; }
 
 
 

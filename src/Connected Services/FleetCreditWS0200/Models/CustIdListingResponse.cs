@@ -16,21 +16,18 @@ namespace Comdata.FleetCreditWS0200.Models
         /// <summary>
         /// Total number of pages returned for this search
         /// </summary>
-        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "pageCount", Form = XmlSchemaForm.Unqualified)]
         public int PageCount { get; set; }  //Nullable<int>
 
         /// <summary>
         /// Current page number displayed
         /// </summary>
-        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 1)]
         [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
         public int PageNumber { get; set; }  //Nullable<int>
 
         /// <summary>
         /// Number of records on the page; up to 10,000 records per page
         /// </summary>
-        [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
         [XmlElement(ElementName = "recordCount", Form = XmlSchemaForm.Unqualified)]
         public int RecordCount { get; set; }  //Nullable<int>
 

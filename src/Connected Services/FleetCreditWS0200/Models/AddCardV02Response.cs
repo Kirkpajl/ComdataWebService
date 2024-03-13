@@ -12,7 +12,7 @@ namespace Comdata.FleetCreditWS0200.Models
     {
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
         [XmlElement(ElementName = "response", Form = XmlSchemaForm.Unqualified)]
-        public CardAddUpdateResponse Content { get; set; } = default!;
+        public CardAddUpdateResponse Content { get; set; } = new CardAddUpdateResponse();
 
 
 

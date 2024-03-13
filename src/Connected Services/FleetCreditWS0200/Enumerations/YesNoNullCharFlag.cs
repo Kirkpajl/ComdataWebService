@@ -7,7 +7,6 @@ namespace Comdata.FleetCreditWS0200.Enumerations
         /// <summary>
         /// No
         /// </summary>
-        [XmlEnum(Name = "")]
         No,
 
         /// <summary>

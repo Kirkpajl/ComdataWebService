@@ -2,7 +2,7 @@
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace Comdata.FleetCreditWS0200.Exceptions
+namespace Comdata.Exceptions
 {
     [DebuggerStepThrough()]
     [XmlType(AnonymousType = true, Namespace = "http://fleetCredit.comdata.com/exception/")]

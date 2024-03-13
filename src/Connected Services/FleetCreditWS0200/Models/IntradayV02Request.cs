@@ -73,16 +73,13 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public IntradayV02Request(DateTime? start, IntradayDetailType detailType = IntradayDetailType.Regular, YesNoCharFlag maskCardFlag = YesNoCharFlag.No, int maxRows = 10000, int pageNumber = 1)
-            : this(start?.ToString("yyyy-MM-dd"), start?.ToString("HH:mm:ss"), detailType, maskCardFlag, maxRows, pageNumber) { }
-
-        public IntradayV02Request(string? startDate, string? startTime, IntradayDetailType detailType, YesNoCharFlag maskCardFlag, int maxRows = 10000, int pageNumber = 1)
+        public IntradayV02Request(DateTime? start, IntradayDetailType detailType, YesNoCharFlag maskCardFlag, int maxRows, int pageNumber)
         {
-            this.StartDate = startDate;
-            this.StartTime = startTime;
+            this.StartDate = start?.ToString("yyyy-MM-dd");
+            this.StartTime = start?.ToString("HH:mm:ss");
             this.DetailType = detailType;
-            this.MaskCardFlag = maskCardFlag;
             this.MaxRows = maxRows;
+            this.MaskCardFlag = maskCardFlag;
             this.PageNumber = pageNumber;
         }
     }

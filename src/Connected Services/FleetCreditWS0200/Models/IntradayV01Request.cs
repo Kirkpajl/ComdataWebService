@@ -36,8 +36,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Masked card numbers appear as follows: 123456XXXXXX1234
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 2)]
-        [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified)]
-        public YesNoCharFlag MaskCardFlag { get; set; } = YesNoCharFlag.No;
+        [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public YesNoCharFlag? MaskCardFlag { get; set; }
 
         /// <summary>
         /// Searches can return up to 10,000 records per page (or maxRows).
@@ -73,16 +73,13 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public IntradayV01Request(DateTime? start, IntradayDetailType detailType = IntradayDetailType.Regular, YesNoCharFlag maskCardFlag = YesNoCharFlag.No, int maxRows = 10000, int pageNumber = 1)
-            : this(start?.ToString("yyyy-MM-dd"), start?.ToString("HH:mm:ss"), detailType, maskCardFlag, maxRows, pageNumber) { }
-
-        public IntradayV01Request(string? startDate, string? startTime, IntradayDetailType detailType, YesNoCharFlag maskCardFlag, int maxRows = 10000, int pageNumber = 1)
+        public IntradayV01Request(DateTime? start, IntradayDetailType detailType, YesNoCharFlag maskCardFlag, int maxRows, int pageNumber)
         {
-            this.StartDate = startDate;
-            this.StartTime = startTime;
+            this.StartDate = start?.ToString("yyyy-MM-dd");
+            this.StartTime = start?.ToString("HH:mm:ss");
             this.DetailType = detailType;
-            this.MaskCardFlag = maskCardFlag;
             this.MaxRows = maxRows;
+            this.MaskCardFlag = maskCardFlag;
             this.PageNumber = pageNumber;
         }
     }

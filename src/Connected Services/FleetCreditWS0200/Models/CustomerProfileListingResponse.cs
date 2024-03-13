@@ -17,8 +17,8 @@ namespace Comdata.FleetCreditWS0200.Models
         /// Value assigned by Comdata.
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 0)]
-        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified)]
-        public int PageNumber { get; set; } = default!;
+        [XmlElement(ElementName = "pageNbr", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
+        public Nullable<int> PageNumber { get; set; }
 
         /// <summary>
         /// Number of records returned in this request. If the recordCount is less than maxRows, this is the last set of profiles available.
@@ -36,14 +36,14 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 3)]
         [XmlElement(ElementName = "responseCode", Form = XmlSchemaForm.Unqualified)]
-        public int ResponseCode { get; set; } = default!;  //string?
+        public int ResponseCode { get; set; }
 
         /// <summary>
         /// If the request succeeded, the message will be: Success, if the request errored, the error description will display
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 4)]
         [XmlElement(ElementName = "responseDescription", Form = XmlSchemaForm.Unqualified)]
-        public string ResponseDescription { get; set; } = default!;
+        public string ResponseDescription { get; set; } = string.Empty;
 
 
 

@@ -1,4 +1,4 @@
-﻿using Comdata.FleetCreditWS0200.Exceptions;
+﻿using Comdata.Exceptions;
 using Comdata.FleetCreditWS0200.Models;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Comdata.FleetCreditWS0200
 {
 
-    [ServiceContract(Namespace = "http://fleetCredit02.comdata.com/maintenance/", ConfigurationName = "Comdata.FleetCreditWS0200.FleetCreditWS0200")]
+    [System.ServiceModel.ServiceContract(Namespace = "http://fleetCredit02.comdata.com/maintenance/", ConfigurationName = "Comdata.FleetCreditWS0200.FleetCreditWS0200")]
     public interface IFleetCreditWS0200
     {
         [OperationContract(Action = "http://fleetCredit02.comdata.com/FleetCreditWS0200/inquireCard", ReplyAction = "*")]

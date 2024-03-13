@@ -1,13 +1,11 @@
 ﻿using Comdata.FleetCreditWS0200.Enumerations;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ServiceModel;
-using System.Xml.Serialization;
-using System.Xml.Schema;
 using Comdata.Models.Internals;
-using System.Diagnostics;
+using System;
 using System.CodeDom.Compiler;
+using System.Diagnostics;
+using System.ServiceModel;
+using System.Xml.Schema;
+using System.Xml.Serialization;
 
 namespace Comdata.FleetCreditWS0200.Models
 {
@@ -70,7 +68,7 @@ namespace Comdata.FleetCreditWS0200.Models
         /// </summary>
         [MessageBodyMember(Namespace = "http://fleetCredit02.comdata.com/maintenance/", Order = 7)]
         [XmlElement(ElementName = "maskCardFlag", Form = XmlSchemaForm.Unqualified, IsNullable = true)]
-        public YesNoCharFlag? MaskCardFlag { get; set; }  //string?
+        public YesNoCharFlag? MaskCardFlag { get; set; }
 
 
 
@@ -78,7 +76,9 @@ namespace Comdata.FleetCreditWS0200.Models
         {
         }
 
-        public InquireCardSecurityCodeRequest(string accountCode, string customerId, string discretionaryData, string trackingNumber, EmpNumCardNumFlag empNumCardNumFlag, string empNumCardNumValue, DateTime cardExpirationDate, YesNoCharFlag? maskCardFlag)
+        public InquireCardSecurityCodeRequest(string accountCode, string customerId, string discretionaryData, string trackingNumber,
+            EmpNumCardNumFlag empNumCardNumFlag, string empNumCardNumValue,
+            DateTime cardExpirationDate, YesNoCharFlag maskCardFlag)
         {
             this.AccountCode = accountCode;
             this.CustomerId = customerId;
