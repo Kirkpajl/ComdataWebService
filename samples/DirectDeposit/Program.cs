@@ -20,7 +20,8 @@ namespace Comdata.Samples.DirectDeposit
             // Configure the window
             if (OperatingSystem.IsWindows())
             {
-                Console.WindowWidth = Console.LargestWindowWidth - 10;
+                Console.WindowWidth = Math.Min(150, Console.LargestWindowWidth - 10);
+                Console.WindowHeight = 25;
             }
 
             // Retrieve the Comdata credentials from the App Secrets store
@@ -50,7 +51,7 @@ namespace Comdata.Samples.DirectDeposit
         private static async Task<CardListingRecordV02[]> GetActiveCardsAsync(ComdataSettings settings)
         {
             // Initialize the Maintenance WebService client
-            var maintenanceClient = new FleetCreditWS0200Client(ComdataEndpointType.Production);
+            var maintenanceClient = new FleetCreditWS0200Client(EndpointConfiguration.Certification);  //"https://w8cert.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200"
             maintenanceClient.SetServiceCredentials(settings.WebserviceUserName, settings.WebservicePassword);
             maintenanceClient.SetNetworkCredentials(settings.NetworkUserName, settings.NetworkPassword);
 
@@ -95,7 +96,7 @@ namespace Comdata.Samples.DirectDeposit
         private static async Task CheckDirectDepositStatusAsync(ComdataSettings settings, CardListingRecordV02[] cards)
         {
             // Initialize the client using the Comdata test service
-            var client = new RealTimeOnline0103Client(ComdataEndpointType.Production);
+            var client = new RealTimeOnline0103Client(EndpointConfiguration.Certification);
             client.SetServiceCredentials(settings.WebserviceUserName, settings.WebservicePassword);
             client.SetNetworkCredentials(settings.NetworkUserName, settings.NetworkPassword);
             client.SetSecurityCard(settings.SecurityCardNumber);
@@ -144,6 +145,18 @@ namespace Comdata.Samples.DirectDeposit
                 {
                     ConsoleWriteErrorLine($"CARD #{card.CardNumber} -- There was a communication problem.", commProblem);
                     ConsoleWriteXml(soapInspector);
+                }
+                catch (ComdataOperationException operationProblem)
+                {
+                    if (operationProblem.ResponseCode == 1261)
+                    {
+                        ConsoleWriteTimestampLine($"CARD #{card.CardNumber} -- DIRECT DEPOSIT INFORMATION DOES NOT EXIST FOR THIS EMPLOYEE -- Runtime:  {sw.Elapsed.TotalSeconds:N0}s");
+                    }
+                    else
+                    {
+                        ConsoleWriteErrorLine($"CARD #{card.CardNumber} -- {operationProblem.ResponseCode}: {operationProblem.Message}.", operationProblem);
+                        ConsoleWriteXml(soapInspector);
+                    }
                 }
                 catch (Exception ex)
                 {

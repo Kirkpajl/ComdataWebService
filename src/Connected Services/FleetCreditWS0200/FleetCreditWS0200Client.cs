@@ -1,45 +1,43 @@
-﻿using Comdata.FleetCreditWS0200.Enumerations;
-using Comdata.Exceptions;
+﻿using Comdata.Exceptions;
+using Comdata.FleetCreditWS0200.Enumerations;
 using Comdata.FleetCreditWS0200.Models;
 using Comdata.Models.Internals;
 using System;
-using System.Diagnostics;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading.Tasks;
 
 namespace Comdata.FleetCreditWS0200
 {
-    [DebuggerStepThrough()]
     public partial class FleetCreditWS0200Client : ClientBase<IFleetCreditWS0200>
     {
         #region Constructors
 
         public FleetCreditWS0200Client() : base(GetDefaultBinding(), GetDefaultEndpointAddress())
         {
-            Endpoint.Name = ComdataEndpointType.Production.ToString();
+            Endpoint.Name = EndpointConfiguration.Production.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
         public FleetCreditWS0200Client(string remoteAddress) : base(GetDefaultBinding(), GetEndpointAddress(remoteAddress))
         {
-            Endpoint.Name = ComdataEndpointType.Production.ToString();
+            Endpoint.Name = EndpointConfiguration.Production.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public FleetCreditWS0200Client(ComdataEndpointType endpointConfiguration) : base(GetDefaultBinding(), GetEndpointAddress(endpointConfiguration))
+        public FleetCreditWS0200Client(EndpointConfiguration endpointConfiguration) : base(GetDefaultBinding(), GetEndpointAddress(endpointConfiguration))
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public FleetCreditWS0200Client(ComdataEndpointType endpointConfiguration, string remoteAddress) : base(GetDefaultBinding(), new EndpointAddress(remoteAddress))
+        public FleetCreditWS0200Client(EndpointConfiguration endpointConfiguration, string remoteAddress) : base(GetDefaultBinding(), new EndpointAddress(remoteAddress))
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
         }
 
-        public FleetCreditWS0200Client(ComdataEndpointType endpointConfiguration, EndpointAddress remoteAddress) : base(GetDefaultBinding(), remoteAddress)
+        public FleetCreditWS0200Client(EndpointConfiguration endpointConfiguration, EndpointAddress remoteAddress) : base(GetDefaultBinding(), remoteAddress)
         {
             Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(Endpoint, ClientCredentials);
@@ -1237,42 +1235,77 @@ namespace Comdata.FleetCreditWS0200
 
         #region Endpoint Helper Methods
 
-        private static Binding GetDefaultBinding()
+        /// <summary>
+        /// Returns the <see cref="CustomBinding"/> for the Production endpoint.
+        /// </summary>
+        /// <returns></returns>
+        private static Binding GetDefaultBinding() => GetBindingForEndpoint(EndpointConfiguration.Production);
+
+        /// <summary>
+        /// Returns the <see cref="CustomBinding"/> for the specified endpoint.
+        /// </summary>
+        /// <param name="endpointConfiguration"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        private static Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
-            var securityElement = SecurityBindingElement.CreateUserNameOverTransportBindingElement();
-            securityElement.IncludeTimestamp = false;
-            securityElement.MessageSecurityVersion = MessageSecurityVersion.WSSecurity10WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10;
-
-            var encodingElement = new TextMessageEncodingBindingElement
+            if (endpointConfiguration == EndpointConfiguration.Certification || endpointConfiguration == EndpointConfiguration.Production)
             {
-                MessageVersion = MessageVersion.Soap11
-            };
+                var securityElement = SecurityBindingElement.CreateUserNameOverTransportBindingElement();
+                securityElement.IncludeTimestamp = false;
+                securityElement.MessageSecurityVersion = MessageSecurityVersion.WSSecurity10WSTrustFebruary2005WSSecureConversationFebruary2005WSSecurityPolicy11BasicSecurityProfile10;
 
-            var transportElement = new HttpsTransportBindingElement
-            {
-                MaxBufferSize = int.MaxValue,
-                MaxReceivedMessageSize = int.MaxValue,
-                AllowCookies = true
-            };
+                var encodingElement = new TextMessageEncodingBindingElement
+                {
+                    MessageVersion = MessageVersion.Soap11
+                };
 
-            return new CustomBinding(securityElement, encodingElement, transportElement);
+                var transportElement = new HttpsTransportBindingElement
+                {
+                    MaxBufferSize = int.MaxValue,
+                    MaxReceivedMessageSize = int.MaxValue,
+                    AllowCookies = true
+                };
+
+                return new CustomBinding(securityElement, encodingElement, transportElement);
+            }
+
+            throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
 
 
 
-        private static EndpointAddress GetDefaultEndpointAddress() => GetEndpointAddress(ComdataEndpointType.Production);
+        /// <summary>
+        /// Returns an <see cref="EndpointAddress"/> for the Production endpoint.
+        /// </summary>
+        /// <returns></returns>
+        private static EndpointAddress GetDefaultEndpointAddress() => GetEndpointAddress(EndpointConfiguration.Production);
 
-        private static EndpointAddress GetEndpointAddress(ComdataEndpointType endpointConfiguration)
+        /// <summary>
+        /// Returns an <see cref="EndpointAddress"/> for the specified endpoint.
+        /// </summary>
+        /// <param name="endpointConfiguration"></param>
+        /// <remarks>
+        /// <list type="bullet">
+        /// <item>TEST - https://w8cert.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200</item>
+        /// <item>PROD - https://w6.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200</item>
+        /// </list>
+        /// </remarks>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        private static EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) => endpointConfiguration switch
         {
-            return endpointConfiguration switch
-            {
-                ComdataEndpointType.Test => new EndpointAddress("https://w8cert.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200"),
-                ComdataEndpointType.Production => new EndpointAddress("https://w6.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200"),
-                _ => throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration))
-            };
-        }
+            EndpointConfiguration.Certification => new EndpointAddress("https://w8cert.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200"),
+            EndpointConfiguration.Production => new EndpointAddress("https://w6.iconnectdata.com/FleetCreditWS/services/FleetCreditWS0200"),
+            _ => throw new InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration)),
+        };
 
-        private static EndpointAddress GetEndpointAddress(string uriAddress) => new EndpointAddress(uriAddress);  //new EndpointAddress(new Uri(uriAddress));
+        /// <summary>
+        /// Returns an <see cref="EndpointAddress"/> corresponding to the provided URI.
+        /// </summary>
+        /// <param name="uriAddress"></param>
+        /// <returns></returns>
+        private static EndpointAddress GetEndpointAddress(string uriAddress) => new EndpointAddress(new Uri(uriAddress));
 
 
 
@@ -1286,6 +1319,20 @@ namespace Comdata.FleetCreditWS0200
         #endregion Endpoint Helper Methods
 
         #region Authentication Helper Methods
+
+        /// <summary>
+        /// Update the cached Comdata user credentials
+        /// </summary>
+        /// <param name="serviceUserName"></param>
+        /// <param name="servicePassword"></param>
+        /// <param name="networkUserName"></param>
+        /// <param name="networkPassword"></param>
+        /// <param name="securityCardNumber"></param>
+        public void SetCredentials(string serviceUserName, string servicePassword, string networkUserName, string networkPassword)
+        {
+            SetServiceCredentials(serviceUserName, servicePassword);
+            SetNetworkCredentials(networkUserName, networkPassword);
+        }
 
         /// <summary>
         /// Set the WSSE UserName Token credentials
